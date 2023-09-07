@@ -1,0 +1,146 @@
+---
+custom_card_andyblac_person:
+  # v1.2
+  template:
+    - "ulm_translation_engine"
+  variables:
+    ulm_card_person_use_entity_picture: false
+    ulm_card_person_icon: "mdi:face-man"
+    ulm_address: ""
+  triggers_update: "all"
+  tap_action:
+    action: "more-info"
+  aspect_ratio: "1/0.35"
+  show_label: true
+  show_name: true
+  label: >
+    [[[
+      let translation = helpers.localize(entity)
+      var eta = ""
+      if (variables.ulm_card_person_eta && entity.state != 'home'){
+        eta = " | " + helpers.localize(states[variables.ulm_card_person_eta]);
+      }
+      if (variables.ulm_address){
+        return helpers.localize(states[variables.ulm_address]) + eta;
+      }
+      return translation + eta
+    ]]]
+  icon: "[[[ return variables.ulm_card_person_icon; ]]]"
+  show_entity_picture: "[[[ return variables.ulm_card_person_use_entity_picture ]]]"
+  entity_picture: "[[[ return variables.ulm_card_person_use_entity_picture ? entity?.attributes?.entity_picture : null ]]]"
+
+  styles:
+    icon:
+      - color: "rgba(var(--color-theme),0.9)"
+      - width: "[[[ return !variables.ulm_card_person_use_entity_picture ? '50%' : '100%'; ]]]"
+      - place-self: "[[[ return !variables.ulm_card_person_use_entity_picture ? 'center' : 'stretch stretch'; ]]]"
+    name:
+      - position: "absolute"
+      - font-weight: "bold"
+      - font-size: "16px"
+      - margin-top: "5%"
+      - margin-left: "33%"
+      - margin-right: "20px"
+      - margin-bottom: "10%"
+      - max-width: "65%"
+      - text-overflow: "ellipsis"
+      - overflow: "hidden"
+    label:
+      - position: "absolute"
+      - font-weight: "bold"
+      - font-size: "15px"
+      - filter: "opacity(40%)"
+      - margin-top: "17%"
+      - margin-left: "33%"
+      - margin-right: "20px"
+      - margin-bottom: "7%"
+      - max-width: "60%"
+      - text-overflow: "ellipsis"
+      - overflow: "hidden"
+    img_cell:
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
+      - position: "absolute"
+      - left: "-6%"
+      - top: "18%"
+      - width: "35%"
+    grid:
+      - grid-template-areas: "'i n' 'i l'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "15px"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "5px"
+    custom_fields:
+      badge:
+        - border-radius: "50%"
+        - position: "absolute"
+        - left: "18%"
+        - top: "5%"
+        - height: "20px"
+        - width: "20px"
+        - border: "2px solid var(--card-background-color)"
+        - font-size: "12px"
+        - line-height: "16px"
+        - background-color: "[[[ return (entity.state !== 'home') ? 'rgba(var(--color-green),1)' : 'rgba(var(--color-blue),1)'; ]]]"
+      battery: &card_andyblac_person_battery_styling
+        - border-radius: "50%"
+        - position: "absolute"
+        - left: "18%"
+        - bottom: "0%"
+        - width: "15%"
+        - height: "40%"
+        - background-color: var(--card-background-color)
+  custom_fields:
+    badge: >
+      [[[
+        if (entity.state == 'home') {
+          return '<ha-icon icon="mdi:home-variant" style="width: 16px; height: 16px; color: var(--primary-background-color);"></ha-icon>';
+        } else {
+          for (let st in states) {
+            if (st.startsWith("zone.")) {
+              if (states[st]?.attributes?.persons?.includes(entity.entity_id) && !states[st]?.attributes?.passive) {
+                  var icon = states[st].attributes.icon !== null ? states[st].attributes.icon : 'mdi:help-circle';
+                  return '<ha-icon icon="' + icon + '" style="width: 16px; height: 16px; color: var(--primary-background-color);"></ha-icon>';
+              }
+            }
+          }
+        }
+        return '<ha-icon icon="mdi:home-minus" style="width: 16px; height: 16px; color: var(--primary-background-color);"></ha-icon>';
+      ]]]
+    battery:
+      card:
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_person_battery' ];
+            if (variables?.battery?.templates?.length) {
+              templates.push(...variables.battery.templates);
+            }
+            return templates;
+          ]]]
+        type: "custom:button-card"
+        variables: "[[[ return variables?.battery; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.battery; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.battery?.entity_id; ]]]"
+
+card_andyblac_person_battery:
+  tap_action:
+    action: "more-info"
+  size: "15px"
+  show_icon: true
+  show_name: false
+  show_state: false
+  styles:
+    icon:
+      - width: "80%"
+      - height: "80%"
+    card:
+      - background: "none"
+      - box-shadow: "none"
+      - padding: "0px"
