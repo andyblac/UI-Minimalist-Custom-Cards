@@ -18,6 +18,13 @@ This card shows if a person is `Home` or `Away`. If you have setup other zones, 
     - AndyBlac
 - Full credit to the Minimalist UI team for creating the base card that this 'mod' was used.
 
+## Changelog
+
+<details>
+<summary>1.2.0</summary>
+Initial release
+</details>
+
 ## Variables
 
 | Variable | Default | Required         | Notes             |
