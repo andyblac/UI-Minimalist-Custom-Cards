@@ -1,0 +1,110 @@
+---
+custom_card_andyblac_status:
+  # v1.1
+  template:
+    - "ulm_translation_engine"
+  variables:
+    ulm_card_status_color: "[[[ return entity?.attributes?.color ? entity?.attributes?.color : 'theme' ]]]"
+    ulm_active_state: >
+      [[[
+        let not_active = ['0','disarmed','off','closed','not_home','standby','idle','docked','unknown','unavailable','paused']
+        function containsNumbers(str) {
+          return /\d/.test(str);
+        }
+        if (!not_active.includes(entity.state)) {
+          if (containsNumbers(entity.state)) {
+            return entity?.state;
+          }
+          return entity?.state; 
+        }
+      ]]]
+
+  size: "45%"
+  aspect_ratio: "1/0.35"
+  show_name: true
+  show_label: true
+  show_icon: true
+  icon: "[[[ return entity?.attributes?.icon ? entity?.attributes?.icon : 'mdi:information']]]"
+  label: "[[[ return entity?.attributes?.label ? entity?.attributes?.label : entity?.state ]]]"
+
+  tap_action:
+    action: "navigate"
+    navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none' ]]]"
+  hold_action:
+    action: "more-info"
+    entity: "[[[ return entity.entity_id; ]]]"
+
+  state:
+    - value: "unavailable"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - position: "absolute"
+            - width: "10.5%"
+            - height: "30%"
+            - left: "20%"
+            - top: "3%"
+            - line-height: 0
+            - background-color: "rgba(var(--color-red),1)"
+    - styles:
+        name:
+          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)'; ]]]"
+        label:
+          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)'; ]]]"
+        icon:
+          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)'; ]]]"
+        img_cell:
+          - background-color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),0.2)'; ]]]"
+      id: "on"
+      value: "[[[ return variables.ulm_active_state ]]]"
+  styles:
+    icon:
+      - color: "rgba(var(--color-theme),0.2)"
+    name:
+      - position: "absolute"
+      - font-weight: "bold"
+      - font-size: "18px"
+      - margin-top: "4%"
+      - margin-left: "33%"
+      - margin-right: "20px"
+      - margin-bottom: "10%"
+      - max-width: "65%"
+      - text-overflow: "ellipsis"
+      - overflow: "hidden"
+    label:
+      - position: "absolute"
+      - font-weight: "bold"
+      - font-size: "16px"
+      - filter: "opacity(40%)"
+      - margin-top: "17%"
+      - margin-left: "33%"
+      - margin-right: "20px"
+      - margin-bottom: "7%"
+      - max-width: "65%"
+      - text-overflow: "ellipsis"
+      - overflow: "hidden"
+    img_cell:
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
+      - position: "absolute"
+      - width: "35%"
+      - height: "100%"
+      - left: "-6%"
+      - top: "16%"
+    grid:
+      - grid-template-areas: "'i n' 'i l'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "15px"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "5px"
+
+  custom_fields:
+    notification: >
+      [[[
+        if (entity?.state == 'unavailable'){
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--primary-background-color);"></ha-icon>';
+        }
+      ]]]
