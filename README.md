@@ -1,2 +1,2 @@
-# Custom Minimalist Room Card
-A modified version of Minimalist Room Card.
+# Minimalist Custom Cards
+My custom cards for Minimalist UI.
