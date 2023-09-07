@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_room:
-  # v1.7
+  # v1.7.1
   template:
     - "ulm_translation_engine"
   variables:
@@ -199,6 +199,7 @@ custom_card_andyblac_room:
     i1:
       card:
         type: "custom:button-card"
+        icon: "[[[ return variables?.entity_1?.icon ]]]"
         template: >
           [[[
             let templates = [ 'card_andyblac_room_widget_icon' ];
@@ -219,6 +220,7 @@ custom_card_andyblac_room:
     i2:
       card:
         type: "custom:button-card"
+        icon: "[[[ return variables?.entity_2?.icon ]]]"
         template: >
           [[[
             let templates = [ 'card_andyblac_room_widget_icon' ];
@@ -239,6 +241,7 @@ custom_card_andyblac_room:
     i3:
       card:
         type: "custom:button-card"
+        icon: "[[[ return variables?.entity_3?.icon ]]]"
         template: >
           [[[
             let templates = [ 'card_andyblac_room_widget_icon' ];
@@ -259,6 +262,7 @@ custom_card_andyblac_room:
     i4:
       card:
         type: "custom:button-card"
+        icon: "[[[ return variables?.entity_4?.icon ]]]"
         template: >
           [[[
             let templates = [ 'card_andyblac_room_widget_icon' ];
@@ -279,6 +283,7 @@ custom_card_andyblac_room:
     s1:
       card:
         type: "custom:button-card"
+        icon: "[[[ return variables?.sensor_1?.icon ]]]"
         template: >
           [[[
             let templates = [ 'card_andyblac_room_sensor_icon' ];
@@ -298,6 +303,7 @@ custom_card_andyblac_room:
     s2:
       card:
         type: "custom:button-card"
+        icon: "[[[ return variables?.sensor_2?.icon ]]]"
         template: >
           [[[
             let templates = [ 'card_andyblac_room_sensor_icon' ];
@@ -317,6 +323,7 @@ custom_card_andyblac_room:
     s3:
       card:
         type: "custom:button-card"
+        icon: "[[[ return variables?.sensor_3?.icon ]]]"
         template: >
           [[[
             let templates = [ 'card_andyblac_room_sensor_icon' ];
@@ -336,6 +343,7 @@ custom_card_andyblac_room:
     s4:
       card:
         type: "custom:button-card"
+        icon: "[[[ return variables?.sensor_4?.icon ]]]"
         template: >
           [[[
             let templates = [ 'card_andyblac_room_sensor_icon' ];
@@ -355,6 +363,7 @@ custom_card_andyblac_room:
     s5:
       card:
         type: "custom:button-card"
+        icon: "[[[ return variables?.sensor_5?.icon ]]]"
         template: >
           [[[
             let templates = [ 'card_andyblac_room_sensor_icon' ];
@@ -374,6 +383,7 @@ custom_card_andyblac_room:
     s6:
       card:
         type: "custom:button-card"
+        icon: "[[[ return variables?.sensor_6?.icon ]]]"
         template: >
           [[[
             let templates = [ 'card_andyblac_room_sensor_icon' ];
