@@ -27,7 +27,7 @@ Initial release
 | Variable | Default | Required         | Notes             |
 |----------|---------|------------------|-------------------|
 | entity     |         | Yes | The scene entity |
-| ulm_card_scene_color |       | No | This lets you chnage the colour if the icon and background. |
+| ulm_card_scene_color |       | No | This lets you change the colour if the icon and background. |
 
 ## Usage
 
