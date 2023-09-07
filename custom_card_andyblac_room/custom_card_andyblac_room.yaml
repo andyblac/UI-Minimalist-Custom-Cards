@@ -1,0 +1,511 @@
+---
+custom_card_andyblac_room:
+  # v1.7
+  template:
+    - "ulm_translation_engine"
+  variables:
+    #   ulm_card_room_label_use_brightness: false
+    ulm_card_room_use_small_label_font: false
+    ulm_card_room_use_label_icons: false
+  double_tap_action:
+    action: "call-service"
+    service: "input_select.select_option"
+    service_data:
+      option: "[[[ return variables.ulm_input_select_option ]]]"
+      entity_id: "[[[ return variables.ulm_input_select ]]]"
+  color: "var(--google-grey-500)"
+  size: "45%"
+  aspect_ratio: "1/1"
+  show_icon: true
+  show_label: true
+  show_name: true
+  icon: "mdi:sofa-single"
+  triggers_update: "all"
+  label: |-
+    [[[
+
+      var spacer = " | ";
+      function getState(entity) {
+        var entity_type = "";
+        var entity_state = "";
+        if (variables.ulm_card_room_use_label_icons) {
+          var entity_type = "| ";
+          var spacer = " ";
+          if (states[entity].attributes?.device_class == 'temperature') {
+            var entity_type = "🌡️";
+          } else if (states[entity].attributes?.device_class == 'humidity') {
+            var entity_type = "💧";
+          } else if (states[entity].attributes?.device_class == 'illuminance') {
+            var entity_type = "🔆";
+          }
+        }
+        if (states[entity].attributes?.brightness) {
+          var bri = Math.round(helpers.localize(states[entity], states[entity].attributes?.brightness) / 2.55);
+          var entity_type = "💡";
+          var entity_state = (bri ? bri : "0") + "%";
+        } else if (states[entity].attributes?.current_temperature) {
+          var entity_state = helpers.localize(states[entity], states[entity].attributes?.current_temperature);
+        } else if (states[entity].attributes?.temperature){
+          var entity_state = helpers.localize(states[entity], states[entity].attributes?.temperature);
+        } else if (states[entity].attributes?.device_temperature) {
+          var entity_state = helpers.localize(states[entity], states[entity].attributes?.device_temperature);
+        } else if (states[entity].attributes?.humidity){
+          var entity_state = helpers.localize(states[entity], states[entity].attributes?.humidity);
+        } else if (states[entity].attributes?.illuminance){
+          var entity_state = helpers.localize(states[entity], states[entity].attributes?.illuminance);
+        } else if (states[entity].state) {
+          var entity_state = helpers.localize(states[entity], states[entity].state);
+        } 
+        return entity_type + entity_state;
+      }
+
+      if (variables.sensor_label_1 && variables.sensor_label_2 && variables.sensor_label_3) {
+        return getState(variables.sensor_label_1) + spacer + getState(variables.sensor_label_2) + spacer + getState(variables.sensor_label_3);
+      } else if (variables.sensor_label_1 && variables.sensor_label_2) {
+        return getState(variables.sensor_label_1) + spacer + getState(variables.sensor_label_2);
+      } else if (variables.sensor_label_1) {
+        return getState(variables.sensor_label_1);
+      } else if (entity?.entity_id) {
+        return getState(entity.entity_id);
+      }
+      return variables.ulm_translation_state;
+    ]]]
+
+  state:
+    - value: "unavailable"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - border: "2px solid var(--card-background-color)"
+            - width: "24.5px"
+            - height: "24.5px"
+            - position: "absolute"
+            - left: "50%"
+            - top: "50%"
+            - transform: "translate(-50%,-50%)"
+            - margin-top: "43%"
+            - margin-left: "-43%"
+            - line-height: 0
+            - display: "grid"
+            - background-color: "[[[ return 'rgba(var(--color-red),1)'; ]]]"
+  styles:
+    icon:
+      - color: "rgba(var(--color-theme),0.2)"
+    label:
+      - justify-self: "start"
+      - align-self: "start"
+      - font-weight: "bold"
+      - font-size: "[[[ return variables?.ulm_card_room_use_small_label_font ? '14px' : '16px'; ]]]"
+      - filter: "opacity(40%)"
+      - margin-top: "[[[ return !variables?.entity_1 ? '-24%' : '-10%'; ]]]"
+      - margin-left: "8px"
+      - max-width: "[[[ return `calc(137% - (${variables?.entity_2 ? (variables?.entity_1 ? 40 : 43): 0}%))`; ]]]"
+      - text-overflow: "ellipsis"
+      - overflow: "hidden"
+    name:
+      - justify-self: "start"
+      - align-self: "end"
+      - font-weight: "bold"
+      - font-size: "18px"
+      - margin-left: "8px"
+      - margin-bottom: "[[[ return !variables?.entity_1 ? (!variables?.entity_2 ? '15.8%' : '24%') : '10%'; ]]]"
+      - max-width: "[[[ return `calc(100% - (12px + ${!variables?.entity_2 ? 5 : 0}px))`; ]]]"
+      - text-overflow: "ellipsis"
+      - overflow: "hidden"
+    state:
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "12px"
+      - filter: "opacity(40%)"
+      - margin-left: "6px"
+    img_cell:
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
+      - width: "75%"
+      - height: "75%"
+      - max-width: "none"
+      - max-height: "none"
+      - position: "absolute"
+      - left: "50%"
+      - top: "50%"
+      - transform: "translate(-50%,-50%)"
+      - margin-top: "25%"
+      - margin-left: "-25%"
+    grid:
+      - grid-template-areas: "[[[ return !variables?.entity_1 ? (!variables?.entity_2 ? `'n n n' 'l l i3' 'i i i4'` : `'n n i2' 'l l i3' 'i i i4'`) : `'n n n i1' 'l l l i2' 'i i . i3' 'i i . i4'`; ]]]"
+      - grid-template-columns: "[[[ return !variables?.entity_1 ? '1fr 1fr 1fr' : '1fr 1fr 1fr 1fr'; ]]]"
+      - grid-template-rows: "[[[ return !variables?.entity_1 ? '1fr 1fr 1fr' : '1fr 1fr 1fr 1fr'; ]]]"
+      - justify-items: "center"
+    card:
+      - border-radius: "20px"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "5px"
+    custom_fields:
+      i1: &card_andyblac_room_widget_icon_styling
+        - border-radius: "50%"
+        - width: "80%"
+        - height: "80%"
+        - line-height: 0
+        - display: "grid"
+      i2: *card_andyblac_room_widget_icon_styling
+      i3: *card_andyblac_room_widget_icon_styling
+      i4: *card_andyblac_room_widget_icon_styling
+
+      s1:
+        - position: "absolute"
+        - left: "3%"
+        - bottom: "43%"
+        - width: "14%"
+        - height: "14%"
+      s2:
+        - position: "absolute"
+        - left: "18.5%"
+        - bottom: "48%"
+        - width: "14%"
+        - height: "14%"
+      s3:
+        - position: "absolute"
+        - left: "34%"
+        - bottom: "43%"
+        - width: "14%"
+        - height: "14%"
+      s4:
+        - position: "absolute"
+        - left: "45%"
+        - bottom: "31%"
+        - width: "14%"
+        - height: "14%"
+      s5:
+        - position: "absolute"
+        - left: "47.5%"
+        - bottom: "16%"
+        - width: "14%"
+        - height: "14%"
+      s6:
+        - position: "absolute"
+        - left: "44%"
+        - bottom: "2%"
+        - width: "14%"
+        - height: "14%"
+
+  custom_fields:
+    notification: >
+      [[[
+        if (entity?.state == 'unavailable'){
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--primary-background-color);"></ha-icon>';
+        }
+      ]]]
+    i1:
+      card:
+        type: "custom:button-card"
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_room_widget_icon' ];
+            if (variables?.entity_1?.templates?.length) {
+              templates.push(...variables.entity_1.templates);
+            }
+            return templates;
+          ]]]
+        variables: "[[[ return variables?.entity_1; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.entity_1; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.entity_1?.entity_id; ]]]"
+
+    i2:
+      card:
+        type: "custom:button-card"
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_room_widget_icon' ];
+            if (variables?.entity_2?.templates?.length) {
+              templates.push(...variables.entity_2.templates);
+            }
+            return templates;
+          ]]]
+        variables: "[[[ return variables?.entity_2; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.entity_2; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.entity_2?.entity_id; ]]]"
+
+    i3:
+      card:
+        type: "custom:button-card"
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_room_widget_icon' ];
+            if (variables?.entity_3?.templates?.length) {
+              templates.push(...variables.entity_3.templates);
+            }
+            return templates;
+          ]]]
+        variables: "[[[ return variables?.entity_3; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.entity_3; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.entity_3?.entity_id; ]]]"
+
+    i4:
+      card:
+        type: "custom:button-card"
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_room_widget_icon' ];
+            if (variables?.entity_4?.templates?.length) {
+              templates.push(...variables.entity_4.templates);
+            }
+            return templates;
+          ]]]
+        variables: "[[[ return variables?.entity_4; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.entity_4; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.entity_4?.entity_id; ]]]"
+
+    s1:
+      card:
+        type: "custom:button-card"
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            if (variables?.sensor_1?.templates?.length) {
+              templates.push(...variables.sensor_1.templates);
+            }
+            return templates;
+          ]]]
+        variables: "[[[ return variables?.sensor_1; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.sensor_1; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.sensor_1?.entity_id; ]]]"
+    s2:
+      card:
+        type: "custom:button-card"
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            if (variables?.sensor_2?.templates?.length) {
+              templates.push(...variables.sensor_2.templates);
+            }
+            return templates;
+          ]]]
+        variables: "[[[ return variables?.sensor_2; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.sensor_2; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.sensor_2?.entity_id; ]]]"
+    s3:
+      card:
+        type: "custom:button-card"
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            if (variables?.sensor_3?.templates?.length) {
+              templates.push(...variables.sensor_3.templates);
+            }
+            return templates;
+          ]]]
+        variables: "[[[ return variables?.sensor_3; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.sensor_3; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.sensor_3?.entity_id; ]]]"
+    s4:
+      card:
+        type: "custom:button-card"
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            if (variables?.sensor_4?.templates?.length) {
+              templates.push(...variables.sensor_4.templates);
+            }
+            return templates;
+          ]]]
+        variables: "[[[ return variables?.sensor_4; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.sensor_4; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.sensor_4?.entity_id; ]]]"
+    s5:
+      card:
+        type: "custom:button-card"
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            if (variables?.sensor_5?.templates?.length) {
+              templates.push(...variables.sensor_5.templates);
+            }
+            return templates;
+          ]]]
+        variables: "[[[ return variables?.sensor_5; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.sensor_5; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.sensor_5?.entity_id; ]]]"
+    s6:
+      card:
+        type: "custom:button-card"
+        template: >
+          [[[
+            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            if (variables?.sensor_6?.templates?.length) {
+              templates.push(...variables.sensor_6.templates);
+            }
+            return templates;
+          ]]]
+        variables: "[[[ return variables?.sensor_6; ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.sensor_6; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.sensor_6?.entity_id; ]]]"
+
+card_andyblac_room_widget_icon:
+  variables:
+    tap_action:
+      action: "toggle"
+    hold_action:
+      action: "more-info"
+  tap_action:
+    action: "[[[ return variables?.tap_action?.action ? variables.tap_action.action : 'none'; ]]]"
+    navigation_path: "[[[ return variables.tap_action.navigation_path; ]]]"
+    url_path: "[[[ return variables.tap_action.url_path; ]]]"
+    service: "[[[ return variables.tap_action.service; ]]]"
+    service_data: "[[[ return variables.tap_action.service_data; ]]]"
+  hold_action:
+    action: "[[[ return variables?.hold_action?.action ? variables.hold_action.action : 'none'; ]]]"
+    navigation_path: "[[[ return variables.hold_action.navigation_path; ]]]"
+    url_path: "[[[ return variables.hold_action.url_path; ]]]"
+    service: "[[[ return variables.hold_action.service; ]]]"
+    service_data: "[[[ return variables.hold_action.service_data; ]]]"
+  size: "15px"
+  show_icon: true
+  show_name: false
+  styles:
+    icon:
+      - width: "50%"
+      - height: "50%"
+      - line-height: "0"
+      - color: "rgba(var(--color-theme),0.2)"
+    img_cell:
+      - border-radius: "50%"
+      - background-color: "rgba(var(--color-theme),0.05)"
+    grid:
+      - grid-template-areas: "'i'"
+    card:
+      - height: "100%"
+      - background: "none"
+      - box-shadow: "none"
+      - padding: "0px"
+      - border-radius: "50%"
+  state:
+    - value: "unavailable"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - position: "absolute"
+            - right: "15%"
+            - top: "15%"
+            - height: "14px"
+            - width: "14px"
+            - margin-left: "10px"
+            - line-height: 0
+            - background-color: "[[[ return 'rgba(var(--color-red),1)'; ]]]"
+    - styles:
+        icon:
+          - color: "[[[ return variables.ulm_card_room_use_light_color ? 'var(--button-card-light-color)' : 'rgba(var(--color-theme),0.7)'; ]]]"
+          - fill: "[[[ return variables.ulm_card_room_use_light_color ? 'var(--button-card-light-color)' : 'rgba(var(--color-theme),0.7)'; ]]]"
+        img_cell:
+          - background-color: "[[[ return variables.ulm_card_room_use_light_color ? 'color-mix(in srgb, transparent, var(--button-card-light-color) 20%)' : 'rgba(var(--color-theme),0.15)'; ]]]"
+      id: "on"
+      value: "on"
+  custom_fields:
+    notification: >
+      [[[
+        if (entity?.state == 'unavailable'){
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--primary-background-color);"></ha-icon>';
+        }
+      ]]]
+
+card_andyblac_room_sensor_icon:
+  variables:
+    tap_action:
+      action: "more-info"
+    hold_action:
+      action: "more-info"
+    ulm_active_state: >
+      [[[
+        let not_active = ['0','disarmed','off','closed','not_home','standby','idle','docked','unknown','unavailable','paused']
+        function containsNumbers(str) {
+          return /\d/.test(str);
+        }
+        if (!not_active.includes(entity.state)) {
+          if (containsNumbers(entity.state)) {
+            return entity?.state;
+          }
+          return entity?.state; 
+        }
+      ]]]
+  tap_action:
+    action: "[[[ return variables?.tap_action?.action ? variables.tap_action.action : 'none'; ]]]"
+    navigation_path: "[[[ return variables.tap_action.navigation_path; ]]]"
+    url_path: "[[[ return variables.tap_action.url_path; ]]]"
+    service: "[[[ return variables.tap_action.service; ]]]"
+    service_data: "[[[ return variables.tap_action.service_data; ]]]"
+  hold_action:
+    action: "[[[ return variables?.hold_action?.action ? variables.hold_action.action : 'none'; ]]]"
+    navigation_path: "[[[ return variables.hold_action.navigation_path; ]]]"
+    url_path: "[[[ return variables.hold_action.url_path; ]]]"
+    service: "[[[ return variables.hold_action.service; ]]]"
+    service_data: "[[[ return variables.hold_action.service_data; ]]]"
+  size: "15px"
+  show_icon: true
+  show_name: false
+  styles:
+    icon:
+      - width: "90%"
+      - height: "90%"
+      - line-height: "0"
+      - color: "[[[ return variables?.ulm_card_room_sensor_color ? 'rgba(var(--color-'+variables?.ulm_card_room_sensor_color+'),0.4)' : 'rgba(var(--color-theme),0.2)'; ]]]"
+    card:
+      - background: "none"
+      - box-shadow: "none"
+      - padding: "0px"
+  state:
+    - styles:
+        icon:
+          - color: "[[[ return variables?.ulm_card_room_sensor_color_on ? 'rgba(var(--color-'+variables?.ulm_card_room_sensor_color_on+'),1)' : (variables?.ulm_card_room_sensor_color ? 'rgba(var(--color-'+variables?.ulm_card_room_sensor_color+'),1)' : 'rgba(var(--color-theme),0.7)'); ]]]"
+      id: "on"
+      value: "[[[ return variables?.ulm_active_state ]]]"
