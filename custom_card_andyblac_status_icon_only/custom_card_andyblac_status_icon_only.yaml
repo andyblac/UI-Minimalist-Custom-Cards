@@ -1,0 +1,110 @@
+---
+custom_card_andyblac_status_icon_only:
+  # v1.1
+  template:
+    - "ulm_translation_engine"
+  variables:
+    tap_action:
+      action: "navigate"
+      navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none'; ]]]"
+    hold_action:
+      action: "more-info"
+      entity: "[[[ return entity.entity_id; ]]]"
+    ulm_active_state: >
+      [[[
+        let not_active = ['0','disarmed','off','closed','not_home','standby','idle','docked','unknown','unavailable','paused']
+        function containsNumbers(str) {
+          return /\d/.test(str);
+        }
+        if (!not_active.includes(entity.state)) {
+          if (containsNumbers(entity.state)) {
+            return entity?.state;
+          }
+          return entity?.state; 
+        }
+      ]]]
+
+  size: "45%"
+  aspect_ratio: "1/1"
+  show_icon: true
+  show_label: true
+  show_name: false
+  label: "[[[ return variables.ulm_active_state ]]]"
+
+  tap_action:
+    action: "[[[ return variables?.tap_action?.action ? variables.tap_action.action : 'none'; ]]]"
+    navigation_path: "[[[ return variables.tap_action.navigation_path; ]]]"
+    url_path: "[[[ return variables.tap_action.url_path; ]]]"
+    service: "[[[ return variables.tap_action.service; ]]]"
+    service_data: "[[[ return variables.tap_action.service_data; ]]]"
+  hold_action:
+    action: "[[[ return variables?.hold_action?.action ? variables.hold_action.action : 'none'; ]]]"
+    navigation_path: "[[[ return variables.hold_action.navigation_path; ]]]"
+    url_path: "[[[ return variables.hold_action.url_path; ]]]"
+    service: "[[[ return variables.hold_action.service; ]]]"
+    service_data: "[[[ return variables.hold_action.service_data; ]]]"
+
+
+  state:
+    - value: "unavailable"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - position: "absolute"
+            - right: "6%"
+            - height: "30%"
+            - width: "30%"
+            - line-height: 0
+            - background-color: "rgba(var(--color-red),1)"
+    - styles:
+        label:
+          - color: "[[[ return variables.ulm_card_status_color ? 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)' : 'rgba(var(--color-theme),0.7)'; ]]]"
+          - background-color: >
+              [[[ 
+                if (variables.ulm_card_status_badge_bg) {
+                  return variables.ulm_card_status_color ? 'rgba(var(--color-'+variables.ulm_card_status_color+'),0.2)' : 'rgba(var(--color-theme),0.2)'; 
+                } else {
+                  return variables.ulm_card_status_color ? 'rgba(var(--color-'+variables.ulm_card_status_color+'),0.0)' : 'rgba(var(--color-theme),0.0)'; 
+                }
+              ]]]
+        icon:
+          - color: "[[[ return variables.ulm_card_status_color ? 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)' : 'rgba(var(--color-theme),0.7)'; ]]]"
+        img_cell:
+          - background-color: "[[[ return variables.ulm_card_status_color ? 'rgba(var(--color-'+variables.ulm_card_status_color+'),0.2)' : 'rgba(var(--color-theme),0.2)'; ]]]"
+      id: "on"
+      value: "[[[ return variables.ulm_active_state ]]]"
+
+  styles:
+    label:
+      - font-weight: "bold"
+      - font-size: "90%"
+      - border-radius: "[[[ return variables.ulm_card_status_badge_bg ? '50%' : '0%'; ]]]"
+      - position: "absolute"
+      - right: "6%"
+      - top: "[[[ return variables.ulm_card_status_badge_bg ? '2%' : '0%'; ]]]"
+      - height: "30%"
+      - width: "30%"
+      - line-height: "24px"
+      - color: "rgba(var(--color-theme),0.2)"
+      - background-color: "rgba(var(--color-theme),0)"
+    icon:
+      - color: "rgba(var(--color-theme),0.2)"
+    img_cell:
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
+      - position: "absolute"
+      - left: "-18%"
+      - top: "18%"
+    card:
+      - border-radius: "15px"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "5px"
+
+  custom_fields:
+    notification: >
+      [[[
+        if (entity?.state == 'unavailable'){
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--primary-background-color);"></ha-icon>';
+        }
+      ]]]
