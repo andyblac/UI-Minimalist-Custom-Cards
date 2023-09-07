@@ -1,2 +1,2 @@
-# custom_card_andyblac_room
+# Custom Minimalist Room Card
 A modified version of Minimalist Room Card.
