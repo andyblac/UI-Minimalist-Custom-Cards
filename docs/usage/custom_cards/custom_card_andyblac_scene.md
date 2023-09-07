@@ -1,5 +1,5 @@
 ---
-title: Custom Card "Scenes"
+title: Custom Card "Scene"
 hide:
   - toc
 ---
@@ -7,8 +7,8 @@ hide:
 
 ## Description
 
-![example-image-light](../../assets/img/custom_card_andyblac_person/custom_card_andyblac_scenes_light.png)
-![example-image-dark](../../assets/img/custom_card_andyblac_person/custom_card_andyblac_scenes_dark.png)
+![example-image-light](../../assets/img/custom_card_andyblac_scene/custom_card_andyblac_scene_light.png)
+![example-image-dark](../../assets/img/custom_card_andyblac_scene/custom_card_andyblac_scene_dark.png)
 
 ## Credits
 
@@ -33,7 +33,7 @@ Initial release
 
 ```yaml
       - type: custom:button-card
-        template: custom_card_andyblac_scenes
+        template: custom_card_andyblac_scene
         entity: scene.good_morning
         variables:
           ulm_card_scene_color: yellow
