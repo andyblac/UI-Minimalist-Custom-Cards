@@ -544,6 +544,12 @@ card_andyblac_room_widget_icon:
         custom_fields:
           icon:
             - fill: "[[[ return variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),1)' : 'rgba(var(--color-theme),0.7)'; ]]]"
+          img_cell:
+            - position: "absolute"
+            - width: "100%"
+            - height: "100%"
+            - border-radius: "50%"
+            - background-color: "[[[ return variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)'; ]]]"
       id: "on"
   custom_fields:
     notification: >
