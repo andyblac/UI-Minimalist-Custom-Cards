@@ -4,9 +4,8 @@ custom_card_andyblac_room:
   template:
     - "ulm_translation_engine"
   variables:
-    #   ulm_card_room_label_use_brightness: false
-    ulm_card_room_use_small_label_font: false
-    ulm_card_room_use_label_icons: false
+    ulm_card_andyblac_room_use_small_label_font: false
+    ulm_card_andyblac_room_use_label_icons: false
     ulm_card_andyblac_room_color: "theme"
   double_tap_action:
     action: "call-service"
@@ -29,7 +28,7 @@ custom_card_andyblac_room:
       function getState(entity) {
         var entity_type = "";
         var entity_state = "";
-        if (variables.ulm_card_room_use_label_icons) {
+        if (variables.ulm_card_andyblac_room_use_label_icons) {
           var entity_type = "| ";
           var spacer = " ";
           if (states[entity].attributes?.device_class == 'temperature') {
@@ -105,7 +104,7 @@ custom_card_andyblac_room:
       - justify-self: "start"
       - align-self: "start"
       - font-weight: "bold"
-      - font-size: "[[[ return variables?.ulm_card_room_use_small_label_font ? '14px' : '16px'; ]]]"
+      - font-size: "[[[ return variables?.ulm_card_andyblac_room_use_small_label_font ? '14px' : '16px'; ]]]"
       - filter: "opacity(40%)"
       - margin-top: "[[[ return !variables?.entity_1 ? '-24%' : '-10%'; ]]]"
       - margin-left: "8px"
