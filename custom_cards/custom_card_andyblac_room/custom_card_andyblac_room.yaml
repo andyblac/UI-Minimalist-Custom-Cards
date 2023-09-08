@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_room:
-  # v1.7.1
+  # v2.0 beta1
   template:
     - "ulm_translation_engine"
   variables:
@@ -40,7 +40,7 @@ custom_card_andyblac_room:
           }
         }
         if (states[entity].attributes?.brightness) {
-          var bri = Math.round(helpers.localize(states[entity], states[entity].attributes?.brightness) / 2.55);
+          var bri = Math.round(states[entity].attributes?.brightness / 2.55);
           var entity_type = "💡";
           var entity_state = (bri ? bri : "0") + "%";
         } else if (states[entity].attributes?.current_temperature) {
