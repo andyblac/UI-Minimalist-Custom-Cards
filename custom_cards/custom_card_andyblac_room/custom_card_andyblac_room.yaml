@@ -129,14 +129,6 @@ custom_card_andyblac_room:
       - filter: "opacity(40%)"
       - margin-left: "6px"
     img_cell:
-      - background-color: >
-          [[[ 
-            if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
-              return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.05)';
-            } else {
-              return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.2)';
-            }
-          ]]]
       - border-radius: "50%"
       - width: "75%"
       - height: "75%"
@@ -148,6 +140,14 @@ custom_card_andyblac_room:
       - transform: "translate(-50%,-50%)"
       - margin-top: "25%"
       - margin-left: "-25%"
+      - background-color: >
+          [[[ 
+            if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
+              return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.05)';
+            } else {
+              return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.2)';
+            }
+          ]]]
     grid:
       - grid-template-areas: "[[[ return !variables?.entity_1 ? (!variables?.entity_2 ? `'n n n' 'l l i3' 'i i i4'` : `'n n i2' 'l l i3' 'i i i4'`) : `'n n n i1' 'l l l i2' 'i i . i3' 'i i . i4'`; ]]]"
       - grid-template-columns: "[[[ return !variables?.entity_1 ? '1fr 1fr 1fr' : '1fr 1fr 1fr 1fr'; ]]]"
@@ -166,6 +166,26 @@ custom_card_andyblac_room:
         - height: "34%"
         - line-height: "0"
         - fill: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.7)' ]]]"
+      img_cell:
+        - border-radius: "50%"
+        - width: "75%"
+        - height: "75%"
+        - max-width: "none"
+        - max-height: "none"
+        - position: "absolute"
+        - left: "50%"
+        - top: "50%"
+        - transform: "translate(-50%,-50%)"
+        - margin-top: "25%"
+        - margin-left: "-25%"
+        - background-color: >
+            [[[ 
+              if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
+                return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.05)';
+              } else {
+                return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.2)';
+              }
+            ]]]
 
       i1: &card_andyblac_room_widget_icon_styling
         - border-radius: "50%"
@@ -593,6 +613,7 @@ card_andyblac_room_sensor_icon:
     service: "[[[ return variables.hold_action.service; ]]]"
     service_data: "[[[ return variables.hold_action.service_data; ]]]"
   size: "15px"
+  aspect_ratio: "1/1"
   show_icon: true
   show_name: false
   styles:
@@ -612,8 +633,24 @@ card_andyblac_room_sensor_icon:
       - background: "none"
       - box-shadow: "none"
       - padding: "0px"
+    custom_fields:
+      icon:
+        - position: "absolute"
+        - left: "5%"
+        - bottom: "5%"
+        - width: "90%"
+        - height: "90%"
+        - fill: >
+            [[[
+              if (variables.ulm_custom_card_andyblac_room_sensor_color_on == 'theme') {
+                return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color_on+'),0.2)';
+              } else {
+                return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color_on+'),0.4)';
+              }
+            ]]]
   state:
-    - styles:
+    - value: "[[[ return variables?.ulm_active_state ]]]"
+      styles:
         icon:
           - color: >
               [[[
@@ -623,5 +660,7 @@ card_andyblac_room_sensor_icon:
                   return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color_on+'),1)';
                 }
               ]]]
+        custom_fields:
+          icon:
+            - fill: "[[[ return variables.ulm_custom_card_andyblac_room_sensor_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color_on+'),1)' : 'rgba(var(--color-theme),0.7)'; ]]]"
       id: "on"
-      value: "[[[ return variables?.ulm_active_state ]]]"
