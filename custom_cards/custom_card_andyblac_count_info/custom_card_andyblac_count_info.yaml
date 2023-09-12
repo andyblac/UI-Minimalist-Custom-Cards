@@ -6,7 +6,7 @@ custom_card_andyblac_count_info:
     - "ulm_translation_engine"
   variables:
     tap_action:
-      action: "navigate"
+      action: "[[[ return entity?.attributes?.navigation ? 'navigate' : 'more-info'; ]]]"
       navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none'; ]]]"
     hold_action:
       action: "more-info"
