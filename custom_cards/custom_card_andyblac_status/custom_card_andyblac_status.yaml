@@ -22,10 +22,11 @@ custom_card_andyblac_status:
   size: "45%"
   aspect_ratio: "1/0.35"
   show_name: true
-  show_label: true
+  show_label: false
   show_icon: true
-  icon: "[[[ return entity?.attributes?.icon ? entity?.attributes?.icon : 'mdi:information']]]"
-  label: "[[[ return entity?.attributes?.label ? entity?.attributes?.label : entity?.state ]]]"
+  show_state: true
+  icon: "[[[ return entity?.attributes?.icon ]]]"
+  state_display: "[[[ return entity?.attributes?.label ]]]"
 
   tap_action:
     action: "navigate"
@@ -72,7 +73,7 @@ custom_card_andyblac_status:
       - max-width: "65%"
       - text-overflow: "ellipsis"
       - overflow: "hidden"
-    label:
+    state:
       - position: "absolute"
       - font-weight: "bold"
       - font-size: "16px"
