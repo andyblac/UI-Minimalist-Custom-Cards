@@ -49,13 +49,13 @@ custom_card_andyblac_status:
             - background-color: "rgba(var(--color-red),1)"
     - styles:
         name:
-          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)'; ]]]"
-        label:
-          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)'; ]]]"
+          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)'; ]]]"
+        state:
+          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)'; ]]]"
         icon:
-          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)'; ]]]"
+          - color: "[[[ return variables.ulm_custom_card_andyblac_status_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)' : 'rgba(var(--color-theme),0.7)'; ]]]"
         img_cell:
-          - background-color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),0.2)'; ]]]"
+          - background-color: "[[[ return variables.ulm_custom_card_andyblac_status_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)'; ]]]"
       id: "on"
       value: "[[[ return variables.ulm_active_state ]]]"
   styles:
