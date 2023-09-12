@@ -212,24 +212,24 @@ custom_card_andyblac_room:
       s3:
         - position: "absolute"
         - left: "34%"
-        - bottom: "43%"
+        - bottom: "41%"
         - width: "14%"
         - height: "14%"
       s4:
         - position: "absolute"
         - left: "45%"
-        - bottom: "31%"
+        - bottom: "28%"
         - width: "14%"
         - height: "14%"
       s5:
         - position: "absolute"
         - left: "47.5%"
-        - bottom: "16%"
+        - bottom: "15%"
         - width: "14%"
         - height: "14%"
       s6:
         - position: "absolute"
-        - left: "44%"
+        - left: "43%"
         - bottom: "2%"
         - width: "14%"
         - height: "14%"
@@ -630,6 +630,7 @@ custom_card_andyblac_room_sensor_icon:
             }
           ]]]
     card:
+      - border-radius: "0px"
       - background: "none"
       - box-shadow: "none"
       - padding: "0px"
