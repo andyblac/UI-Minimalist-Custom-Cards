@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_room:
-  # v2.0 beta1
+  # v2.0 beta5
   template:
     - "ulm_translation_engine"
   variables:
