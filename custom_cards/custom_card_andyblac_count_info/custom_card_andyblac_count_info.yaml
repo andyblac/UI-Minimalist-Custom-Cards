@@ -1,5 +1,6 @@
+@@ -1,110 +0,0 @@
 ---
-custom_card_andyblac_status_icon_only:
+custom_card_andyblac_count_info:
   # v1.1
   template:
     - "ulm_translation_engine"
