@@ -4,7 +4,13 @@ custom_card_andyblac_status:
   template:
     - "ulm_translation_engine"
   variables:
-    ulm_card_status_color: "[[[ return entity?.attributes?.color ? entity?.attributes?.color : 'theme' ]]]"
+    tap_action:
+      action: "[[[ return entity?.attributes?.navigation ? 'navigate' : 'toggle'; ]]]"
+      navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none'; ]]]"
+    hold_action:
+      action: "more-info"
+      entity: "[[[ return entity.entity_id; ]]]"
+    ulm_custom_card_andyblac_status_color_on: "[[[ return entity?.attributes?.color ]]]"
     ulm_active_state: >
       [[[
         let not_active = ['0','disarmed','off','closed','not_home','standby','idle','docked','unknown','unavailable','paused']
@@ -29,11 +35,17 @@ custom_card_andyblac_status:
   state_display: "[[[ return entity?.attributes?.label ]]]"
 
   tap_action:
-    action: "navigate"
-    navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none' ]]]"
+    action: "[[[ return variables?.tap_action?.action ? variables.tap_action.action : 'none'; ]]]"
+    navigation_path: "[[[ return variables.tap_action.navigation_path; ]]]"
+    url_path: "[[[ return variables.tap_action.url_path; ]]]"
+    service: "[[[ return variables.tap_action.service; ]]]"
+    service_data: "[[[ return variables.tap_action.service_data; ]]]"
   hold_action:
-    action: "more-info"
-    entity: "[[[ return entity.entity_id; ]]]"
+    action: "[[[ return variables?.hold_action?.action ? variables.hold_action.action : 'none'; ]]]"
+    navigation_path: "[[[ return variables.hold_action.navigation_path; ]]]"
+    url_path: "[[[ return variables.hold_action.url_path; ]]]"
+    service: "[[[ return variables.hold_action.service; ]]]"
+    service_data: "[[[ return variables.hold_action.service_data; ]]]"
 
   state:
     - value: "unavailable"
