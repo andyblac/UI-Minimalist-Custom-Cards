@@ -4,7 +4,7 @@ custom_card_andyblac_scene:
   template:
     - "ulm_translation_engine"
   variables:
-    ulm_custom_card_andyblac_scene: "theme"
+    ulm_custom_card_andyblac_scene_color: "theme"
   tap_action:
     action: "call-service"
     service: "scene.turn_on"
@@ -17,7 +17,7 @@ custom_card_andyblac_scene:
   aspect_ratio: "1/0.35"
   styles:
     icon:
-      - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_scene+'),0.9)'; ]]]"
+      - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_scene_color+'),0.9)'; ]]]"
       - width: "50%"
       - place-self: "stretch:stretch"
     name:
@@ -44,7 +44,7 @@ custom_card_andyblac_scene:
       - text-overflow: "ellipsis"
       - overflow: "hidden"
     img_cell:
-      - background-color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_scene+'),0.2)'; ]]]"
+      - background-color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_scene_color+'),0.2)'; ]]]"
       - border-radius: "50%"
       - position: "absolute"
       - left: "-6%"
