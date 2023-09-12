@@ -72,16 +72,16 @@ custom_card_andyblac_count_info:
   styles:
     label:
       - font-weight: "bold"
-      - font-size: "90%"
-      - border-radius: "[[[ return variables.ulm_card_status_badge_bg ? '50%' : '0%'; ]]]"
       - position: "absolute"
-      - right: "6%"
       - top: "[[[ return variables.ulm_card_status_badge_bg ? '2%' : '0%'; ]]]"
+      - right: "6%"
       - height: "30%"
-      - width: "30%"
+      - width: "[[[ return variables.ulm_card_status_badge_bg ? '30%' : '33%'; ]]]"
+      - font-size: "[[[ return variables.ulm_card_status_badge_bg ? '90%' : '18'; ]]]"
       - line-height: "24px"
       - color: "rgba(var(--color-theme),0.2)"
       - background-color: "rgba(var(--color-theme),0)"
+      - border-radius: "[[[ return variables.ulm_card_status_badge_bg ? '50%' : '0%'; ]]]"
     icon:
       - color: "rgba(var(--color-theme),0.2)"
     img_cell:
