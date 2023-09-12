@@ -135,11 +135,8 @@ custom_card_andyblac_room:
       - max-width: "none"
       - max-height: "none"
       - position: "absolute"
-      - left: "50%"
-      - top: "50%"
-      - transform: "translate(-50%,-50%)"
-      - margin-top: "25%"
-      - margin-left: "-25%"
+      - left: "-12.5%"
+      - top: "37.5%"
       - background-color: >
           [[[ 
             if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
@@ -173,11 +170,8 @@ custom_card_andyblac_room:
         - max-width: "none"
         - max-height: "none"
         - position: "absolute"
-        - left: "50%"
-        - top: "50%"
-        - transform: "translate(-50%,-50%)"
-        - margin-top: "25%"
-        - margin-left: "-25%"
+        - left: "-12.5%"
+        - top: "37.5%"
         - background-color: >
             [[[ 
               if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
