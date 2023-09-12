@@ -1,4 +1,3 @@
-@@ -1,110 +0,0 @@
 ---
 custom_card_andyblac_count_info:
   # v1.1
@@ -45,7 +44,6 @@ custom_card_andyblac_count_info:
     service: "[[[ return variables.hold_action.service; ]]]"
     service_data: "[[[ return variables.hold_action.service_data; ]]]"
 
-
   state:
     - value: "unavailable"
       styles:
@@ -71,25 +69,25 @@ custom_card_andyblac_count_info:
 
   styles:
     label:
-      - font-weight: "bold"
       - position: "absolute"
       - top: "[[[ return variables.ulm_card_status_badge_bg ? '2%' : '0%'; ]]]"
       - right: "6%"
       - height: "30%"
       - width: "[[[ return variables.ulm_card_status_badge_bg ? '30%' : '33%'; ]]]"
+      - font-weight: "bold"
       - font-size: "[[[ return variables.ulm_card_status_badge_bg ? '90%' : '18'; ]]]"
       - line-height: "24px"
-      - color: "rgba(var(--color-theme),0.2)"
+      - color: "rgba(var(--color-theme),0.4)"
       - background-color: "rgba(var(--color-theme),0)"
       - border-radius: "[[[ return variables.ulm_card_status_badge_bg ? '50%' : '0%'; ]]]"
     icon:
       - color: "rgba(var(--color-theme),0.2)"
     img_cell:
-      - background-color: "rgba(var(--color-theme),0.05)"
-      - border-radius: "50%"
       - position: "absolute"
       - left: "-18%"
       - top: "18%"
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
     card:
       - border-radius: "15px"
       - box-shadow: "var(--box-shadow)"
