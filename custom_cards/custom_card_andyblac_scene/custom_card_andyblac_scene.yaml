@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_scene:
-  # 1.1
+  # 1.2
   template:
     - "ulm_translation_engine"
   variables:
