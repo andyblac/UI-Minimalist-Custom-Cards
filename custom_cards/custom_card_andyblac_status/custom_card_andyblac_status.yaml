@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_status:
-  # v1.1
+  # v1.2
   template:
     - "ulm_translation_engine"
   variables:
