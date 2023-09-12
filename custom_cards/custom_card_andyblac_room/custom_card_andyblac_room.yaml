@@ -187,15 +187,15 @@ custom_card_andyblac_room:
               }
             ]]]
 
-      i1: &card_andyblac_room_widget_icon_styling
+      i1: &custom_card_andyblac_room_widget_icon_styling
         - border-radius: "50%"
         - width: "80%"
         - height: "80%"
         - line-height: 0
         - display: "grid"
-      i2: *card_andyblac_room_widget_icon_styling
-      i3: *card_andyblac_room_widget_icon_styling
-      i4: *card_andyblac_room_widget_icon_styling
+      i2: *custom_card_andyblac_room_widget_icon_styling
+      i3: *custom_card_andyblac_room_widget_icon_styling
+      i4: *custom_card_andyblac_room_widget_icon_styling
 
       s1:
         - position: "absolute"
@@ -247,7 +247,7 @@ custom_card_andyblac_room:
         icon: "[[[ return variables?.entity_1?.icon ]]]"
         template: >
           [[[
-            let templates = [ 'card_andyblac_room_widget_icon' ];
+            let templates = [ 'custom_card_andyblac_room_widget_icon' ];
             if (variables?.entity_1?.templates?.length) {
               templates.push(...variables.entity_1.templates);
             }
@@ -268,7 +268,7 @@ custom_card_andyblac_room:
         icon: "[[[ return variables?.entity_2?.icon ]]]"
         template: >
           [[[
-            let templates = [ 'card_andyblac_room_widget_icon' ];
+            let templates = [ 'custom_card_andyblac_room_widget_icon' ];
             if (variables?.entity_2?.templates?.length) {
               templates.push(...variables.entity_2.templates);
             }
@@ -289,7 +289,7 @@ custom_card_andyblac_room:
         icon: "[[[ return variables?.entity_3?.icon ]]]"
         template: >
           [[[
-            let templates = [ 'card_andyblac_room_widget_icon' ];
+            let templates = [ 'custom_card_andyblac_room_widget_icon' ];
             if (variables?.entity_3?.templates?.length) {
               templates.push(...variables.entity_3.templates);
             }
@@ -310,7 +310,7 @@ custom_card_andyblac_room:
         icon: "[[[ return variables?.entity_4?.icon ]]]"
         template: >
           [[[
-            let templates = [ 'card_andyblac_room_widget_icon' ];
+            let templates = [ 'custom_card_andyblac_room_widget_icon' ];
             if (variables?.entity_4?.templates?.length) {
               templates.push(...variables.entity_4.templates);
             }
@@ -331,7 +331,7 @@ custom_card_andyblac_room:
         icon: "[[[ return variables?.sensor_1?.icon ]]]"
         template: >
           [[[
-            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            let templates = [ 'custom_card_andyblac_room_sensor_icon' ];
             if (variables?.sensor_1?.templates?.length) {
               templates.push(...variables.sensor_1.templates);
             }
@@ -358,7 +358,7 @@ custom_card_andyblac_room:
         icon: "[[[ return variables?.sensor_2?.icon ]]]"
         template: >
           [[[
-            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            let templates = [ 'custom_card_andyblac_room_sensor_icon' ];
             if (variables?.sensor_2?.templates?.length) {
               templates.push(...variables.sensor_2.templates);
             }
@@ -385,7 +385,7 @@ custom_card_andyblac_room:
         icon: "[[[ return variables?.sensor_3?.icon ]]]"
         template: >
           [[[
-            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            let templates = [ 'custom_card_andyblac_room_sensor_icon' ];
             if (variables?.sensor_3?.templates?.length) {
               templates.push(...variables.sensor_3.templates);
             }
@@ -412,7 +412,7 @@ custom_card_andyblac_room:
         icon: "[[[ return variables?.sensor_4?.icon ]]]"
         template: >
           [[[
-            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            let templates = [ 'custom_card_andyblac_room_sensor_icon' ];
             if (variables?.sensor_4?.templates?.length) {
               templates.push(...variables.sensor_4.templates);
             }
@@ -439,7 +439,7 @@ custom_card_andyblac_room:
         icon: "[[[ return variables?.sensor_5?.icon ]]]"
         template: >
           [[[
-            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            let templates = [ 'custom_card_andyblac_room_sensor_icon' ];
             if (variables?.sensor_5?.templates?.length) {
               templates.push(...variables.sensor_5.templates);
             }
@@ -466,7 +466,7 @@ custom_card_andyblac_room:
         icon: "[[[ return variables?.sensor_6?.icon ]]]"
         template: >
           [[[
-            let templates = [ 'card_andyblac_room_sensor_icon' ];
+            let templates = [ 'custom_card_andyblac_room_sensor_icon' ];
             if (variables?.sensor_6?.templates?.length) {
               templates.push(...variables.sensor_6.templates);
             }
@@ -488,7 +488,7 @@ custom_card_andyblac_room:
                 - display: "none"
         entity: "[[[ return variables?.sensor_6?.entity_id; ]]]"
 
-card_andyblac_room_widget_icon:
+custom_card_andyblac_room_widget_icon:
   variables:
     tap_action:
       action: "toggle"
@@ -579,7 +579,7 @@ card_andyblac_room_widget_icon:
         }
       ]]]
 
-card_andyblac_room_sensor_icon:
+custom_card_andyblac_room_sensor_icon:
   variables:
     ulm_custom_card_andyblac_room_sensor_color: "[[[ return variables.ulm_custom_card_andyblac_room_sensor_color ? variables.ulm_custom_card_andyblac_room_sensor_color : variables.ulm_custom_card_andyblac_room_color; ]]]"
     ulm_custom_card_andyblac_room_sensor_color_on: "[[[ return variables?.ulm_custom_card_andyblac_room_sensor_color_on ? variables.ulm_custom_card_andyblac_room_sensor_color_on : variables.ulm_custom_card_andyblac_room_sensor_color; ]]]"
