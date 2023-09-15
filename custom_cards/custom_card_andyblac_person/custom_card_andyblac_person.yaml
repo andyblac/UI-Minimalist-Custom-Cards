@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_person:
-  # v1.2
+  # v1.2.1
   template:
     - "ulm_translation_engine"
   variables:
@@ -35,35 +35,33 @@ custom_card_andyblac_person:
       - width: "[[[ return !variables.ulm_card_person_use_entity_picture ? '50%' : '100%'; ]]]"
       - place-self: "[[[ return !variables.ulm_card_person_use_entity_picture ? 'center' : 'stretch stretch'; ]]]"
     name:
-      - position: "absolute"
-      - font-weight: "bold"
-      - font-size: "16px"
-      - margin-top: "5%"
+      - justify-self: "start"
+      - align-self: "end"
+      - margin-top: "4%"
       - margin-left: "33%"
-      - margin-right: "20px"
-      - margin-bottom: "10%"
       - max-width: "65%"
+      - font-size: "16px"
+      - font-weight: "bold"
       - text-overflow: "ellipsis"
       - overflow: "hidden"
     label:
-      - position: "absolute"
-      - font-weight: "bold"
-      - font-size: "15px"
-      - filter: "opacity(40%)"
-      - margin-top: "17%"
+      - justify-self: "start"
+      - align-self: "end"
+      - margin-top: "0%"
       - margin-left: "33%"
-      - margin-right: "20px"
-      - margin-bottom: "7%"
-      - max-width: "60%"
+      - max-width: "65%"
+      - font-size: "15px"
+      - font-weight: "bold"
+      - filter: "opacity(40%)"
       - text-overflow: "ellipsis"
       - overflow: "hidden"
     img_cell:
-      - background-color: "rgba(var(--color-theme),0.05)"
-      - border-radius: "50%"
       - position: "absolute"
       - left: "-6%"
       - top: "18%"
       - width: "35%"
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
     grid:
       - grid-template-areas: "'i n' 'i l'"
       - grid-template-columns: "min-content auto"
@@ -76,22 +74,22 @@ custom_card_andyblac_person:
       badge:
         - border-radius: "50%"
         - position: "absolute"
-        - left: "18%"
-        - top: "5%"
-        - height: "20px"
-        - width: "20px"
-        - border: "2px solid var(--card-background-color)"
+        - top: "0px"
+        - left: "2px"
+        - height: "18px"
+        - width: "18px"
         - font-size: "12px"
         - line-height: "16px"
         - background-color: "[[[ return (entity.state !== 'home') ? 'rgba(var(--color-green),1)' : 'rgba(var(--color-blue),1)'; ]]]"
+        - border: "2px solid var(--card-background-color)"
       battery: &card_andyblac_person_battery_styling
         - border-radius: "50%"
         - position: "absolute"
-        - left: "18%"
-        - bottom: "0%"
-        - width: "15%"
-        - height: "40%"
-        - background-color: var(--card-background-color)
+        - top: "0px"
+        - left: "26px"
+        - height: "22px"
+        - width: "22px"
+        - background-color: "var(--primary-background-color)"
   custom_fields:
     badge: >
       [[[
@@ -138,8 +136,9 @@ card_andyblac_person_battery:
   show_state: false
   styles:
     icon:
-      - width: "80%"
-      - height: "80%"
+      - bottom: "2px"
+      - width: "85%"
+      - height: "85%"
     card:
       - background: "none"
       - box-shadow: "none"
