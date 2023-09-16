@@ -28,7 +28,7 @@ Initial release
 |----------|---------|------------------|-------------------|
 | entity   |         | Yes              | The status entity |
 | name		 | friendly_name | No         | Name of the state sensor |
-| tap_action | Card: more-info | No	    | The action to perform when tapping in card area |
+| tap_action | more-info | No	    | The action to perform when tapping in card area |
 | hold_action |      | No	              | The action to perform when tapping in card area|
 | navigation_path    |                  | Yes | This is required when using 'navigate' for action type |
 | ulm_custom_card_andyblac_status_color_on |  | No | This lets you change the colour of the icon and background, when state is 'on' |
