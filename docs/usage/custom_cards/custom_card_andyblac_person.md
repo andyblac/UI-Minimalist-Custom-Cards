@@ -34,7 +34,8 @@ Initial release
 | ulm_card_person_icon | mdi:face-man | No | Sets the icon to display if entity picture not shown. |
 | ulm_card_person_eta     |         | No | Sensor with ETA info from integrations like: [Waze](https://www.home-assistant.io/integrations/waze_travel_time/), [Google](https://www.home-assistant.io/integrations/google_travel_time/) and [HERE](https://www.home-assistant.io/integrations/here_travel_time/) |
 | ulm_address     |         | No | Show an address as label, add an entity with a geo location |
-| battery     |         | No | Battery sensor a `battery` object (see below) |
+| battery     |   | No | Battery sensor a `battery` object (see below) |
+| entity_id   |   | Yes | Entity ID of the battery sensor, Required when using battery object |
 
 ## Battery entity
 
