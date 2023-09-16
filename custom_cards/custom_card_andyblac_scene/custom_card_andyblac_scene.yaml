@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_scene:
-  # 1.2
+  # 1.3
   template:
     - "ulm_translation_engine"
   variables:
@@ -13,6 +13,21 @@ custom_card_andyblac_scene:
   show_state: true
   state_display: "[[[ return helpers.relativeTime(entity.state); ]]]"
   aspect_ratio: "1/0.35"
+
+  state:
+    - value: "unavailable"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - position: "absolute"
+            - width: "10.5%"
+            - height: "30%"
+            - left: "20%"
+            - top: "3%"
+            - line-height: 0
+            - background-color: "rgba(var(--color-red),1)"
+
   styles:
     name:
       - justify-self: "start"
@@ -69,6 +84,12 @@ custom_card_andyblac_scene:
             variables_tmp['ulm_custom_card_andyblac_scene_color'] = variables.ulm_custom_card_andyblac_scene_color;
             return variables_tmp;
           ]]]
+    notification: >
+      [[[
+        if (entity?.state == 'unavailable'){
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--primary-background-color);"></ha-icon>';
+        }
+      ]]]
 
 custom_card_andyblac_scene_widget:
   tap_action:
