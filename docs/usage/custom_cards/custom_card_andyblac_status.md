@@ -26,15 +26,16 @@ Initial release
 
 | Variable | Default | Required         | Notes             |
 |----------|---------|------------------|-------------------|
-| entity   |         | Yes | The status entity |
-| name		 | friendly_name | No  | Name of the state sensor |
-| icon		 | sensor icon   | No	 | The icon to show |
-| tap_action | Card: more-info | No	 | The action to perform when tapping in card area |
-| tap_action | Icon: navigate  | No  |  The action to perform when tapping on icon |
-| hold_action |    | No	 | The action to perform when tapping in card area|
-| hold_action | Icon: more-info  | No  |  The action to perform when tapping on icon |
-| navigation_path |  | Yes | This is required when using 'navigate' for action type |
-| ulm_custom_card_andyblac_status_color_on |       | No | This lets you change the colour of the icon and background, when state is 'on' |
+| entity   |         | Yes              | The status entity |
+| name		 | friendly_name | No         | Name of the state sensor |
+| tap_action | Card: more-info | No	    | The action to perform when tapping in card area |
+| hold_action |      | No	              | The action to perform when tapping in card area|
+| navigation_path    |                  | Yes | This is required when using 'navigate' for action type |
+| ulm_custom_card_andyblac_status_color_on |  | No | This lets you change the colour of the icon and background, when state is 'on' |
+| button   |         | No               | Use this to add icon actions |
+| icon		 | sensor icon   | No	        | The icon to show |
+| tap_action | Icon: more-info  | No     |  The action to perform when tapping on icon |
+| hold_action | Icon: more-info  | No   |  The action to perform when tapping on icon |
 
 ## Usage
 
@@ -45,12 +46,14 @@ Initial release
   template:
     - custom_card_andyblac_status
   tap_action:  # this is for the card action.
-    action: navigate
-    navigation_path: back-garden
-	variables:
-	  ulm_custom_card_andyblac_status_color_on: blue
-    tap_action:  # this is for the icon action.
-      action: more-info
+    action: more-info
+  variables:
+    ulm_custom_card_andyblac_status_color_on: blue
+    button:
+      icon: mdi:shower
+      tap_action:
+        action: navigate
+        navigation_path: bathroom
 ```
 
 ??? note "Template Code"
