@@ -3,16 +3,19 @@ custom_card_andyblac_room:
   # v2.0 beta5
   template:
     - "ulm_translation_engine"
+
   variables:
     ulm_custom_card_andyblac_room_use_small_label_font: false
     ulm_custom_card_andyblac_room_use_label_icons: false
     ulm_custom_card_andyblac_room_color: "theme"
+
   double_tap_action:
     action: "call-service"
     service: "input_select.select_option"
     service_data:
       option: "[[[ return variables.ulm_input_select_option ]]]"
       entity_id: "[[[ return variables.ulm_input_select ]]]"
+
   color: "var(--google-grey-500)"
   size: "45%"
   aspect_ratio: "1/1"
@@ -129,12 +132,12 @@ custom_card_andyblac_room:
       - filter: "opacity(40%)"
       - margin-left: "6px"
     img_cell:
+      - position: "absolute"
       - border-radius: "50%"
       - width: "75%"
       - height: "75%"
       - max-width: "none"
       - max-height: "none"
-      - position: "absolute"
       - left: "-12.5%"
       - top: "37.5%"
       - background-color: >
