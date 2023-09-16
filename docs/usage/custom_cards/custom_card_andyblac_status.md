@@ -34,8 +34,8 @@ Initial release
 | ulm_custom_card_andyblac_status_color_on |  | No | This lets you change the colour of the icon and background, when state is 'on' |
 | button   |         | No               | Use this to add icon actions |
 | icon		 | entity icon   | No	        | The icon to show |
-| tap_action | Icon: more-info  | No     |  The action to perform when tapping on icon |
-| hold_action | Icon: more-info  | No   |  The action to perform when tapping on icon |
+| tap_action | more-info  | No     |  The action to perform when tapping on icon |
+| hold_action | more-info  | No   |  The action to perform when tapping on icon |
 
 ## Usage
 
