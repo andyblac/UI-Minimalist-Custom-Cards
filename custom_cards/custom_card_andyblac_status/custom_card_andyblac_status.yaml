@@ -104,10 +104,9 @@ custom_card_andyblac_status:
           ]]]
         variables: >
           [[[
-            let variables_tmp = {};
-            if (variables?.button) {
-              let variables_tmp = variables.button;
-            }
+            let variables_tmp1 = variables?.button;
+            let variables_tmp2 = {};
+            var variables_tmp = Object.assign({}, variables_tmp1, variables_tmp2);
             variables_tmp['ulm_custom_card_andyblac_status_color_on'] = variables.ulm_custom_card_andyblac_status_color_on;
             variables_tmp['ulm_active_state'] = variables.ulm_active_state;
             return variables_tmp;
@@ -123,11 +122,10 @@ custom_card_andyblac_status:
 custom_card_andyblac_status_widget:
   variables:
     tap_action:
-      action: "[[[ return entity?.attributes?.navigation ? 'navigate' : 'more-info'; ]]]"
-      navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none'; ]]]"
+      action: "more-info"
+      navigation_path: "[[[ return entity?.attributes?.navigation; ]]]"
     hold_action:
       action: "more-info"
-      entity: "[[[ return entity.entity_id; ]]]"
 
   tap_action:
     action: "[[[ return variables?.tap_action?.action ? variables.tap_action.action : 'none'; ]]]"
@@ -147,7 +145,6 @@ custom_card_andyblac_status_widget:
   show_name: false
   aspect_ratio: "1/1"
   icon: "[[[ return entity?.attributes?.icon ]]]"
-
   state:
     - value: "unavailable"
       styles:
