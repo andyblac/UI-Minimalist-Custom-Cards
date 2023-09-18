@@ -20,14 +20,18 @@ hide:
 <details>
 <summary>1.1.0</summary>
 Initial release
+<summary>1.2.0</summary>
+Add ability to have actions on the icon and the card.
+<summary>1.3.0</summary>
+Fix card info text layout, and add unavailable indicator.
 </details>
 
 ## Variables
 
 | Variable | Default | Required         | Notes             |
 |----------|---------|------------------|-------------------|
-| entity     |         | Yes | The scene entity |
-| ulm_custom_card_andyblac_scene_color |       | No | This lets you change the colour of the icon and background. |
+| entity   |         | Yes              | The scene entity  |
+| ulm_custom_card_andyblac_scene_color |  | No | This lets you change the colour of the icon and background. |
 
 ## Usage
 

@@ -23,25 +23,26 @@ This card shows if a person is `Home` or `Away`. If you have setup other zones, 
 <details>
 <summary>1.2.0</summary>
 Initial release
+<summary>1.2.1</summary>
+Fix card info text layout
 </details>
 
 ## Variables
 
 | Variable | Default | Required         | Notes             |
 |----------|---------|------------------|-------------------|
-| entity     |         | Yes | The person entity |
-| ulm_card_person_use_entity_picture |       | No | If you set this to true, the card shows the entity picture from your user, otherwise (set to false) shows the icon. Default is false. |
+| entity   |         | Yes | The person entity |
+| ulm_card_person_use_entity_picture |  | No | If you set this to true, the card shows the entity picture from your user, otherwise (set to false) shows the icon. Default is false. |
 | ulm_card_person_icon | mdi:face-man | No | Sets the icon to display if entity picture not shown. |
-| ulm_card_person_eta     |         | No | Sensor with ETA info from integrations like: [Waze](https://www.home-assistant.io/integrations/waze_travel_time/), [Google](https://www.home-assistant.io/integrations/google_travel_time/) and [HERE](https://www.home-assistant.io/integrations/here_travel_time/) |
-| ulm_address     |         | No | Show an address as label, add an entity with a geo location |
-| battery     |   | No | Battery sensor a `battery` object (see below) |
-| entity_id   |   | Yes | Entity ID of the battery sensor, Required when using battery object |
+| ulm_card_person_eta  |         | No | Sensor with ETA info from integrations like: [Waze](https://www.home-assistant.io/integrations/waze_travel_time/), [Google](https://www.home-assistant.io/integrations/google_travel_time/) and [HERE](https://www.home-assistant.io/integrations/here_travel_time/) |
+| ulm_address |   | No | Show an address as label, add an entity with a geo location |
+| battery     |   | No | Battery object (see below) |
 
-## Battery entity
+## Battery object
 
-| Variable                               | Default         | Required         | Notes          | Requirement |
-|----------------------------------------|-----------------|------------------|----------------|-------------|
-| entity_id                              |                 | Yes | The entity_id of the status icon | |
+| Variable    | Default         | Required  | Notes          | 
+|-------------|-----------------|-----------|----------------|
+| entity_id   |                 | Yes       | The entity_id of the battery icon, Required when using battery object |
 
 ## Usage
 
