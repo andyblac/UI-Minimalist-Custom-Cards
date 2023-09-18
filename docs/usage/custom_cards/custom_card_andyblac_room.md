@@ -87,7 +87,7 @@ If you want to tweak this card a little bit more, below are some examples. The f
 | tap_action                             | navigate        | No | Define the type of action on click, if undefined, toggle will be used.</br>See [Action](https://github.com/custom-cards/button-card#Action)| |
 | hold_action                            |                 | No | Define the type of action on hold, if undefined, nothing happens</br> See [Action](https://github.com/custom-cards/button-card#Action)| |
 | label                                  |                 | No | Change the label text | |
-| title                                  |                 | No | Change the title text | |
+| name                                   |                 | No | Change the title text | |
 
 ## Usage
 
