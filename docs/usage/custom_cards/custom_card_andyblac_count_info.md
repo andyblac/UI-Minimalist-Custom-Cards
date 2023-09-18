@@ -55,5 +55,5 @@ Initial release
 ??? note "Template Code"
 
     ```yaml title="custom_card_andyblac_count_info.yaml"
-    --8<-- "custom_cards/custom_card_andyblac_scenes/custom_card_andyblac_count_info.yaml"
+    --8<-- "custom_cards/custom_card_andyblac_count_info/custom_card_andyblac_count_info.yaml"
     ```

@@ -32,7 +32,7 @@ Initial release
 |----------------------------------------------------|-----------------|-------------|----------------|-------------|
 | ulm_custom_card_andyblac_room_use_small_label_font | `false`         | No          | My card uses slightly larger fonts than the original card, to use use the orignal card font size set this to `true` |
 | ulm_custom_card_andyblac_room_use_label_icons      | `false`         | No          | This option lets you see an icon next to the text of the sensor_label information (🌡️ / 💧 / 🔆 )
-| ulm_custom_card_andyblac_room_color                | `theme`         | No          | This lets you set the room room colour</br>You can use any colour in your theme that uses the following naming structure `color-red: "241, 139, 130"` or `color-yellow: "252, 214, 99"`</br>So for example `color-background-purple: "var(--color-purple)"` in your theme, you would ignore the thext `color-` and just set `background-purple`
+| ulm_custom_card_andyblac_room_color                | `theme`         | No          | This lets you set the room colour.</br>You can use any colour in your theme that uses the following naming structure `color-red: "241, 139, 130"` or `color-yellow: "252, 214, 99"`</br>So for example `color-background-purple: "var(--color-purple)"` in your theme, you would ignore the text `color-` and just set `background-purple`
 | sensor_label_1                                     |                 | No          | The enitiy_id of a sensor you wish to display the state of |  |
 | sensor_label_2                                     |                 | No          | The enitiy_id of a sensor you wish to display the state of |  |
 | sensor_label_3                                     |                 | No          | The enitiy_id of a sensor you wish to display the state of |  |
@@ -57,7 +57,7 @@ Initial release
 | tap_action                             |                 | No          | tap_action for the icon (see button card documentation for options) |  |
 | hold_action                            |                 | No          | hold_action for the icon (see button card documentation for options) |  |
 
-## Sensor entity
+## Sensor object
 
 | Variable                               | Default         | Required    | Notes          | Requirement |
 |----------------------------------------|-----------------|-------------|----------------|-------------|
@@ -119,5 +119,5 @@ If you want to tweak this card a little bit more, below are some examples. The f
 ??? note "Template Code"
 
     ```yaml title="card_room.yaml"
-    --8<-- "custom_components/ui_lovelace_minimalist/lovelace/ulm_templates/card_templates/cards/card_room.yaml"
+    --8<-- "custom_cards/custom_card_andyblac_room/custom_card_andyblac_room.yaml"
     ```
