@@ -7,8 +7,8 @@ hide:
 
 ## Description
 
-![example-image-light](../../assets/img/custom_card_andyblac_status/custom_card_andyblac_room_light.png)
-![example-image-dark](../../assets/img/custom_card_andyblac_status/custom_card_andyblac_room_dark.png)
+![example-image-light](../../assets/img/custom_card_andyblac_room/custom_card_andyblac_room_light.png)
+![example-image-dark](../../assets/img/custom_card_andyblac_room/custom_card_andyblac_room_dark.png)
 
 This is the `room-card`, used to show the state of single room in a quick glance.
 The card has support for up to 4 subicons at the right side of the card, and 6 sensor subicons going around the inside of the room icon. These can be configured using custom colors and tap actions.
