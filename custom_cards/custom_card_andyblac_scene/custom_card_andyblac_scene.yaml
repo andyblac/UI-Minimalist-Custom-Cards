@@ -1,60 +1,121 @@
 ---
 custom_card_andyblac_scene:
-  # 1.1
+  # 1.3
   template:
     - "ulm_translation_engine"
   variables:
-    ulm_card_scene_color: "theme"
+    ulm_custom_card_andyblac_scene_color: "theme"
   tap_action:
-    action: "call-service"
-    service: "scene.turn_on"
-    service_data:
-      entity_id: "[[[ return entity.entity_id ]]]"
+    action: "more-info"
+  show_icon: false
   show_name: true
   show_label: false
   show_state: true
   state_display: "[[[ return helpers.relativeTime(entity.state); ]]]"
   aspect_ratio: "1/0.35"
+
+  state:
+    - value: "unavailable"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - position: "absolute"
+            - width: "10.5%"
+            - height: "30%"
+            - left: "20%"
+            - top: "3%"
+            - line-height: 0
+            - background-color: "rgba(var(--color-red),1)"
+
   styles:
-    icon:
-      - color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_scene_color+'),0.9)'; ]]]"
-      - width: "50%"
-      - place-self: "stretch:stretch"
     name:
-      - position: "absolute"
+      - justify-self: "start"
+      - align-self: "end"
       - font-weight: "bold"
       - font-size: "16px"
-      - margin-top: "5%"
       - margin-left: "33%"
-      - margin-right: "20px"
-      - margin-bottom: "10%"
+      - margin-top: "4%"
       - max-width: "65%"
       - text-overflow: "ellipsis"
       - overflow: "hidden"
     state:
-      - position: "absolute"
+      - justify-self: "start"
+      - align-self: "end"
       - font-weight: "bold"
-      - font-size: "15px"
       - filter: "opacity(40%)"
-      - margin-top: "17%"
+      - font-size: "15px"
       - margin-left: "33%"
-      - margin-right: "20px"
-      - margin-bottom: "7%"
+      - margin-top: "0%"
       - max-width: "65%"
       - text-overflow: "ellipsis"
       - overflow: "hidden"
-    img_cell:
-      - background-color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_scene_color+'),0.2)'; ]]]"
-      - border-radius: "50%"
-      - position: "absolute"
-      - left: "-6%"
-      - top: "18%"
-      - width: "35%"
     grid:
-      - grid-template-areas: "'i n' 'i l'"
+      - grid-template-areas: "'i n' 'i s'"
       - grid-template-columns: "min-content auto"
       - grid-template-rows: "min-content min-content"
     card:
       - border-radius: "15px"
       - box-shadow: "var(--box-shadow)"
       - padding: "5px"
+    custom_fields:
+      icon: &custom_card_andyblac_scene_widget_styling
+        - position: "absolute"
+        - left: "-6%"
+        - top: "18%"
+        - width: "35%"
+
+  custom_fields:
+    icon:
+      card:
+        type: "custom:button-card"
+        entity: "[[[ return entity.entity_id; ]]]"
+        template: >
+          [[[
+            let templates = [ 'custom_card_andyblac_scene_widget' ];
+            if (variables?.scene?.templates?.length) {
+              templates.push(...variables.scene.templates);
+            }
+            return templates;
+          ]]]
+        variables: >
+          [[[
+            let variables_tmp = {};
+            variables_tmp['ulm_custom_card_andyblac_scene_color'] = variables.ulm_custom_card_andyblac_scene_color;
+            return variables_tmp;
+          ]]]
+    notification: >
+      [[[
+        if (entity?.state == 'unavailable'){
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--primary-background-color);"></ha-icon>';
+        }
+      ]]]
+
+custom_card_andyblac_scene_widget:
+  tap_action:
+    action: "call-service"
+    service: "scene.turn_on"
+    service_data:
+      entity_id: "[[[ return entity.entity_id ]]]"
+  size: "15px"
+  show_icon: true
+  show_name: false
+  show_state: false
+  aspect_ratio: "1/1"
+  styles:
+    icon:
+      - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_scene_color+'),0.9)'; ]]]"
+      - width: "50%"
+      - place-self: "stretch:stretch"
+    img_cell:
+      - position: "absolute"
+      - width: "100%"
+      - height: "100%"
+      - border-radius: "50%"
+      - background-color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_scene_color+'),0.2)'; ]]]"
+    card:
+      - height: "100%"
+      - background: "none"
+      - box-shadow: "none"
+      - padding: "0px"
+      - border-radius: "50%"

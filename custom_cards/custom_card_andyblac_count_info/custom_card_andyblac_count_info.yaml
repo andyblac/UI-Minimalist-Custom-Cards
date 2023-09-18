@@ -1,11 +1,12 @@
 ---
-custom_card_andyblac_status_icon_only:
-  # v1.1
+custom_card_andyblac_count_info:
+  # v1.2.1
   template:
     - "ulm_translation_engine"
   variables:
+    ulm_custom_card_andyblac_count_info_badge_bg: true
     tap_action:
-      action: "navigate"
+      action: "[[[ return entity?.attributes?.navigation ? 'navigate' : 'more-info'; ]]]"
       navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none'; ]]]"
     hold_action:
       action: "more-info"
@@ -44,7 +45,6 @@ custom_card_andyblac_status_icon_only:
     service: "[[[ return variables.hold_action.service; ]]]"
     service_data: "[[[ return variables.hold_action.service_data; ]]]"
 
-
   state:
     - value: "unavailable"
       styles:
@@ -59,43 +59,42 @@ custom_card_andyblac_status_icon_only:
             - background-color: "rgba(var(--color-red),1)"
     - styles:
         label:
-          - color: "[[[ return variables.ulm_card_status_color ? 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)' : 'rgba(var(--color-theme),0.7)'; ]]]"
+          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_count_info_color_on+'),1)'; ]]]"
           - background-color: >
-              [[[ 
-                if (variables.ulm_card_status_badge_bg) {
-                  return variables.ulm_card_status_color ? 'rgba(var(--color-'+variables.ulm_card_status_color+'),0.2)' : 'rgba(var(--color-theme),0.2)'; 
+              [[[
+                if (variables.ulm_custom_card_andyblac_count_info_badge_bg) {
+                  return variables.ulm_custom_card_andyblac_count_info_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_count_info_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)';
                 } else {
-                  return variables.ulm_card_status_color ? 'rgba(var(--color-'+variables.ulm_card_status_color+'),0.0)' : 'rgba(var(--color-theme),0.0)'; 
+                  return 'none';
                 }
               ]]]
         icon:
-          - color: "[[[ return variables.ulm_card_status_color ? 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)' : 'rgba(var(--color-theme),0.7)'; ]]]"
+          - color: "[[[ return variables.ulm_custom_card_andyblac_count_info_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_count_info_color_on+'),1)' : 'rgba(var(--color-theme),0.7)'; ]]]"
         img_cell:
-          - background-color: "[[[ return variables.ulm_card_status_color ? 'rgba(var(--color-'+variables.ulm_card_status_color+'),0.2)' : 'rgba(var(--color-theme),0.2)'; ]]]"
+          - background-color: "[[[ return variables.ulm_custom_card_andyblac_count_info_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_count_info_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)'; ]]]"
       id: "on"
       value: "[[[ return variables.ulm_active_state ]]]"
 
   styles:
     label:
-      - font-weight: "bold"
-      - font-size: "90%"
-      - border-radius: "[[[ return variables.ulm_card_status_badge_bg ? '50%' : '0%'; ]]]"
       - position: "absolute"
-      - right: "6%"
-      - top: "[[[ return variables.ulm_card_status_badge_bg ? '2%' : '0%'; ]]]"
-      - height: "30%"
-      - width: "30%"
-      - line-height: "24px"
-      - color: "rgba(var(--color-theme),0.2)"
-      - background-color: "rgba(var(--color-theme),0)"
+      - top: "3px"
+      - right: "3px"
+      - height: "20px"
+      - width: "20px"
+      - font-weight: "bold"
+      - font-size: "16px"
+      - color: "rgba(var(--color-theme),0.4)"
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
     icon:
       - color: "rgba(var(--color-theme),0.2)"
     img_cell:
-      - background-color: "rgba(var(--color-theme),0.05)"
-      - border-radius: "50%"
       - position: "absolute"
       - left: "-18%"
       - top: "18%"
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
     card:
       - border-radius: "15px"
       - box-shadow: "var(--box-shadow)"

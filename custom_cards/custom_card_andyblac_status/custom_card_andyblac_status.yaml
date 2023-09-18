@@ -1,10 +1,11 @@
 ---
 custom_card_andyblac_status:
-  # v1.1
+  # v1.3
   template:
     - "ulm_translation_engine"
+
   variables:
-    ulm_card_status_color: "[[[ return entity?.attributes?.color ? entity?.attributes?.color : 'theme' ]]]"
+    ulm_custom_card_andyblac_status_color_on: "[[[ return entity?.attributes?.color ]]]"
     ulm_active_state: >
       [[[
         let not_active = ['0','disarmed','off','closed','not_home','standby','idle','docked','unknown','unavailable','paused']
@@ -19,20 +20,16 @@ custom_card_andyblac_status:
         }
       ]]]
 
+  tap_action:
+    action: "more-info"
+
   size: "45%"
   aspect_ratio: "1/0.35"
   show_name: true
-  show_label: true
-  show_icon: true
-  icon: "[[[ return entity?.attributes?.icon ? entity?.attributes?.icon : 'mdi:information']]]"
-  label: "[[[ return entity?.attributes?.label ? entity?.attributes?.label : entity?.state ]]]"
-
-  tap_action:
-    action: "navigate"
-    navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none' ]]]"
-  hold_action:
-    action: "more-info"
-    entity: "[[[ return entity.entity_id; ]]]"
+  show_label: false
+  show_icon: false
+  show_state: true
+  state_display: "[[[ return entity?.attributes?.label ]]]"
 
   state:
     - value: "unavailable"
@@ -49,62 +46,154 @@ custom_card_andyblac_status:
             - background-color: "rgba(var(--color-red),1)"
     - styles:
         name:
-          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)'; ]]]"
-        label:
-          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)'; ]]]"
-        icon:
-          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),1)'; ]]]"
-        img_cell:
-          - background-color: "[[[ return 'rgba(var(--color-'+variables.ulm_card_status_color+'),0.2)'; ]]]"
+          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)'; ]]]"
+        state:
+          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)'; ]]]"
       id: "on"
       value: "[[[ return variables.ulm_active_state ]]]"
+
   styles:
-    icon:
-      - color: "rgba(var(--color-theme),0.2)"
     name:
-      - position: "absolute"
-      - font-weight: "bold"
-      - font-size: "18px"
-      - margin-top: "4%"
-      - margin-left: "33%"
-      - margin-right: "20px"
-      - margin-bottom: "10%"
-      - max-width: "65%"
-      - text-overflow: "ellipsis"
-      - overflow: "hidden"
-    label:
-      - position: "absolute"
+      - justify-self: "start"
+      - align-self: "end"
       - font-weight: "bold"
       - font-size: "16px"
-      - filter: "opacity(40%)"
-      - margin-top: "17%"
       - margin-left: "33%"
-      - margin-right: "20px"
-      - margin-bottom: "7%"
+      - margin-top: "4%"
       - max-width: "65%"
       - text-overflow: "ellipsis"
       - overflow: "hidden"
-    img_cell:
-      - background-color: "rgba(var(--color-theme),0.05)"
-      - border-radius: "50%"
-      - position: "absolute"
-      - width: "35%"
-      - height: "100%"
-      - left: "-6%"
-      - top: "16%"
+    state:
+      - justify-self: "start"
+      - align-self: "end"
+      - font-weight: "bold"
+      - filter: "opacity(40%)"
+      - font-size: "15px"
+      - margin-left: "33%"
+      - margin-top: "0%"
+      - max-width: "65%"
+      - text-overflow: "ellipsis"
+      - overflow: "hidden"
     grid:
-      - grid-template-areas: "'i n' 'i l'"
+      - grid-template-areas: "'i n' 'i s'"
       - grid-template-columns: "min-content auto"
       - grid-template-rows: "min-content min-content"
     card:
       - border-radius: "15px"
       - box-shadow: "var(--box-shadow)"
       - padding: "5px"
+    custom_fields:
+      icon: &custom_card_andyblac_status_widget_styling
+        - position: "absolute"
+        - left: "-6%"
+        - top: "18%"
+        - width: "35%"
 
   custom_fields:
+    icon:
+      card:
+        type: "custom:button-card"
+        icon: "[[[ return variables?.button?.icon ]]]"
+        template: >
+          [[[
+            let templates = [ 'custom_card_andyblac_status_widget' ];
+            if (variables?.button?.templates?.length) {
+              templates.push(...variables.button.templates);
+            }
+            return templates;
+          ]]]
+        variables: >
+          [[[
+            let variables_tmp1 = variables?.button;
+            let variables_tmp2 = {};
+            var variables_tmp = Object.assign({}, variables_tmp1, variables_tmp2);
+            variables_tmp['ulm_custom_card_andyblac_status_color_on'] = variables.ulm_custom_card_andyblac_status_color_on;
+            variables_tmp['ulm_active_state'] = variables.ulm_active_state;
+            return variables_tmp;
+          ]]]
+        entity: "[[[ return variables.button?.entity_id ? variables.button?.entity_id : entity.entity_id; ]]]"
     notification: >
       [[[
         if (entity?.state == 'unavailable'){
           return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--primary-background-color);"></ha-icon>';
         }
       ]]]
+
+custom_card_andyblac_status_widget:
+  variables:
+    tap_action:
+      action: "more-info"
+      navigation_path: "[[[ return entity?.attributes?.navigation; ]]]"
+    hold_action:
+      action: "more-info"
+
+  tap_action:
+    action: "[[[ return variables?.tap_action?.action ? variables.tap_action.action : 'none'; ]]]"
+    navigation_path: "[[[ return variables.tap_action.navigation_path; ]]]"
+    url_path: "[[[ return variables.tap_action.url_path; ]]]"
+    service: "[[[ return variables.tap_action.service; ]]]"
+    service_data: "[[[ return variables.tap_action.service_data; ]]]"
+  hold_action:
+    action: "[[[ return variables?.hold_action?.action ? variables.hold_action.action : 'none'; ]]]"
+    navigation_path: "[[[ return variables.hold_action.navigation_path; ]]]"
+    url_path: "[[[ return variables.hold_action.url_path; ]]]"
+    service: "[[[ return variables.hold_action.service; ]]]"
+    service_data: "[[[ return variables.hold_action.service_data; ]]]"
+
+  size: "15px"
+  show_icon: true
+  show_name: false
+  aspect_ratio: "1/1"
+  icon: "[[[ return entity?.attributes?.icon ]]]"
+  state:
+    - value: "unavailable"
+      styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - position: "absolute"
+            - width: "10.5%"
+            - height: "30%"
+            - left: "20%"
+            - top: "3%"
+            - line-height: 0
+            - background-color: "rgba(var(--color-red),1)"
+    - styles:
+        icon:
+          - color: >
+              [[[
+                if (variables.ulm_custom_card_andyblac_status_color_on == 'theme') {
+                  return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),0.7)';
+                } else {
+                  return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)';
+                }
+              ]]]
+        img_cell:
+          - background-color: >
+              [[[
+                if (variables.ulm_custom_card_andyblac_status_color_on == 'theme') {
+                  return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),0.15)';
+                } else {
+                  return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),0.2)';
+                }
+              ]]]
+      id: "on"
+      value: "[[[ return variables.ulm_active_state ]]]"
+
+  styles:
+    icon:
+      - color: "rgba(var(--color-theme),0.2)"
+      - width: "50%"
+      - place-self: "stretch:stretch"
+    img_cell:
+      - position: "absolute"
+      - width: "100%"
+      - height: "100%"
+      - border-radius: "50%"
+      - background-color: "rgba(var(--color-theme),0.05)"
+    card:
+      - height: "100%"
+      - background: "none"
+      - box-shadow: "none"
+      - padding: "0px"
+      - border-radius: "50%"

@@ -10,6 +10,8 @@ hide:
 ![example-image-light](../../assets/img/custom_card_andyblac_scene/custom_card_andyblac_scene_light.png)
 ![example-image-dark](../../assets/img/custom_card_andyblac_scene/custom_card_andyblac_scene_dark.png)
 
+This card let you activate a scene by tapping on the icon, it also gives last activated information.
+
 ## Credits
 
 - Authors:
@@ -21,13 +23,21 @@ hide:
 <summary>1.1.0</summary>
 Initial release
 </details>
+<details>
+<summary>1.2.0</summary>
+Add ability to have actions on the icon and the card.
+</details>
+<details>
+<summary>1.3.0</summary>
+Fix card info text layout, and add unavailable indicator.
+</details>
 
 ## Variables
 
 | Variable | Default | Required         | Notes             |
 |----------|---------|------------------|-------------------|
-| entity     |         | Yes | The scene entity |
-| ulm_card_scene_color |       | No | This lets you change the colour if the icon and background. |
+| entity   |         | Yes              | The scene entity  |
+| ulm_custom_card_andyblac_scene_color |  | No | This lets you change the colour of the icon and background. |
 
 ## Usage
 
