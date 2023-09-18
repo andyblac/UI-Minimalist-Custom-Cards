@@ -29,7 +29,7 @@ Initial release
 | entity   |         | Yes              | The sensor entity |
 | label    | state   | No          | Shows the state of the sensor, you can also use code here |
 | tap_action | more-info | No	    | The action to perform when tapping |
-| hold_action |      | No	              | The action to perform when tapping |
+| hold_action |      | No	              | The action to perform when holding |
 | ulm_custom_card_andyblac_count_info_color_on |  | No | This lets you change the colour of the icon and background, when state is 'on' |
 | ulm_custom_card_andyblac_count_info_badge_bg | true | No | This lets you show / hide the badge background |
 
