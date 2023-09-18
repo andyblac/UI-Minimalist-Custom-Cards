@@ -34,9 +34,9 @@ Initial release
 
 | Variable    | Default         | Required  | Notes          | 
 |-------------|-----------------|-----------|----------------|
-| icon		    | entity icon     | No	      | The icon to show |
-| tap_action  | more-info       | No        | Define the type of action on click, if undefined, toggle will be used.</br>See [Action](https://github.com/custom-cards/button-card#Action)| |
-| hold_action | more-info       | No        | Define the type of action on hold, if undefined, nothing happens</br> See [Action](https://github.com/custom-cards/button-card#Action)| |
+| icon		    |                 | No	      | The icon to show, Defaults to the entity icon |
+| tap_action  | `more-info`     | No        | Define the type of action on click, if undefined, toggle will be used.</br>See [Action](https://github.com/custom-cards/button-card#Action)| |
+| hold_action | `more-info`     | No        | Define the type of action on hold, if undefined, nothing happens</br> See [Action](https://github.com/custom-cards/button-card#Action)| |
 
 ## Default card options
 
