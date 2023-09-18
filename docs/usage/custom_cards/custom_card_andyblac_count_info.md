@@ -24,14 +24,21 @@ Initial release
 
 ## Variables
 
-| Variable | Default | Required         | Notes             |
-|----------|---------|------------------|-------------------|
-| entity   |         | Yes              | The sensor entity |
-| label    | state   | No          | Shows the state of the sensor, you can also use code here |
-| tap_action | more-info | No	    | The action to perform when tapping |
-| hold_action |      | No	              | The action to perform when holding |
-| ulm_custom_card_andyblac_count_info_color_on |  | No | This lets you change the colour of the icon and background, when state is 'on' |
-| ulm_custom_card_andyblac_count_info_badge_bg | true | No | This lets you show / hide the badge background |
+| Variable                                     | Default | Required    | Notes             |
+|----------------------------------------------|---------|-------------|-------------------|
+| entity                                       |         | Yes         | The sensor entity |
+| ulm_custom_card_andyblac_count_info_color_on |         | No          | This lets you change the colour of the icon and background, when state is 'on' |
+| ulm_custom_card_andyblac_count_info_badge_bg | `true`  | No          | This lets you show / hide the badge background |
+
+## Default card options
+
+| Options                                | Default         | Required    | Notes          | Requirement |
+|----------------------------------------|-----------------|-------------|----------------|-------------|
+| entity                                 |                 | No          | The entity_id for the card | |
+| icon                                   | `entity icon`   | No          | Icon to display. Defaults to the entity icon | |
+| tap_action                             | `more-info`     | No          | Define the type of action on click, if undefined, toggle will be used.</br>See [Action](https://github.com/custom-cards/button-card#Action)| |
+| hold_action                            |                 | No          | Define the type of action on hold, if undefined, nothing happens</br> See [Action](https://github.com/custom-cards/button-card#Action)| |
+| label                                  | `state`         | No          | Shows the state of the sensor, you can also use code here |
 
 ## Usage
 

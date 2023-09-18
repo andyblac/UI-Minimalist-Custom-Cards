@@ -10,6 +10,8 @@ hide:
 ![example-image-light](../../assets/img/custom_card_andyblac_scene/custom_card_andyblac_scene_light.png)
 ![example-image-dark](../../assets/img/custom_card_andyblac_scene/custom_card_andyblac_scene_dark.png)
 
+This card let you activate a scene by tapping on the icon, it also givea last activated information.
+
 ## Credits
 
 - Authors:
