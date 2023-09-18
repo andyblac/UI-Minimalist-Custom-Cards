@@ -22,8 +22,12 @@ This card let you activate a scene by tapping on the icon, it also gives last ac
 <details>
 <summary>1.1.0</summary>
 Initial release
+</details>
+<details>
 <summary>1.2.0</summary>
 Add ability to have actions on the icon and the card.
+</details>
+<details>
 <summary>1.3.0</summary>
 Fix card info text layout, and add unavailable indicator.
 </details>

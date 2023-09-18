@@ -23,6 +23,8 @@ This card shows if a person is `Home` or `Away`. If you have setup other zones, 
 <details>
 <summary>1.2.0</summary>
 Initial release
+</details>
+<details>
 <summary>1.2.1</summary>
 Fix card info text layout
 </details>
