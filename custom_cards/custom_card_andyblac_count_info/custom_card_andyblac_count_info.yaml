@@ -4,6 +4,7 @@ custom_card_andyblac_count_info:
   template:
     - "ulm_translation_engine"
   variables:
+    ulm_custom_card_andyblac_count_info_badge_bg: true
     tap_action:
       action: "[[[ return entity?.attributes?.navigation ? 'navigate' : 'more-info'; ]]]"
       navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none'; ]]]"
@@ -59,7 +60,14 @@ custom_card_andyblac_count_info:
     - styles:
         label:
           - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_count_info_color_on+'),1)'; ]]]"
-          - background-color: "[[[ return !variables.ulm_card_status_badge_bg ? 'none' : (variables.ulm_custom_card_andyblac_count_info_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_count_info_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)'); ]]]"
+          - background-color: >
+              [[[
+                if (variables.ulm_custom_card_andyblac_count_info_badge_bg) {
+                  return variables.ulm_custom_card_andyblac_count_info_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_count_info_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)';
+                } else {
+                  return 'none';
+                }
+              ]]]
         icon:
           - color: "[[[ return variables.ulm_custom_card_andyblac_count_info_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_count_info_color_on+'),1)' : 'rgba(var(--color-theme),0.7)'; ]]]"
         img_cell:
@@ -78,7 +86,7 @@ custom_card_andyblac_count_info:
       - font-size: "16px"
       - color: "rgba(var(--color-theme),0.4)"
       - background-color: "rgba(var(--color-theme),0.05)"
-      - border-radius: "[[[ return variables.ulm_card_status_badge_bg ? '50%' : '0%'; ]]]"
+      - border-radius: "50%"
     icon:
       - color: "rgba(var(--color-theme),0.2)"
     img_cell:
