@@ -7,7 +7,8 @@ hide:
 
 ## Description
 
-![example-image-light](../../assets/img/custom_popup_andyblac/custom_popup_andyblac_light.png)![example-image-dark](../../assets/img/custom_popup_andyblac/custom_popup_andyblac_dark.png)
+![example-image-light](../../assets/img/custom_popup_andyblac/custom_popup_andyblac_light.png)
+![example-image-dark](../../assets/img/custom_popup_andyblac/custom_popup_andyblac_dark.png)
 
 ## Credits
 
