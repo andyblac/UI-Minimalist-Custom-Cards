@@ -1,0 +1,37 @@
+custom_popup_andyblac_tap:
+  tap_action:
+    action: "fire-dom-event"
+    browser_mod:
+      service: "browser_mod.popup"
+      data:
+        title: "[[[ return variables.popup_title ? variables.popup_title : ' '; ]]]"
+        size: >
+          [[[
+            const mediaQuery = window.matchMedia("(max-width: 800px)")
+            if (mediaQuery.matches) {
+              return "fullscreen";
+            }
+          ]]]
+        style: >
+          --popup-padding-x: 0px;
+          --popup-padding-y: 0px;
+        content: "[[[ return variables.popup_content; ]]]"
+
+custom_popup_andyblac_hold:
+  hold_action:
+    action: "fire-dom-event"
+    browser_mod:
+      service: "browser_mod.popup"
+      data:
+        title: "[[[ return variables.popup_title ? variables.popup_title : ' '; ]]]"
+        size: >
+          [[[
+            const mediaQuery = window.matchMedia("(max-width: 800px)")
+            if (mediaQuery.matches) {
+              return "fullscreen";
+            }
+          ]]]
+        style: >
+          --popup-padding-x: 0px;
+          --popup-padding-y: 0px;
+        content: "[[[ return variables.popup_content; ]]]"
