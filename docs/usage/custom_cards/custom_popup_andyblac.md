@@ -83,8 +83,8 @@ cards:
 ```
 
 Then it needs to be inserted into the `popup_content` variable, and add the template to your card, like this. 
-</br> Here we will use `custom_popup_andyblac_tap`
-Example 1: Status card button
+</br>Here we will use `custom_popup_andyblac_tap`
+</br>Example 1: Status card button
 ```yaml
 - type: custom:button-card
   entity: sensor.security_state
