@@ -22,6 +22,7 @@ custom_card_andyblac_status:
 
   tap_action:
     action: "more-info"
+    navigation_path: "[[[ return entity?.attributes?.navigation; ]]]"
 
   size: "45%"
   aspect_ratio: "1/0.35"
