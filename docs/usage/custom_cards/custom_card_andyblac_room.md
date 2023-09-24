@@ -25,6 +25,10 @@ The card has support for up to 4 subicons at the right side of the card, and 6 s
 <summary>2.0</summary>
 Initial release
 </details>
+<details>
+<summary>2.0.1</summary>
+Rename variable 'ulm_custom_card_room_use_light_color' to 'ulm_custom_card_andyblac_room_use_light_color'
+</details>
 
 ## Room Variables
 
