@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_room:
-  # v2.0
+  # v2.0.1
   template:
     - "ulm_translation_engine"
 
