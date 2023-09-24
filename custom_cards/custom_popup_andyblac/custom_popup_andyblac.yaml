@@ -5,10 +5,10 @@ custom_popup_andyblac_tap:
       service: "browser_mod.popup"
       data:
         title: "[[[ return variables.popup_title ? variables.popup_title : ' '; ]]]"
+        content: "[[[ return variables.popup_content; ]]]"
         style: >
           --popup-padding-x: 0px;
           --popup-padding-y: 0px;
-        content: "[[[ return variables.popup_content; ]]]"
 
 custom_popup_andyblac_hold:
   hold_action:
@@ -17,7 +17,7 @@ custom_popup_andyblac_hold:
       service: "browser_mod.popup"
       data:
         title: "[[[ return variables.popup_title ? variables.popup_title : ' '; ]]]"
+        content: "[[[ return variables.popup_content; ]]]"
         style: >
           --popup-padding-x: 0px;
           --popup-padding-y: 0px;
-        content: "[[[ return variables.popup_content; ]]]"
