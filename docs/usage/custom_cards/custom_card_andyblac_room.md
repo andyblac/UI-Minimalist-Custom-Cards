@@ -61,7 +61,7 @@ Initial release
 
 | Variable                                        | Default         | Required    | Notes          | Requirement |
 |-------------------------------------------------|-----------------|-------------|----------------|-------------|
-| ulm_card_room_use_light_color                   |                 | No          | This will set the colour of the icon to what colour the light is currently |
+| ulm_custom_card_andyblac_room_use_light_color   |                 | No          | This will set the colour of the icon to what colour the light is currently |
 | ulm_custom_card_andyblac_room_icon_color_on     |                 | No          | Allows you to change the color of the enity color of state is `on` |
 
 ## Sensor object
