@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_status:
-  # v1.3
+  # v1.3.1
   template:
     - "ulm_translation_engine"
 
@@ -22,6 +22,7 @@ custom_card_andyblac_status:
 
   tap_action:
     action: "more-info"
+    navigation_path: "[[[ return entity?.attributes?.navigation; ]]]"
 
   size: "45%"
   aspect_ratio: "1/0.35"
@@ -126,6 +127,7 @@ custom_card_andyblac_status_widget:
       navigation_path: "[[[ return entity?.attributes?.navigation; ]]]"
     hold_action:
       action: "more-info"
+      navigation_path: "[[[ return entity?.attributes?.navigation; ]]]"
 
   tap_action:
     action: "[[[ return variables?.tap_action?.action ? variables.tap_action.action : 'none'; ]]]"

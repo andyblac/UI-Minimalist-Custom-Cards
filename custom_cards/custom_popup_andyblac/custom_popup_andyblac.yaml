@@ -1,0 +1,39 @@
+custom_popup_andyblac_tap:
+  tap_action:
+    action: "fire-dom-event"
+    browser_mod:
+      service: "browser_mod.popup"
+      data:
+        title: "[[[ return variables.popup_title ? variables.popup_title : ' '; ]]]"
+        content: "[[[ return variables.popup_content; ]]]"
+        style: >
+          --popup-padding-x: 0px;
+          --popup-padding-y: 0px;
+        card_mod:
+          style:
+            ha-dialog$: |
+              div.mdc-dialog__scrim {
+                backdrop-filter: blur(4px) !important;
+                -webkit-backdrop-filter: blur(5px) !important;
+                background-color: rgba(0,0,0,0.1) !important;
+              }
+
+custom_popup_andyblac_hold:
+  hold_action:
+    action: "fire-dom-event"
+    browser_mod:
+      service: "browser_mod.popup"
+      data:
+        title: "[[[ return variables.popup_title ? variables.popup_title : ' '; ]]]"
+        content: "[[[ return variables.popup_content; ]]]"
+        style: >
+          --popup-padding-x: 0px;
+          --popup-padding-y: 0px;
+        card_mod:
+          style:
+            ha-dialog$: |
+              div.mdc-dialog__scrim {
+                backdrop-filter: blur(4px) !important;
+                -webkit-backdrop-filter: blur(5px) !important;
+                background-color: rgba(0,0,0,0.1) !important;
+              }

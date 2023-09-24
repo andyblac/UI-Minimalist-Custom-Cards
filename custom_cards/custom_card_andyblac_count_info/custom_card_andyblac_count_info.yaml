@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_count_info:
-  # v1.2.1
+  # v1.2.2
   template:
     - "ulm_translation_engine"
   variables:
@@ -10,7 +10,7 @@ custom_card_andyblac_count_info:
       navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none'; ]]]"
     hold_action:
       action: "more-info"
-      entity: "[[[ return entity.entity_id; ]]]"
+      navigation_path: "[[[ return entity?.attributes?.navigation ? entity?.attributes?.navigation : 'none'; ]]]"
     ulm_active_state: >
       [[[
         let not_active = ['0','disarmed','off','closed','not_home','standby','idle','docked','unknown','unavailable','paused']

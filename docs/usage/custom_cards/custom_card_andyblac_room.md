@@ -25,6 +25,10 @@ The card has support for up to 4 subicons at the right side of the card, and 6 s
 <summary>2.0</summary>
 Initial release
 </details>
+<details>
+<summary>2.0.1</summary>
+Rename variable 'ulm_custom_card_room_use_light_color' to 'ulm_custom_card_andyblac_room_use_light_color'
+</details>
 
 ## Room Variables
 
@@ -47,7 +51,7 @@ Initial release
 | sensor_5                                           |                 | No          | a `sensor` object (see below) |  |
 | sensor_6                                           |                 | No          | a `sensor` object (see below) |  |
 
-## Room object
+## Room Entity object
 
 | Variable                               | Default         | Required    | Notes          | Requirement |
 |----------------------------------------|-----------------|-------------|----------------|-------------|
@@ -56,6 +60,13 @@ Initial release
 | templates                              |                 | No          | List of the additional button card templates to apply to this icon | |
 | tap_action                             |                 | No          | tap_action for the icon (see button card documentation for options) |  |
 | hold_action                            |                 | No          | hold_action for the icon (see button card documentation for options) |  |
+
+## Room Entity Variables
+
+| Variable                                        | Default         | Required    | Notes          | Requirement |
+|-------------------------------------------------|-----------------|-------------|----------------|-------------|
+| ulm_custom_card_andyblac_room_use_light_color   |                 | No          | This will set the colour of the icon to what colour the light is currently |
+| ulm_custom_card_andyblac_room_icon_color_on     |                 | No          | Allows you to change the color of the enity color of state is `on` |
 
 ## Sensor object
 
