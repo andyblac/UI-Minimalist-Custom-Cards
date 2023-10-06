@@ -66,8 +66,16 @@ custom_card_andyblac_room:
         return getState(variables.sensor_label_1) + spacer + getState(variables.sensor_label_2) + spacer + getState(variables.sensor_label_3);
       } else if (variables.sensor_label_1 && variables.sensor_label_2) {
         return getState(variables.sensor_label_1) + spacer + getState(variables.sensor_label_2);
+      } else if (variables.sensor_label_1 && variables.sensor_label_3) {
+        return getState(variables.sensor_label_1) + spacer + getState(variables.sensor_label_3);
+      } else if (variables.sensor_label_2 && variables.sensor_label_3) {
+        return getState(variables.sensor_label_2) + spacer + getState(variables.sensor_label_3);
       } else if (variables.sensor_label_1) {
         return getState(variables.sensor_label_1);
+      } else if (variables.sensor_label_2) {
+        return getState(variables.sensor_label_2);
+      } else if (variables.sensor_label_3) {
+        return getState(variables.sensor_label_3);
       } else if (entity?.entity_id) {
         return getState(entity.entity_id);
       }
