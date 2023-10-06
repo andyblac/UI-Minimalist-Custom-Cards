@@ -29,6 +29,15 @@ Initial release
 <summary>2.0.1</summary>
 Rename variable 'ulm_custom_card_room_use_light_color' to 'ulm_custom_card_andyblac_room_use_light_color'
 </details>
+<details>
+<summary>2.0.2</summary>
+fix state detection for room entity objects
+add support for more sensor label variations
+sensor_label_1 and sensor_label_3
+sensor_label_2 and sensor_label_3
+sensor_label_2 by-self
+sensor_label_3 by-self
+</details>
 
 ## Room Variables
 
