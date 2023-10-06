@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_room:
-  # v2.0.1
+  # v2.0.2
   template:
     - "ulm_translation_engine"
 
@@ -499,6 +499,19 @@ custom_card_andyblac_room_widget_icon:
       action: "toggle"
     hold_action:
       action: "more-info"
+    ulm_active_state: >
+      [[[
+        let not_active = ['0','disarmed','off','closed','not_home','standby','idle','docked','unknown','unavailable','paused']
+        function containsNumbers(str) {
+          return /\d/.test(str);
+        }
+        if (!not_active.includes(entity.state)) {
+          if (containsNumbers(entity.state)) {
+            return entity?.state;
+          }
+          return entity?.state; 
+        }
+      ]]]
   tap_action:
     action: "[[[ return variables?.tap_action?.action ? variables.tap_action.action : 'none'; ]]]"
     navigation_path: "[[[ return variables.tap_action.navigation_path; ]]]"
@@ -560,7 +573,7 @@ custom_card_andyblac_room_widget_icon:
             - margin-left: "10px"
             - line-height: 0
             - background-color: "[[[ return 'rgba(var(--color-red),1)'; ]]]"
-    - value: "on"
+    - value: "[[[ return variables?.ulm_active_state ]]]"
       styles:
         icon:
           - color: "[[[ return variables.ulm_custom_card_andyblac_room_use_light_color ? 'var(--button-card-light-color)' : (variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),1)' : 'rgba(var(--color-theme),0.7)'); ]]]"
