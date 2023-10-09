@@ -134,6 +134,8 @@ If you want to tweak this card a little bit more, below are some examples. The f
       entity_4:
         entity_id: fan.bathroom_extractor
         ulm_custom_card_andyblac_room_icon_color_on: blue
+        templates:
+          - fan_animation
 ```
 
 ??? note "Template Code"
