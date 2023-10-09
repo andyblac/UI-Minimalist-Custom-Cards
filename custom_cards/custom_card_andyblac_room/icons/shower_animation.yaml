@@ -1,0 +1,67 @@
+shower_animation:
+  variables:
+    timeout: "[[[ return Date.now() - Date.parse(entity.last_changed); ]]]"
+  # triggers_update: "all"
+  show_icon: false
+  custom_fields:
+    icon: >
+      [[[
+        let path = `
+        <path d="M20,20A1,1 0 0,1 21,21A1,1 0 0,1 20,22A1,1 0 0,1 19,21A1,1 0 0,1 20,20M16,20A1,1 0 0,1 17,21A1,1 0 0,1 16,22A1,1 0 0,1 15,21A1,1 0 0,1 16,20M12,20A1,1 0 0,1 13,21A1,1 0 0,1 12,22A1,1 0 0,1 11,21A1,1 0 0,1 12,20M8,20A1,1 0 0,1 9,21A1,1 0 0,1 8,22A1,1 0 0,1 7,21A1,1 0 0,1 8,20M4,20A1,1 0 0,1 5,21A1,1 0 0,1 4,22A1,1 0 0,1 3,21A1,1 0 0,1 4,20M6,17A1,1 0 0,1 7,18A1,1 0 0,1 6,19H6A1,1 0 0,1 5,18A1,1 0 0,1 6,17H6M10,17A1,1 0 0,1 11,18A1,1 0 0,1 10,19A1,1 0 0,1 9,18A1,1 0 0,1 10,17M14,17A1,1 0 0,1 15,18A1,1 0 0,1 14,19A1,1 0 0,1 13,18A1,1 0 0,1 14,17M18,17A1,1 0 0,1 19,18A1,1 0 0,1 18,19A1,1 0 0,1 17,18A1,1 0 0,1 18,17M8,14A1,1 0 0,1 9,15A1,1 0 0,1 8,16A1,1 0 0,1 7,15A1,1 0 0,1 8,14M12,14A1,1 0 0,1 13,15A1,1 0 0,1 12,16A1,1 0 0,1 11,15A1,1 0 0,1 12,14M16,14A1,1 0 0,1 17,15A1,1 0 0,1 16,16A1,1 0 0,1 15,15A1,1 0 0,1 16,14M19,12H5V10H19V12M17.92,9H6.08C6.5,6.5 8.5,4.5 11,4.08V2H13V4.08C15.5,4.5 17.5,6.5 17.92,9Z" />
+        `,
+        style = `
+          <svg viewBox="0 0 24 24">
+            <style>
+              @keyframes clip {
+                0% {
+                  visibility: visible;
+                  clip-path: inset(0 0 45% 0);
+                }
+                100% {
+                  clip-path: inset(0 0 0 0);
+                }
+              }
+              .start {
+                animation: clip 1.4s ease-out;
+                transform-origin: center;
+                visibility: hidden;
+                will-change: transform;
+              }
+              .on {
+                animation: clip 1.4s ease-out infinite;
+                transform-origin: center;
+                animation-delay: 0.7s;
+                visibility: hidden;
+                will-change: transform;
+              }
+              .end {
+                animation: clip 1.4s ease-out;
+                transform-origin: center;
+                animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
+                will-change: transform;
+              }
+              .start_timeout {
+                animation: clip 1.4s ease-out infinite;
+                transform-origin: center;
+                visibility: hidden;
+                will-change: transform;
+              }
+              .end_timeout {
+                transform-origin: center;
+                will-change: transform;
+              }
+            </style>
+        `;
+        if (entity.state === 'on' && variables.timeout < 1000) {
+          return `${style}<g class="start">${path}</g><g class="on">${path}</g></svg>`;
+        }
+        if (entity.state === 'off' && variables.timeout < 1000) {
+          return `${style}<g class="end">${path}</g></svg>`;
+        }
+        if (entity.state === 'on' && variables.timeout > 1000) {
+          return `${style}<g class="start_timeout">${path}</g></svg>`;
+        } else {
+          return `${style}<g class="end_timeout">${path}</g></svg>`;
+        }
+      ]]]
+    img_cell: "[[[  return `<svg viewBox='0 0 24 24'><ellipse stroke='none' fill='none'></ellipse></svg>`; ]]]"

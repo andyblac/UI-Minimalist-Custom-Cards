@@ -1,0 +1,58 @@
+garage-door_animation:
+  variables:
+    timeout: "[[[ return Date.now() - Date.parse(entity.last_changed); ]]]"
+  # triggers_update: "all"
+  show_icon: false
+  custom_fields:
+    icon: >
+      [[[
+        let path = `
+        <path d="M22 9V20H20V11H4V20H2V9L12 5L22 9M19 12H5V14H19V12M19 18H5V20H19V18M19 15H5V17H19V15Z" />
+        `,
+        style = `
+          <svg viewBox="0 0 24 24">
+            <style>
+              @keyframes door_open {
+                0% { clip-path: inset(0 0 0 0); }
+                25%  { clip-path: polygon(0 0, 100% 0, 100% 100%, 85% 100%, 85% 83%, 15% 83%, 14% 100%, 0 100%); }
+                50%  { clip-path: polygon(0 0, 100% 0, 100% 100%, 85% 100%, 85% 61%, 15% 61%, 14% 100%, 0 100%); }
+                75% { clip-path: polygon(0 0, 100% 0, 100% 100%, 85% 100%, 85% 45%, 15% 45%, 14% 100%, 0 100%); }
+              }
+              @keyframes door_close {
+                0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 85% 100%, 85% 45%, 15% 45%, 14% 100%, 0 100%); }
+                25%  { clip-path: polygon(0 0, 100% 0, 100% 100%, 85% 100%, 85% 61%, 15% 61%, 14% 100%, 0 100%); }
+                50%  { clip-path: polygon(0 0, 100% 0, 100% 100%, 85% 100%, 86% 83%, 15% 83%, 14% 100%, 0 100%); }
+                75% { clip-path: inset(0 0 0 0); }
+              }
+              .start {
+                animation: door_open 3s steps(1);
+              }
+              .on {
+                clip-path: polygon(0 0, 0 100%, 10% 100%, 10% 45%, 85% 45%, 85% 100%, 100% 100%, 100% 0);
+              }
+              .end {
+                animation: door_close 3s steps(1);
+              }
+              .start_timeout {
+                clip-path: polygon(0 0, 0 100%, 10% 100%, 10% 45%, 85% 45%, 85% 100%, 100% 100%, 100% 0);
+              }
+              .end_timeout {
+                transform-origin: center;
+                will-change: transform;
+              }
+            </style>
+        `;
+        if (entity.state === 'open' && variables.timeout < -1000) {
+          return `${style}<g class="start">${path}</g></svg>`;
+        }
+        if (entity.state === 'closed' && variables.timeout < 1000) {
+          return `${style}<g class="end">${path}</g></svg>`;
+        }
+        if (entity.state === 'open' ) {
+          return `${style}<g class="start_timeout">${path}</g></svg>`;
+        } else {
+          return `${style}<g class="end_timeout">${path}</g></svg>`;
+        }
+      ]]]
+
+    img_cell: "[[[  return `<svg viewBox='0 0 24 24'><ellipse stroke='none' fill='none'></ellipse></svg>`; ]]]"
