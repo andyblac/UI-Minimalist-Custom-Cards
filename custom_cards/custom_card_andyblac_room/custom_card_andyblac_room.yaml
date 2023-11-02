@@ -26,7 +26,6 @@ custom_card_andyblac_room:
   triggers_update: "all"
   label: |-
     [[[
-
       var spacer = " | ";
       function getState(entity) {
         var entity_type = "";
@@ -236,6 +235,12 @@ custom_card_andyblac_room:
         - position: "absolute"
         - left: "43%"
         - bottom: "2%"
+        - width: "14%"
+        - height: "14%"
+      climate:
+        - position: "absolute"
+        - left: "2%"
+        - bottom: "0%"
         - width: "14%"
         - height: "14%"
 
@@ -492,6 +497,33 @@ custom_card_andyblac_room:
               card:
                 - display: "none"
         entity: "[[[ return variables?.sensor_6?.entity_id; ]]]"
+    climate:
+      card:
+        type: "custom:button-card"
+        icon: "[[[ return variables?.climate?.icon ]]]"
+        template: >
+          [[[
+            let templates = [ 'custom_card_andyblac_room_sensor_icon' ];
+            if (variables?.climate?.templates?.length) {
+              templates.push(...variables.climate.templates);
+            }
+            return templates;
+          ]]]
+        variables: >
+          [[[
+            let variables_tmp = variables.climate;
+            if (variables?.climate) {
+              variables_tmp['ulm_custom_card_andyblac_room_color'] = variables.ulm_custom_card_andyblac_room_color;
+            }
+            return variables_tmp;
+          ]]]
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.climate; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.climate?.entity_id; ]]]"
 
 custom_card_andyblac_room_widget_icon:
   variables:
