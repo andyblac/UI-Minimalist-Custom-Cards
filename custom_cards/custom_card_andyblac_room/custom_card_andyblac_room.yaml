@@ -45,16 +45,6 @@ custom_card_andyblac_room:
           var bri = Math.round(states[entity].attributes?.brightness / 2.55);
           var entity_type = "💡";
           var entity_state = (bri ? bri : "0") + "%";
-        } else if (states[entity].attributes?.current_temperature) {
-          var entity_state = helpers.localize(states[entity], states[entity].attributes?.current_temperature);
-        } else if (states[entity].attributes?.temperature){
-          var entity_state = helpers.localize(states[entity], states[entity].attributes?.temperature);
-        } else if (states[entity].attributes?.device_temperature) {
-          var entity_state = helpers.localize(states[entity], states[entity].attributes?.device_temperature);
-        } else if (states[entity].attributes?.humidity){
-          var entity_state = helpers.localize(states[entity], states[entity].attributes?.humidity);
-        } else if (states[entity].attributes?.illuminance){
-          var entity_state = helpers.localize(states[entity], states[entity].attributes?.illuminance);
         } else if (states[entity].state) {
           var entity_state = helpers.localize(states[entity], states[entity].state);
         } 
