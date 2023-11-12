@@ -31,12 +31,12 @@ Rename variable 'ulm_custom_card_room_use_light_color' to 'ulm_custom_card_andyb
 </details>
 <details>
 <summary>2.0.2</summary>
-fix state detection for room entity objects
-add support for more sensor label variations
-sensor_label_1 and sensor_label_3
-sensor_label_2 and sensor_label_3
-sensor_label_2 by-self
-sensor_label_3 by-self
+fix state detection for room entity objects</br>
+add support for more sensor label variations</br>
+sensor_label_1 and sensor_label_3</br>
+sensor_label_2 and sensor_label_3</br>
+sensor_label_2 by-self</br>
+sensor_label_3 by-self</br>
 </details>
 <details>
 <summary>2.0.3</summary>
@@ -44,9 +44,9 @@ add room icon anitmations
 </details>
 <details>
 <summary>2.0.4</summary>
-add climate control button
-add ulm_custom_card_andyblac_room_use_small_room_icon
-add ulm_custom_card_andyblac_room_color_on
+add climate control button</br>
+add ulm_custom_card_andyblac_room_use_small_room_icon</br>
+add ulm_custom_card_andyblac_room_color_on</br>
 </details>
 
 ## Room Variables
