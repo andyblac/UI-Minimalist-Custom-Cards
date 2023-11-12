@@ -6,7 +6,7 @@ custom_card_andyblac_room:
 
   variables:
     ulm_custom_card_andyblac_room_color: "theme"
-    ulm_custom_card_andyblac_room_color_on: "theme"
+    ulm_custom_card_andyblac_room_color_on: "[[[ return variables?.ulm_custom_card_andyblac_room_color_on ? variables.ulm_custom_card_andyblac_room_color_on : variables.ulm_custom_card_andyblac_room_color; ]]]"
     ulm_custom_card_andyblac_room_use_label_icons: false
     ulm_custom_card_andyblac_room_use_small_label_font: false
     ulm_custom_card_andyblac_room_use_small_room_icon: false
