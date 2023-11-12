@@ -38,9 +38,11 @@ sensor_label_2 and sensor_label_3
 sensor_label_2 by-self
 sensor_label_3 by-self
 </details>
+<details>
 <summary>2.0.3</summary>
 add room icon anitmations
 </details>
+<details>
 <summary>2.0.4</summary>
 add climate control button
 add ulm_custom_card_andyblac_room_use_small_room_icon
