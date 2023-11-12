@@ -38,14 +38,24 @@ sensor_label_2 and sensor_label_3
 sensor_label_2 by-self
 sensor_label_3 by-self
 </details>
+<summary>2.0.3</summary>
+add room icon anitmations
+</details>
+<summary>2.0.4</summary>
+add climate control button
+add ulm_custom_card_andyblac_room_use_small_room_icon
+add ulm_custom_card_andyblac_room_color_on
+</details>
 
 ## Room Variables
 
 | Variable                                           | Default         | Required    | Notes          | Requirement |
 |----------------------------------------------------|-----------------|-------------|----------------|-------------|
-| ulm_custom_card_andyblac_room_use_small_label_font | `false`         | No          | My card uses slightly larger fonts than the original card, to use use the orignal card font size set this to `true` |
-| ulm_custom_card_andyblac_room_use_label_icons      | `false`         | No          | This option lets you see an icon next to the text of the sensor_label information (🌡️ / 💧 / 🔆 )
 | ulm_custom_card_andyblac_room_color                | `theme`         | No          | This lets you set the room colour.</br>You can use any colour in your theme that uses the following naming structure `color-red: "241, 139, 130"` or `color-yellow: "252, 214, 99"`</br>So for example `color-background-purple: "var(--color-purple)"` in your theme, you would ignore the text `color-` and just set `background-purple`
+| ulm_custom_card_andyblac_room_color_on             | `theme`         | No          | This lets you set the room icon colour if the state is `on`.
+| ulm_custom_card_andyblac_room_use_label_icons      | `false`         | No          | This option lets you see an icon next to the text of the sensor_label information (🌡️ / 💧 / 🔆 )
+| ulm_custom_card_andyblac_room_use_small_label_font | `false`         | No          | My card uses slightly larger fonts than the original card, to use use the orignal card font size set this to `true` |
+| ulm_custom_card_andyblac_room_use_small_room_icon  | `false`         | No          | This option lets you set the room icon slightly smaller, this can usefull when using the climate button. |
 | sensor_label_1                                     |                 | No          | The enitiy_id of a sensor you wish to display the state of |  |
 | sensor_label_2                                     |                 | No          | The enitiy_id of a sensor you wish to display the state of |  |
 | sensor_label_3                                     |                 | No          | The enitiy_id of a sensor you wish to display the state of |  |
@@ -75,8 +85,8 @@ sensor_label_3 by-self
 
 | Variable                                        | Default         | Required    | Notes          | Requirement |
 |-------------------------------------------------|-----------------|-------------|----------------|-------------|
+| ulm_custom_card_andyblac_room_icon_color_on     |                 | No          | Allows you to change the color of the enity color if state is `on` |
 | ulm_custom_card_andyblac_room_use_light_color   |                 | No          | This will set the colour of the icon to what colour the light is currently |
-| ulm_custom_card_andyblac_room_icon_color_on     |                 | No          | Allows you to change the color of the enity color of state is `on` |
 
 ## Sensor object
 
@@ -92,8 +102,8 @@ sensor_label_3 by-self
 
 | Variable                                        | Default         | Required    | Notes          | Requirement |
 |-------------------------------------------------|-----------------|-------------|----------------|-------------|
-| ulm_custom_card_andyblac_room_sensor_color      | Room colour     | No          | Allows you to change the color of the sensor color of state is `off` |
-| ulm_custom_card_andyblac_room_sensor_color_on   | Room colour     | No          | Allows you to change the color of the sensor color of state is `on`  |
+| ulm_custom_card_andyblac_room_sensor_color      | Room colour     | No          | Allows you to change the color of the sensor color if state is `off` |
+| ulm_custom_card_andyblac_room_sensor_color_on   | Room colour     | No          | Allows you to change the color of the sensor color if state is `on`  |
 
 
 ## Climate object
