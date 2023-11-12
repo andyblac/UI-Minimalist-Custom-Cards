@@ -1,14 +1,28 @@
 ---
 custom_card_andyblac_room:
-  # v2.0.3
+  # v2.0.4
   template:
     - "ulm_translation_engine"
 
   variables:
+    ulm_custom_card_andyblac_room_color: "theme"
+    ulm_custom_card_andyblac_room_color_on: "theme"
+    ulm_custom_card_andyblac_room_use_label_icons: false
     ulm_custom_card_andyblac_room_use_small_label_font: false
     ulm_custom_card_andyblac_room_use_small_room_icon: false
-    ulm_custom_card_andyblac_room_use_label_icons: false
-    ulm_custom_card_andyblac_room_color: "theme"
+    ulm_active_state: >
+      [[[
+        let not_active = ['0','disarmed','off','closed','not_home','standby','idle','docked','unknown','unavailable','paused']
+        function containsNumbers(str) {
+          return /\d/.test(str);
+        }
+        if (entity?.state && !not_active.includes(entity.state)) {
+          if (containsNumbers(entity.state)) {
+            return entity?.state;
+          }
+          return entity?.state; 
+        }
+      ]]]
 
   double_tap_action:
     action: "call-service"
@@ -89,6 +103,29 @@ custom_card_andyblac_room:
             - line-height: 0
             - display: "grid"
             - background-color: "[[[ return 'rgba(var(--color-red),1)'; ]]]"
+    - value: "[[[ return variables?.ulm_active_state ]]]"
+      styles:
+        icon:
+          - color: >
+              [[[
+                if (variables.ulm_custom_card_andyblac_room_color_on == 'theme') {
+                  return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color_on+'),0.7)';
+                } else {
+                  return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color_on+'),1)';
+                }
+              ]]]
+        custom_fields:
+          icon:
+            - fill: >
+                [[[
+                  if (variables.ulm_custom_card_andyblac_room_color_on == 'theme') {
+                    return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color_on+'),0.7)';
+                  } else {
+                    return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color_on+'),1)';
+                  }
+                ]]]
+      id: "on"
+
   styles:
     icon:
       - width: "[[[ return variables.ulm_custom_card_andyblac_room_use_small_room_icon ? '40%' : '45%'; ]]]"
