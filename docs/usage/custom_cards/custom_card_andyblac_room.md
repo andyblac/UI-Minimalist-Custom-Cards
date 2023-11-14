@@ -31,21 +31,33 @@ Rename variable 'ulm_custom_card_room_use_light_color' to 'ulm_custom_card_andyb
 </details>
 <details>
 <summary>2.0.2</summary>
-fix state detection for room entity objects
-add support for more sensor label variations
-sensor_label_1 and sensor_label_3
-sensor_label_2 and sensor_label_3
-sensor_label_2 by-self
-sensor_label_3 by-self
+fix state detection for room entity objects</br>
+add support for more sensor label variations</br>
+sensor_label_1 and sensor_label_3</br>
+sensor_label_2 and sensor_label_3</br>
+sensor_label_2 by-self</br>
+sensor_label_3 by-self</br>
+</details>
+<details>
+<summary>2.0.3</summary>
+add room icon anitmations
+</details>
+<details>
+<summary>2.0.4</summary>
+add climate control button</br>
+add ulm_custom_card_andyblac_room_use_small_room_icon</br>
+add ulm_custom_card_andyblac_room_color_on</br>
 </details>
 
 ## Room Variables
 
 | Variable                                           | Default         | Required    | Notes          | Requirement |
 |----------------------------------------------------|-----------------|-------------|----------------|-------------|
-| ulm_custom_card_andyblac_room_use_small_label_font | `false`         | No          | My card uses slightly larger fonts than the original card, to use use the orignal card font size set this to `true` |
-| ulm_custom_card_andyblac_room_use_label_icons      | `false`         | No          | This option lets you see an icon next to the text of the sensor_label information (🌡️ / 💧 / 🔆 )
 | ulm_custom_card_andyblac_room_color                | `theme`         | No          | This lets you set the room colour.</br>You can use any colour in your theme that uses the following naming structure `color-red: "241, 139, 130"` or `color-yellow: "252, 214, 99"`</br>So for example `color-background-purple: "var(--color-purple)"` in your theme, you would ignore the text `color-` and just set `background-purple`
+| ulm_custom_card_andyblac_room_color_on             | `Room colour`   | No          | This lets you set the room icon colour if the state is `on`.
+| ulm_custom_card_andyblac_room_use_label_icons      | `false`         | No          | This option lets you see an icon next to the text of the sensor_label information (🌡️ / 💧 / 🔆 )
+| ulm_custom_card_andyblac_room_use_small_label_font | `false`         | No          | My card uses slightly larger fonts than the original card, to use use the orignal card font size set this to `true` |
+| ulm_custom_card_andyblac_room_use_small_room_icon  | `false`         | No          | This option lets you set the room icon slightly smaller, this can usefull when using the climate button. |
 | sensor_label_1                                     |                 | No          | The enitiy_id of a sensor you wish to display the state of |  |
 | sensor_label_2                                     |                 | No          | The enitiy_id of a sensor you wish to display the state of |  |
 | sensor_label_3                                     |                 | No          | The enitiy_id of a sensor you wish to display the state of |  |
@@ -59,6 +71,7 @@ sensor_label_3 by-self
 | sensor_4                                           |                 | No          | a `sensor` object (see below) |  |
 | sensor_5                                           |                 | No          | a `sensor` object (see below) |  |
 | sensor_6                                           |                 | No          | a `sensor` object (see below) |  |
+| climate                                            |                 | No          | a `climate` object (see below) |  |
 
 ## Room Entity object
 
@@ -74,8 +87,8 @@ sensor_label_3 by-self
 
 | Variable                                        | Default         | Required    | Notes          | Requirement |
 |-------------------------------------------------|-----------------|-------------|----------------|-------------|
+| ulm_custom_card_andyblac_room_icon_color_on     |                 | No          | Allows you to change the color of the enity color if state is `on` |
 | ulm_custom_card_andyblac_room_use_light_color   |                 | No          | This will set the colour of the icon to what colour the light is currently |
-| ulm_custom_card_andyblac_room_icon_color_on     |                 | No          | Allows you to change the color of the enity color of state is `on` |
 
 ## Sensor object
 
@@ -91,9 +104,19 @@ sensor_label_3 by-self
 
 | Variable                                        | Default         | Required    | Notes          | Requirement |
 |-------------------------------------------------|-----------------|-------------|----------------|-------------|
-| ulm_custom_card_andyblac_room_sensor_color      | Room colour     | No          | Allows you to change the color of the sensor color of state is `off` |
-| ulm_custom_card_andyblac_room_sensor_color_on   | Room colour     | No          | Allows you to change the color of the sensor color of state is `on`  |
+| ulm_custom_card_andyblac_room_sensor_color      | `Room colour`   | No          | Allows you to change the color of the sensor color if state is `off` |
+| ulm_custom_card_andyblac_room_sensor_color_on   | `Room colour`   | No          | Allows you to change the color of the sensor color if state is `on`  |
 
+
+## Climate object
+
+| Variable                               | Default         | Required    | Notes          | Requirement |
+|----------------------------------------|-----------------|-------------|----------------|-------------|
+| entity_id                              |                 | No          | The entity_id of the climate to control | |
+| icon                                   |                 | No          | Allows you set an icon of your choice | |
+| templates                              |                 | No          | List of the additional button card templates to apply to this icon | |
+| tap_action                             | 'more-info'     | No          | tap_action for the icon (see button card documentation for options) |  |
+| hold_action                            |                 | No          | hold_action for the icon (see button card documentation for options) |  |
 
 ## Default card options
 
@@ -104,7 +127,7 @@ If you want to tweak this card a little bit more, below are some examples. The f
 |----------------------------------------|-----------------|------------------|----------------|-------------|
 | entity                                 |                 | No | The entity_id for the large card | |
 | icon                                   |                 | No | Icon to display. Defaults to the entity icon | |
-| tap_action                             | navigate        | No | Define the type of action on click, if undefined, toggle will be used.</br>See [Action](https://github.com/custom-cards/button-card#Action)| |
+| tap_action                             | `navigate`      | No | Define the type of action on click, if undefined, toggle will be used.</br>See [Action](https://github.com/custom-cards/button-card#Action)| |
 | hold_action                            |                 | No | Define the type of action on hold, if undefined, nothing happens</br> See [Action](https://github.com/custom-cards/button-card#Action)| |
 | label                                  |                 | No | Change the label text | |
 | name                                   |                 | No | Change the title text | |
