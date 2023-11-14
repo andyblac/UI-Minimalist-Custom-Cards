@@ -102,11 +102,11 @@ add ulm_custom_card_andyblac_room_color_on</br>
 
 ## Sensor Variables
 
-| Variable                                        | Default         | Required    | Notes          | Requirement |
-|-------------------------------------------------|-----------------|-------------|----------------|-------------|
-| ulm_custom_card_andyblac_room_sensor_color      | `Room colour`   | No          | Allows you to change the color of the sensor color if state is `off` |
-| ulm_custom_card_andyblac_room_sensor_color_on   | `Room colour`   | No          | Allows you to change the color of the sensor color if state is `on`  |
-
+| Variable                                                 | Default         | Required    | Notes          | Requirement |
+|----------------------------------------------------------|-----------------|-------------|----------------|-------------|
+| ulm_custom_card_andyblac_room_sensor_color               | `Room colour`   | No          | Allows you to change the color of the sensor color if state is `off` |
+| ulm_custom_card_andyblac_room_sensor_color_on            | `Room colour`   | No          | Allows you to change the color of the sensor color if state is `on`  |
+| ulm_custom_card_andyblac_room_sensor_show_on_state_only  | `false`         | No          | Allows you to show the button if state is `on`                       |
 
 ## Climate object
 
@@ -115,7 +115,7 @@ add ulm_custom_card_andyblac_room_color_on</br>
 | entity_id                              |                 | No          | The entity_id of the climate to control | |
 | icon                                   |                 | No          | Allows you set an icon of your choice | |
 | templates                              |                 | No          | List of the additional button card templates to apply to this icon | |
-| tap_action                             | 'more-info'     | No          | tap_action for the icon (see button card documentation for options) |  |
+| tap_action                             | `more-info`     | No          | tap_action for the icon (see button card documentation for options) |  |
 | hold_action                            |                 | No          | hold_action for the icon (see button card documentation for options) |  |
 
 ## Default card options
