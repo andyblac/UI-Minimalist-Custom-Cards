@@ -272,6 +272,12 @@ custom_card_andyblac_room:
         - bottom: "0%"
         - width: "14%"
         - height: "14%"
+      video:
+        - position: "absolute"
+        - left: "45%"
+        - bottom: "53%"
+        - width: "20%"
+        - height: "20%"
 
   custom_fields:
     notification: >
@@ -553,6 +559,34 @@ custom_card_andyblac_room:
               card:
                 - display: "none"
         entity: "[[[ return variables?.climate?.entity_id; ]]]"
+    video:
+      card:
+        type: "custom:button-card"
+        icon: "[[[ return variables?.video?.icon ]]]"
+        template: >
+          [[[
+            let templates = [ 'custom_card_andyblac_room_sensor_icon' ];
+            if (variables?.video?.templates?.length) {
+              templates.push(...variables.video.templates);
+            }
+            return templates;
+          ]]]
+        variables: >
+          [[[
+            let variables_tmp = variables.video;
+            if (variables?.video) {
+              variables_tmp['ulm_custom_card_andyblac_room_color'] = variables.ulm_custom_card_andyblac_room_color;
+            }
+            return variables_tmp;
+          ]]]
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.video; ]]]"
+            styles:
+              card:
+                - display: "none"
+        entity: "[[[ return variables?.video?.entity_id; ]]]"
+
 
 custom_card_andyblac_room_widget_icon:
   variables:
