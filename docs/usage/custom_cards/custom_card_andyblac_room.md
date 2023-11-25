@@ -85,8 +85,8 @@ change name of climate and video to down and up</br>
 | sensor_4                                                 |                 | No          | `sensor` object (see below)                                                |
 | sensor_5                                                 |                 | No          | `sensor` object (see below)                                                |
 | sensor_6                                                 |                 | No          | `sensor` object (see below)                                                |
-| down                                                     |                 | No          | `down` object (see below)                                                  |
-| up                                                       |                 | No          | `up` object (see below)                                                    |
+| custom_1                                                 |                 | No          | `custom_1` object (see below)                                              |
+| custom_2                                                 |                 | No          | `custom_2` object (see below)                                              |
 
 ## Room Entity object
 
@@ -123,21 +123,21 @@ change name of climate and video to down and up</br>
 | ulm_custom_card_andyblac_room_sensor_color_on            | `Room colour`   | No          | Allows you to change the color of the sensor color if state is `on`        |
 | ulm_custom_card_andyblac_room_sensor_show_on_state_only  | `false`         | No          | Allows you to show the button only if state is `on`                             |
 
-## Climate object
+## Custom_1 object
 
 | Variable                                                 | Default         | Required    | Notes                                                                      |
 |----------------------------------------------------------|-----------------|-------------|----------------------------------------------------------------------------|
-| entity_id                                                |                 | No          | The entity_id of the climate to control                                    |
+| entity_id                                                |                 | No          | The entity_id of the custom_1  to control                                  |
 | icon                                                     |                 | No          | Allows you set an icon of your choice                                      |
 | templates                                                |                 | No          | List of the additional button card templates to apply to this icon         |
 | tap_action                                               | `more-info`     | No          | tap_action for the icon (see button card documentation for options)        |
 | hold_action                                              |                 | No          | hold_action for the icon (see button card documentation for options)       |
 
-## Video object
+## Custom_2 object
 
 | Variable                                                 | Default         | Required    | Notes                                                                      |
 |----------------------------------------------------------|-----------------|-------------|----------------------------------------------------------------------------|
-| entity_id                                                |                 | No          | The entity_id of the video to control                                    |
+| entity_id                                                |                 | No          | The entity_id of the custom_2 to control                                   |
 | icon                                                     |                 | No          | Allows you set an icon of your choice                                      |
 | templates                                                |                 | No          | List of the additional button card templates to apply to this icon         |
 | tap_action                                               | `more-info`     | No          | tap_action for the icon (see button card documentation for options)        |
@@ -184,10 +184,10 @@ If you want to tweak this card a little bit more, below are some examples. The f
         ulm_custom_card_andyblac_room_icon_color_on: blue
         templates:
           - fan_animation
-      up:
+      custom_1:
         entity_id: vacuum.roborock_s5
         icon: mdi:cctv
-      down:
+      custom_2:
         entity_id: climate.termostato
 ```
 
