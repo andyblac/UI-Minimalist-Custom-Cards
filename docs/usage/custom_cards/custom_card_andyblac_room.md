@@ -7,11 +7,10 @@ hide:
 
 ## Description
 
-![example-image-light](../../assets/img/custom_card_andyblac_room/custom_card_andyblac_room_light.png)
-![example-image-dark](../../assets/img/custom_card_andyblac_room/custom_card_andyblac_room_dark.png)
+![example-image-dark](../../assets/img/custom_card_andyblac_room/custom_card_andyblac_$_room_dark.png)
 
 This is the `room-card`, used to show the state of single room in a quick glance.
-The card has support for up to 4 sub-icons at the right side of the card, and 6 sensor sub-icons + 2 special icon (climate and video) going around the inside of the room icon. These can be configured using custom colors and tap actions.
+The card has support for up to 4 sub-icons at the right side of the card, and 6 sensor sub-icons + 2 special icon (es. climate, video, vacuum, irrigation, ...) going around the inside of the room icon. These can be configured using custom colors and tap actions.
 
 ## Credits
 
@@ -60,6 +59,10 @@ change colour of `unavailable` indicator to orange</br>
 <summary>2.0.6</summary>
 add video control button</br>
 </details>
+<details>
+<summary>2.0.7</summary>
+change name of climate and video to down and up</br>
+</details>
 ## Room Variables
 
 | Variable                                                 | Default         | Required    | Notes                                                                      |
@@ -82,8 +85,8 @@ add video control button</br>
 | sensor_4                                                 |                 | No          | `sensor` object (see below)                                                |
 | sensor_5                                                 |                 | No          | `sensor` object (see below)                                                |
 | sensor_6                                                 |                 | No          | `sensor` object (see below)                                                |
-| climate                                                  |                 | No          | `climate` object (see below)                                               |
-| video                                                    |                 | No          | `video` object (see below)                                               |
+| down                                                     |                 | No          | `down` object (see below)                                                  |
+| up                                                       |                 | No          | `up` object (see below)                                                    |
 
 ## Room Entity object
 
@@ -181,6 +184,11 @@ If you want to tweak this card a little bit more, below are some examples. The f
         ulm_custom_card_andyblac_room_icon_color_on: blue
         templates:
           - fan_animation
+      up:
+        entity_id: vacuum.roborock_s5
+        icon: mdi:cctv
+      down:
+        entity_id: climate.termostato
 ```
 
 ??? note "Template Code"
