@@ -11,12 +11,14 @@ hide:
 ![example-image-dark](../../assets/img/custom_card_andyblac_room/custom_card_andyblac_room_dark.png)
 
 This is the `room-card`, used to show the state of single room in a quick glance.
-The card has support for up to 4 sub-icons at the right side of the card, and 6 sensor sub-icons going around the inside of the room icon. These can be configured using custom colors and tap actions.
+The card has support for up to 4 sub-icons at the right side of the card, and 6 sensor sub-icons + 2 special icon (climate and video) going around the inside of the room icon. These can be configured using custom colors and tap actions.
 
 ## Credits
 
 - Authors:
     - AndyBlac
+- Contributors:
+    - Mon3y78
 - Full credit to the Minimalist UI team for creating the base card that this 'mod' was used.
 
 ## Changelog
@@ -54,7 +56,9 @@ add ulm_custom_card_andyblac_room_sensor_show_on_state_only</br>
 add missing `unavailable` indicator for sensor icon</br>
 change colour of `unavailable` indicator to orange</br>
 </details>
-
+<summary>2.0.5_fork</summary>
+add climate control button</br>
+</details>
 ## Room Variables
 
 | Variable                                                 | Default         | Required    | Notes                                                                      |
@@ -78,6 +82,7 @@ change colour of `unavailable` indicator to orange</br>
 | sensor_5                                                 |                 | No          | `sensor` object (see below)                                                |
 | sensor_6                                                 |                 | No          | `sensor` object (see below)                                                |
 | climate                                                  |                 | No          | `climate` object (see below)                                               |
+| video                                                    |                 | No          | `video` object (see below)                                               |
 
 ## Room Entity object
 
@@ -119,6 +124,16 @@ change colour of `unavailable` indicator to orange</br>
 | Variable                                                 | Default         | Required    | Notes                                                                      |
 |----------------------------------------------------------|-----------------|-------------|----------------------------------------------------------------------------|
 | entity_id                                                |                 | No          | The entity_id of the climate to control                                    |
+| icon                                                     |                 | No          | Allows you set an icon of your choice                                      |
+| templates                                                |                 | No          | List of the additional button card templates to apply to this icon         |
+| tap_action                                               | `more-info`     | No          | tap_action for the icon (see button card documentation for options)        |
+| hold_action                                              |                 | No          | hold_action for the icon (see button card documentation for options)       |
+
+## Video object
+
+| Variable                                                 | Default         | Required    | Notes                                                                      |
+|----------------------------------------------------------|-----------------|-------------|----------------------------------------------------------------------------|
+| entity_id                                                |                 | No          | The entity_id of the video to control                                    |
 | icon                                                     |                 | No          | Allows you set an icon of your choice                                      |
 | templates                                                |                 | No          | List of the additional button card templates to apply to this icon         |
 | tap_action                                               | `more-info`     | No          | tap_action for the icon (see button card documentation for options)        |
