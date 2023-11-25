@@ -57,7 +57,7 @@ add missing `unavailable` indicator for sensor icon</br>
 change colour of `unavailable` indicator to orange</br>
 </details>
 <details>
-<summary>2.0.5_fork</summary>
+<summary>2.0.6</summary>
 add video control button</br>
 </details>
 ## Room Variables
