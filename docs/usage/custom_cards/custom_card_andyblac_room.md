@@ -56,6 +56,7 @@ add ulm_custom_card_andyblac_room_sensor_show_on_state_only</br>
 add missing `unavailable` indicator for sensor icon</br>
 change colour of `unavailable` indicator to orange</br>
 </details>
+<details>
 <summary>2.0.5_fork</summary>
 add video control button</br>
 </details>
