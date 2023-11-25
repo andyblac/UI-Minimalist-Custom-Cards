@@ -266,13 +266,13 @@ custom_card_andyblac_room:
         - bottom: "2%"
         - width: "14%"
         - height: "14%"
-      down:
+      custom_2:
         - position: "absolute"
         - left: "2%"
         - bottom: "0%"
         - width: "14%"
         - height: "14%"
-      up:
+      custom_1:
         - position: "absolute"
         - left: "45%"
         - bottom: "53%"
@@ -531,61 +531,61 @@ custom_card_andyblac_room:
               card:
                 - display: "none"
         entity: "[[[ return variables?.sensor_6?.entity_id; ]]]"
-    down:
+    custom_1:
       card:
         type: "custom:button-card"
-        icon: "[[[ return variables?.down?.icon ]]]"
+        icon: "[[[ return variables?.custom_1?.icon ]]]"
         template: >
           [[[
             let templates = [ 'custom_card_andyblac_room_sensor_icon' ];
-            if (variables?.down?.templates?.length) {
-              templates.push(...variables.down.templates);
+            if (variables?.custom_1?.templates?.length) {
+              templates.push(...variables.custom_1.templates);
             }
             return templates;
           ]]]
         variables: >
           [[[
-            let variables_tmp = variables.down;
-            if (variables?.down) {
+            let variables_tmp = variables.custom_1;
+            if (variables?.custom_1) {
               variables_tmp['ulm_custom_card_andyblac_room_color'] = variables.ulm_custom_card_andyblac_room_color;
             }
             return variables_tmp;
           ]]]
         state:
           - operator: "template"
-            value: "[[[ return !variables.down; ]]]"
+            value: "[[[ return !variables.custom_1; ]]]"
             styles:
               card:
                 - display: "none"
-        entity: "[[[ return variables?.down?.entity_id; ]]]"
-    up:
+        entity: "[[[ return variables?.custom_1?.entity_id; ]]]"
+    custom_2:
       card:
         type: "custom:button-card"
-        icon: "[[[ return variables?.up?.icon ]]]"
+        icon: "[[[ return variables?.custom_2?.icon ]]]"
         template: >
           [[[
             let templates = [ 'custom_card_andyblac_room_sensor_icon' ];
-            if (variables?.up?.templates?.length) {
-              templates.push(...variables.up.templates);
+            if (variables?.custom_2?.templates?.length) {
+              templates.push(...variables.custom_2.templates);
             }
             return templates;
           ]]]
         variables: >
           [[[
-            let variables_tmp = variables.up;
-            if (variables?.up) {
+            let variables_tmp = variables.custom_2;
+            if (variables?.custom_2) {
               variables_tmp['ulm_custom_card_andyblac_room_color'] = variables.ulm_custom_card_andyblac_room_color;
             }
             return variables_tmp;
           ]]]
         state:
           - operator: "template"
-            value: "[[[ return !variables.up; ]]]"
+            value: "[[[ return !variables.custom_2; ]]]"
             styles:
               card:
                 - display: "none"
-        entity: "[[[ return variables?.up?.entity_id; ]]]"
-
+        entity: "[[[ return variables?.custom_2?.entity_id; ]]]"
+        
 custom_card_andyblac_room_widget_icon:
   variables:
     tap_action:
