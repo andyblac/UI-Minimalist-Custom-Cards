@@ -4,4 +4,4 @@
 # Minimalist Custom Cards
 My custom cards for Minimalist UI.
 
-![example-dark](docs/assets/img/Example_Dashboard_Dark.png)
+![example-dark](docs/assets/img/Example_Dashboard_Dark_video.png)
