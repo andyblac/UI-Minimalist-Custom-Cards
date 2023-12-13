@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_room:
-  # v2.0.5
+  # v2.1
   template:
     - "ulm_translation_engine"
 
@@ -108,7 +108,9 @@ custom_card_andyblac_room:
         icon:
           - color: >
               [[[
-                if (variables.ulm_custom_card_andyblac_room_color_on == 'theme') {
+                if (variables.ulm_custom_card_andyblac_room_color_on?.startsWith("rgb")) {
+                  return variables.ulm_custom_card_andyblac_room_color_on;
+                } else if (variables.ulm_custom_card_andyblac_room_color_on == 'theme') {
                   return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color_on+'),0.7)';
                 } else {
                   return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color_on+'),1)';
@@ -118,7 +120,9 @@ custom_card_andyblac_room:
           icon:
             - fill: >
                 [[[
-                  if (variables.ulm_custom_card_andyblac_room_color_on == 'theme') {
+                  if (variables.ulm_custom_card_andyblac_room_color_on?.startsWith("rgb")) {
+                    return variables.ulm_custom_card_andyblac_room_color_on;
+                  } else if (variables.ulm_custom_card_andyblac_room_color_on == 'theme') {
                     return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color_on+'),0.7)';
                   } else {
                     return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color_on+'),1)';
@@ -132,14 +136,23 @@ custom_card_andyblac_room:
       - height: "[[[ return variables.ulm_custom_card_andyblac_room_use_small_room_icon ? '40%' : '45%'; ]]]"
       - color: >
           [[[
-            if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
+            if (variables.ulm_custom_card_andyblac_room_color?.startsWith("rgb")) {
+              return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_color+' 70%)';
+            } else if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
               return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.4)';
             } else {
               return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.7)';
             }
           ]]]
     label:
-      - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),1)'; ]]]"
+      - color: >
+          [[[
+            if (variables.ulm_custom_card_andyblac_room_color?.startsWith("rgb")) {
+              return variables.ulm_custom_card_andyblac_room_color;
+            } else {
+              return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),1)';
+            }
+          ]]]
       - justify-self: "start"
       - align-self: "start"
       - font-weight: "bold"
@@ -151,7 +164,14 @@ custom_card_andyblac_room:
       - text-overflow: "ellipsis"
       - overflow: "hidden"
     name:
-      - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),1)'; ]]]"
+      - color: >
+          [[[
+            if (variables.ulm_custom_card_andyblac_room_color?.startsWith("rgb")) {
+              return variables.ulm_custom_card_andyblac_room_color;
+            } else {
+              return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),1)';
+            }
+          ]]]
       - justify-self: "start"
       - align-self: "end"
       - font-weight: "bold"
@@ -178,7 +198,9 @@ custom_card_andyblac_room:
       - top: "37.5%"
       - background-color: >
           [[[ 
-            if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
+            if (variables.ulm_custom_card_andyblac_room_color?.startsWith("rgb")) {
+              return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_color+' 20%)';
+            } else if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
               return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.05)';
             } else {
               return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.2)';
@@ -201,7 +223,16 @@ custom_card_andyblac_room:
         - width: "[[[ return variables.ulm_custom_card_andyblac_room_use_small_room_icon ? '30%' : '34%'; ]]]"
         - height: "[[[ return variables.ulm_custom_card_andyblac_room_use_small_room_icon ? '30%' : '34%'; ]]]"
         - line-height: "0"
-        - fill: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.7)' ]]]"
+        - fill: >
+            [[[ 
+              if (variables.ulm_custom_card_andyblac_room_color?.startsWith("rgb")) {
+                return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_color+' 70%)';
+              } else if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
+                return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.4)';
+              } else {
+                return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.7)';
+              }
+            ]]]
       img_cell:
         - border-radius: "50%"
         - width: "75%"
@@ -213,7 +244,9 @@ custom_card_andyblac_room:
         - top: "37.5%"
         - background-color: >
             [[[ 
-              if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
+              if (variables.ulm_custom_card_andyblac_room_color?.startsWith("rgb")) {
+                return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_sensor_color+' 20%)';
+              } else if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
                 return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.05)';
               } else {
                 return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.2)';
@@ -637,18 +670,46 @@ custom_card_andyblac_room_widget_icon:
     - value: "[[[ return variables?.ulm_active_state ]]]"
       styles:
         icon:
-          - color: "[[[ return variables.ulm_custom_card_andyblac_room_use_light_color ? 'var(--button-card-light-color)' : (variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),1)' : 'rgba(var(--color-theme),0.7)'); ]]]"
+          - color: >
+              [[[
+                if (variables.ulm_custom_card_andyblac_room_icon_color_on?.startsWith("rgb")) {
+                  return variables.ulm_custom_card_andyblac_room_icon_color_on;
+                } else {
+                  return variables.ulm_custom_card_andyblac_room_use_light_color ? 'var(--button-card-light-color)' : (variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),1)' : 'rgba(var(--color-theme),0.7)');
+                }
+              ]]]
         img_cell:
-          - background-color: "[[[ return variables.ulm_custom_card_andyblac_room_use_light_color ? 'color-mix(in srgb, transparent, var(--button-card-light-color) 20%)' : (variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)'); ]]]"
+          - background-color: >
+              [[[
+                if (variables.ulm_custom_card_andyblac_room_icon_color_on?.startsWith("rgb")) {
+                  return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_icon_color_on+' 20%)';
+                } else {
+                  return variables.ulm_custom_card_andyblac_room_use_light_color ? 'color-mix(in srgb, transparent, var(--button-card-light-color) 20%)' : (variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)');
+                }
+              ]]]
         custom_fields:
           icon:
-            - fill: "[[[ return variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),1)' : 'rgba(var(--color-theme),0.7)'; ]]]"
+            - fill: >
+                [[[
+                  if (variables.ulm_custom_card_andyblac_room_icon_color_on?.startsWith("rgb")) {
+                    return variables.ulm_custom_card_andyblac_room_icon_color_on;
+                  } else {
+                    return variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),1)' : 'rgba(var(--color-theme),0.7)';
+                  }
+                ]]]
           img_cell:
             - position: "absolute"
             - width: "100%"
             - height: "100%"
             - border-radius: "50%"
-            - background-color: "[[[ return variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)'; ]]]"
+            - background-color: >
+                [[[
+                  if (variables.ulm_custom_card_andyblac_room_icon_color_on?.startsWith("rgb")) {
+                    return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_icon_color_on+' 20%)';
+                  } else {
+                    return variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)';
+                  }
+                ]]]
       id: "on"
   custom_fields:
     notification: >
@@ -704,7 +765,9 @@ custom_card_andyblac_room_sensor_icon:
       - line-height: "0"
       - color: >
           [[[
-            if (variables.ulm_custom_card_andyblac_room_sensor_color == 'theme') {
+            if (variables.ulm_custom_card_andyblac_room_sensor_color?.startsWith("rgb")) {
+              return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_sensor_color+' 40%)';
+            } else if (variables.ulm_custom_card_andyblac_room_sensor_color == 'theme') {
               return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color+'),0.2)';
             } else {
               return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color+'),0.4)';
@@ -730,7 +793,9 @@ custom_card_andyblac_room_sensor_icon:
         - height: "90%"
         - fill: >
             [[[
-              if (variables.ulm_custom_card_andyblac_room_sensor_color_on == 'theme') {
+              if (variables.ulm_custom_card_andyblac_room_sensor_color?.startsWith("rgb")) {
+                return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_sensor_color+' 40%)';
+              } else if (variables.ulm_custom_card_andyblac_room_sensor_color == 'theme') {
                 return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color+'),0.2)';
               } else {
                 return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color+'),0.4)';
@@ -755,7 +820,9 @@ custom_card_andyblac_room_sensor_icon:
         icon:
           - color: >
               [[[
-                if (variables.ulm_custom_card_andyblac_room_sensor_color_on == 'theme') {
+                if (variables.ulm_custom_card_andyblac_room_sensor_color_on?.startsWith("rgb")) {
+                  return variables.ulm_custom_card_andyblac_room_sensor_color_on;
+                } else if (variables.ulm_custom_card_andyblac_room_sensor_color_on == 'theme') {
                   return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color_on+'),0.7)';
                 } else {
                   return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color_on+'),1)';
@@ -765,7 +832,9 @@ custom_card_andyblac_room_sensor_icon:
           icon:
             - fill: >
                 [[[
-                  if (variables.ulm_custom_card_andyblac_room_sensor_color_on == 'theme') {
+                  if (variables.ulm_custom_card_andyblac_room_sensor_color_on?.startsWith("rgb")) {
+                    return variables.ulm_custom_card_andyblac_room_sensor_color_on;
+                  } else if (variables.ulm_custom_card_andyblac_room_sensor_color_on == 'theme') {
                     return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color_on+'),0.7)';
                   } else {
                     return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_sensor_color_on+'),1)';

@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_status:
-  # v1.3.1
+  # v1.4
   template:
     - "ulm_translation_engine"
 
@@ -45,13 +45,27 @@ custom_card_andyblac_status:
             - top: "3%"
             - line-height: 0
             - background-color: "rgba(var(--color-red),1)"
-    - styles:
+    - value: "[[[ return variables.ulm_active_state ]]]"
+      styles:
         name:
-          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)'; ]]]"
+          - color: >
+              [[[
+                if (variables.ulm_custom_card_andyblac_status_color_on?.startsWith("rgb")) {
+                  return variables.ulm_custom_card_andyblac_status_color_on;
+                } else {
+                  return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)';
+                }
+              ]]]
         state:
-          - color: "[[[ return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)'; ]]]"
+          - color: >
+              [[[
+                if (variables.ulm_custom_card_andyblac_status_color_on?.startsWith("rgb")) {
+                  return variables.ulm_custom_card_andyblac_status_color_on;
+                } else {
+                  return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)';
+                }
+              ]]]
       id: "on"
-      value: "[[[ return variables.ulm_active_state ]]]"
 
   styles:
     name:
@@ -160,11 +174,14 @@ custom_card_andyblac_status_widget:
             - top: "3%"
             - line-height: 0
             - background-color: "rgba(var(--color-red),1)"
-    - styles:
+    - value: "[[[ return variables.ulm_active_state ]]]"
+      styles:
         icon:
           - color: >
               [[[
-                if (variables.ulm_custom_card_andyblac_status_color_on == 'theme') {
+                if (variables.ulm_custom_card_andyblac_status_color_on?.startsWith("rgb")) {
+                  return variables.ulm_custom_card_andyblac_status_color_on;
+                } else if (variables.ulm_custom_card_andyblac_status_color_on == 'theme') {
                   return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),0.7)';
                 } else {
                   return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),1)';
@@ -173,14 +190,15 @@ custom_card_andyblac_status_widget:
         img_cell:
           - background-color: >
               [[[
-                if (variables.ulm_custom_card_andyblac_status_color_on == 'theme') {
+                if (variables.ulm_custom_card_andyblac_status_color_on?.startsWith("rgb")) {
+                  return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_status_color_on+' 20%)';
+                } else if (variables.ulm_custom_card_andyblac_status_color_on == 'theme') {
                   return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),0.15)';
                 } else {
                   return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_status_color_on+'),0.2)';
                 }
               ]]]
       id: "on"
-      value: "[[[ return variables.ulm_active_state ]]]"
 
   styles:
     icon:
