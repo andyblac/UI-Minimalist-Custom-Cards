@@ -30,7 +30,7 @@ custom_card_andyblac_status:
   show_label: false
   show_icon: false
   show_state: true
-  state_display: "[[[ return entity?.attributes?.label ]]]"
+  state_display: "[[[ return entity?.attributes?.label ? entity?.attributes?.label : entity?.state]]]"
 
   state:
     - value: "unavailable"
