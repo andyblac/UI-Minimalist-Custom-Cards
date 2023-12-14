@@ -46,8 +46,8 @@ add support for custom colours by using `rgb()`
 
 ## Usage
 
-For colours, you can use any colour in your theme that uses the following naming structure `color-red: "241, 139, 130"` or `color-yellow: "252, 214, 99"`,</br>
-so for example `color-background-purple: "var(--color-purple)"` in your theme, you would ignore the text `color-` and just set `background-purple`,</br>
+For colours, you can use any colour in your theme that uses the following naming structure `color-red: "241, 139, 130"` or `color-yellow: "252, 214, 99"`,
+so for example `color-background-purple: "var(--color-purple)"` in your theme, you would ignore the text `color-` and just set `background-purple`,
 you can also use custom colours by using for example `rgb(255,0,0)`
 
 
