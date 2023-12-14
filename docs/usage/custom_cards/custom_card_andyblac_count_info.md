@@ -21,26 +21,35 @@ hide:
 <summary>1.2.1</summary>
 Initial release
 </details>
+<details>
+<summary>1.3</summary>
+add support for custom colours by using `rgb()`
+</details>
 
 ## Variables
 
-| Variable                                     | Default | Required    | Notes             |
-|----------------------------------------------|---------|-------------|-------------------|
-| entity                                       |         | Yes         | The sensor entity |
-| ulm_custom_card_andyblac_count_info_color_on |         | No          | This lets you change the colour of the icon and background, when state is 'on' |
-| ulm_custom_card_andyblac_count_info_badge_bg | `true`  | No          | This lets you show / hide the badge background |
+| Variable                                     | Default     | Required    | Notes                                                                          |
+|----------------------------------------------|-------------|-------------|--------------------------------------------------------------------------------|
+| entity                                       |             | Yes         | The sensor entity                                                              |
+| ulm_custom_card_andyblac_count_info_color_on |             | No          | This lets you change the colour of the icon and background, when state is 'on' |
+| ulm_custom_card_andyblac_count_info_badge_bg | `true`      | No          | This lets you show / hide the badge background                                 |
 
 ## Default card options
 
-| Options                                | Default         | Required    | Notes          | Requirement |
-|----------------------------------------|-----------------|-------------|----------------|-------------|
-| entity                                 |                 | No          | The entity_id for the card | |
-| icon                                   |                 | No          | Icon to display. Defaults to the entity icon | |
-| tap_action                             | `more-info`     | No          | Define the type of action on click, if undefined, toggle will be used.</br>See [Action](https://github.com/custom-cards/button-card#Action)| |
-| hold_action                            |                 | No          | Define the type of action on hold, if undefined, nothing happens</br> See [Action](https://github.com/custom-cards/button-card#Action)| |
-| label                                  |                 | No          | Shows the state of the sensor, you can also use code here |
+| Options                                      | Default     | Required    | Notes                                                                        |
+|----------------------------------------------|-------------|-------------|------------------------------------------------------------------------------|
+| entity                                       |             | No          | The entity_id for the card                                                   |
+| icon                                         |             | No          | Icon to display. Defaults to the entity icon                                 |
+| tap_action                                   | `more-info` | No          | Define the type of action on click, if undefined, toggle will be used.</br>See [Action](https://github.com/custom-cards/button-card#Action) |
+| hold_action                                  |             | No          | Define the type of action on hold, if undefined, nothing happens</br> See [Action](https://github.com/custom-cards/button-card#Action) |
+| label                                        |             | No          | Shows the state of the sensor, you can also use code here                    |
 
 ## Usage
+
+For colours, you can use any colour in your theme that uses the following naming structure `color-red: "241, 139, 130"` or `color-yellow: "252, 214, 99"`,</br>
+so for example `color-background-purple: "var(--color-purple)"` in your theme, you would ignore the text `color-` and just set `background-purple`,</br>
+you can also use custom colours by using for example `rgb(255,0,0)`
+
 
 ```yaml
 - type: custom:button-card
