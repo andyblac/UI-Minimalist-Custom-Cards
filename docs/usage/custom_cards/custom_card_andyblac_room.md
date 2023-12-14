@@ -54,16 +54,21 @@ add ulm_custom_card_andyblac_room_sensor_show_on_state_only</br>
 add missing `unavailable` indicator for sensor icon</br>
 change colour of `unavailable` indicator to orange</br>
 </details>
+<details>
+<summary>2.1</summary>
+add support for custom colours by using `rgb()`</br>
+sensor buttons can also use `rgba()`</br>
+</details>
 
 ## Room Variables
 
 | Variable                                                 | Default         | Required    | Notes                                                                      |
-|----------------------------------------------------------|-----------------|-------------|----------------|
-| ulm_custom_card_andyblac_room_color                      | `theme`         | No          | This lets you set the room colour.</br>You can use any colour in your theme that uses the following naming structure `color-red: "241, 139, 130"` or `color-yellow: "252, 214, 99"`</br>So for example `color-background-purple: "var(--color-purple)"` in your theme, you would ignore the text `color-` and just set `background-purple` |
-| ulm_custom_card_andyblac_room_color_on                   | `Room colour`   | No          | This lets you set the room icon colour if the state is `on` (this requires a room entity).               |
+|----------------------------------------------------------|-----------------|-------------|----------------------------------------------------------------------------|
+| ulm_custom_card_andyblac_room_color                      | `theme`         | No          | This lets you set the room colour                                          |
+| ulm_custom_card_andyblac_room_color_on                   | `Room colour`   | No          | This lets you set the room icon colour if the state is `on` (this requires a room entity) |
 | ulm_custom_card_andyblac_room_use_label_icons            | `false`         | No          | This option lets you see an icon next to the text of the sensor_label information (🌡️ / 💧 / 🔆 ) |
 | ulm_custom_card_andyblac_room_use_small_label_font       | `false`         | No          | My card uses slightly larger fonts than the original card, to use use the orignal card font size set this to `true` |
-| ulm_custom_card_andyblac_room_use_small_room_icon        | `false`         | No          | This option lets you set the room icon slightly smaller, this can useful when using the climate button. |
+| ulm_custom_card_andyblac_room_use_small_room_icon        | `false`         | No          | This option lets you set the room icon slightly smaller, this can useful when using the climate button |
 | sensor_label_1                                           |                 | No          | The enitiy_id of a sensor you wish to display the state of                 |
 | sensor_label_2                                           |                 | No          | The enitiy_id of a sensor you wish to display the state of                 |
 | sensor_label_3                                           |                 | No          | The enitiy_id of a sensor you wish to display the state of                 |
@@ -139,6 +144,10 @@ If you want to tweak this card a little bit more, below are some examples. The f
 | name                                                    |                 | No | Change the title text                                                               |
 
 ## Usage
+
+For colours, you can use any colour in your theme that uses the following naming structure `color-red: "241, 139, 130"` or `color-yellow: "252, 214, 99"`,
+so for example `color-background-purple: "var(--color-purple)"` in your theme, you would ignore the text `color-` and just set `background-purple`,
+you can also use custom colours by using for example `rgb(255,0,0)`
 
 ```yaml
   - type: custom:button-card

@@ -21,32 +21,40 @@ hide:
 <summary>1.3</summary>
 Initial release
 </details>
+<details>
+<summary>1.4</summary>
+add support for custom colours by using `rgb()`
+</details>
 
 ## Variables
 
-| Variable                                 | Default | Required    | Notes             |
-|------------------------------------------|---------|-------------|-------------------|
-| entity                                   |         | Yes         | The status entity |
-| ulm_custom_card_andyblac_status_color_on |         | No          | This lets you change the colour of the icon and background, when state is 'on' |
-| button                                   |         | No          | The button object (see below) |
+| Variable                                 | Default     | Required  | Notes                                                                          |
+|------------------------------------------|-------------|-----------|--------------------------------------------------------------------------------|
+| entity                                   |             | Yes       | The status entity                                                              |
+| ulm_custom_card_andyblac_status_color_on |             | No        | This lets you change the colour of the icon and background, when state is 'on' |
+| button                                   |             | No        | The button object (see below)                                                  |
 
 ## Button object
 
-| Variable    | Default         | Required  | Notes          | 
-|-------------|-----------------|-----------|----------------|
-| icon		    |                 | No	      | The icon to show, Defaults to the entity icon |
-| tap_action  | `more-info`     | No        | Define the type of action on click, if undefined, toggle will be used.</br>See [Action](https://github.com/custom-cards/button-card#Action)| |
-| hold_action | `more-info`     | No        | Define the type of action on hold, if undefined, nothing happens</br> See [Action](https://github.com/custom-cards/button-card#Action)| |
+| Variable                                 | Default     | Required  | Notes                                                                          |
+|------------------------------------------|-------------|-----------|--------------------------------------------------------------------------------|
+| icon		                                 |             | No	       | The icon to show, Defaults to the entity icon                                  |
+| tap_action                               | `more-info` | No        | Define the type of action on click, if undefined, toggle will be used.</br>See [Action](https://github.com/custom-cards/button-card#Action) |
+| hold_action                              | `more-info` | No        | Define the type of action on hold, if undefined, nothing happens</br> See [Action](https://github.com/custom-cards/button-card#Action) |
 
 ## Default card options
 
-| Options              | Default         | Required         | Notes                      |
-|----------------------|-----------------|------------------|----------------------------|
-| entity               |                 | No               | The entity_id for the card |
-| name                 |                 | No               | Change the title text      |
-| state_display        |                 | No               | Change the label text.     |
+| Options                                  | Default         | Required         | Notes                      |
+|------------------------------------------|-----------------|------------------|----------------------------|
+| entity                                   |                 | No               | The entity_id for the card |
+| name                                     |                 | No               | Change the title text      |
+| state_display                            |                 | No               | Change the label text.     |
 
 ## Usage
+
+For the colour, you can use any colour in your theme that uses the following naming structure `color-red: "241, 139, 130"` or `color-yellow: "252, 214, 99"`,
+so for example `color-background-purple: "var(--color-purple)"` in your theme, you would ignore the text `color-` and just set `background-purple`,
+you can also use custom colours by using for example `rgb(255,0,0)`
 
 ```yaml
 - type: custom:button-card
