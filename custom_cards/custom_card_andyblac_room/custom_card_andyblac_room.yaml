@@ -245,7 +245,7 @@ custom_card_andyblac_room:
         - background-color: >
             [[[ 
               if (variables.ulm_custom_card_andyblac_room_color?.startsWith("rgb")) {
-                return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_sensor_color+' 20%)';
+                return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_color+' 20%)';
               } else if (variables.ulm_custom_card_andyblac_room_color == 'theme') {
                 return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_color+'),0.05)';
               } else {
