@@ -69,7 +69,6 @@ add support for custom colours by using `rgb()`</br>
 sensor buttons can also use `rgba()`</br>
 </details>
 
->>>>>>> dev
 ## Room Variables
 
 | Variable                                                 | Default         | Required    | Notes                                                                      |
