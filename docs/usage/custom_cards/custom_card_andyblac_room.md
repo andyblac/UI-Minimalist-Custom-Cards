@@ -63,6 +63,13 @@ add video control button</br>
 <summary>2.0.7</summary>
 change name to custom_1 and custom_2</br>
 </details>
+=======
+<summary>2.1</summary>
+add support for custom colours by using `rgb()`</br>
+sensor buttons can also use `rgba()`</br>
+</details>
+
+>>>>>>> dev
 ## Room Variables
 
 | Variable                                                 | Default         | Required    | Notes                                                                      |
