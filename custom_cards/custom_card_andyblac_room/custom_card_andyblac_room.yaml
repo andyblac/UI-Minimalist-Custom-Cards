@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_room:
-  # v2.2
+  # v2.2.1
   template:
     - "ulm_translation_engine"
 
@@ -659,10 +659,24 @@ custom_card_andyblac_room_widget_icon:
       - width: "50%"
       - height: "50%"
       - line-height: "0"
-      - color: "rgba(var(--color-theme),0.2)"
+      - color: >
+          [[[
+            if (variables.ulm_custom_card_andyblac_room_icon_color?.startsWith("rgb")) {
+              return variables.ulm_custom_card_andyblac_room_icon_color;
+            } else {
+              return variables.ulm_custom_card_andyblac_room_icon_color ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color+'),0.2)' : 'rgba(var(--color-theme),0.2)';
+            }
+          ]]]
     img_cell:
       - border-radius: "50%"
-      - background-color: "rgba(var(--color-theme),0.05)"
+      - background-color: >
+          [[[
+            if (variables.ulm_custom_card_andyblac_room_icon_color?.startsWith("rgb")) {
+              return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_icon_color+' 10%)';
+            } else {
+              return variables.ulm_custom_card_andyblac_room_icon_color ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color+'),0.05)' : 'rgba(var(--color-theme),0.05)';
+            }
+          ]]]
     grid:
       - grid-template-areas: "'i'"
     card:
