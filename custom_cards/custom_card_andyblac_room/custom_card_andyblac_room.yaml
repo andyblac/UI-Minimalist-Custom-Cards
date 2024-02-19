@@ -160,7 +160,7 @@ custom_card_andyblac_room:
       - filter: "opacity(40%)"
       - margin-top: "[[[ return !variables?.entity_1 ? '-24%' : '-10%'; ]]]"
       - margin-left: "8px"
-      - max-width: "[[[ return `calc(137% - (${variables?.entity_2 ? (variables?.entity_1 ? 40 : 43): 0}%))`; ]]]"
+      - max-width: "[[[ return `calc(137% - (${variables?.entity_2 ? (variables?.entity_1 ? 40 : 35): 0}%))`; ]]]"
       - text-overflow: "ellipsis"
       - overflow: "hidden"
     name:
@@ -178,7 +178,7 @@ custom_card_andyblac_room:
       - font-size: "18px"
       - margin-left: "8px"
       - margin-bottom: "[[[ return !variables?.entity_1 ? (!variables?.entity_2 ? '15.8%' : '24%') : '10%'; ]]]"
-      - max-width: "[[[ return `calc(100% - (12px + ${!variables?.entity_2 ? 5 : 0}px))`; ]]]"
+      - max-width: "[[[ return `calc(100% - (${!variables?.entity_1 ? 0 : 12}px))`; ]]]"
       - text-overflow: "ellipsis"
       - overflow: "hidden"
     state:
