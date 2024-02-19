@@ -26,7 +26,7 @@ custom_card_andyblac_scene:
             - left: "20%"
             - top: "3%"
             - line-height: 0
-            - background-color: "rgba(var(--color-red),1)"
+            - background-color: "var(--accent-color)"
 
   styles:
     name:
@@ -87,7 +87,7 @@ custom_card_andyblac_scene:
     notification: >
       [[[
         if (entity?.state == 'unavailable'){
-          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--primary-background-color);"></ha-icon>';
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--text-accent-color);"></ha-icon>';
         }
       ]]]
 
