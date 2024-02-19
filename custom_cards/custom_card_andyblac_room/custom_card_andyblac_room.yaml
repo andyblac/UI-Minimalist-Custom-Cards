@@ -102,7 +102,7 @@ custom_card_andyblac_room:
             - margin-left: "-43%"
             - line-height: 0
             - display: "grid"
-            - background-color: "[[[ return 'rgb(250,152,0)'; ]]]"
+            - background-color: "var(--accent-color)"
     - value: "[[[ return variables?.ulm_active_state ]]]"
       styles:
         icon:
@@ -316,7 +316,7 @@ custom_card_andyblac_room:
     notification: >
       [[[
         if (entity?.state == 'unavailable'){
-          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: rgb(255,255,255);"></ha-icon>';
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--text-accent-color);"></ha-icon>';
         }
       ]]]
     i1:
@@ -699,7 +699,7 @@ custom_card_andyblac_room_widget_icon:
             - width: "16px"
             - margin-left: "10px"
             - line-height: 0
-            - background-color: "[[[ return 'rgb(250,152,0)'; ]]]"
+            - background-color: "var(--accent-color)"
     - value: "[[[ return variables?.ulm_active_state ]]]"
       styles:
         icon:
@@ -748,7 +748,7 @@ custom_card_andyblac_room_widget_icon:
     notification: >
       [[[
         if (entity?.state == 'unavailable'){
-          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: rgb(255,255,255);"></ha-icon>';
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--text-accent-color);"></ha-icon>';
         }
       ]]]
 
@@ -851,7 +851,7 @@ custom_card_andyblac_room_sensor_icon:
             - width: "16px"
             - margin-left: "10px"
             - line-height: 0
-            - background-color: "[[[ return 'rgb(250,152,0)'; ]]]"
+            - background-color: "var(--accent-color)"
     - value: "[[[ return variables?.ulm_active_state ]]]"
       styles:
         icon:
@@ -882,6 +882,6 @@ custom_card_andyblac_room_sensor_icon:
     notification: >
       [[[
         if (entity?.state == 'unavailable'){
-          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: rgb(255,255,255);"></ha-icon>';
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--text-accent-color);"></ha-icon>';
         }
       ]]]
