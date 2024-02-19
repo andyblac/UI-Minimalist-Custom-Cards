@@ -17,7 +17,16 @@ The card has support for up to 4 sub-icons at the right side of the card, and 6 
 
 - Authors:
     - AndyBlac
+- Contributors:
+    - Mon3y78
 - Full credit to the Minimalist UI team for creating the base card that this 'mod' was used.
+
+## Breaking Changes
+
+<details>
+<summary>2.2</summary>
+rename climate to custom_2</br>
+</details>
 
 ## Changelog
 
@@ -59,6 +68,11 @@ change colour of `unavailable` indicator to orange</br>
 add support for custom colours by using `rgb()`</br>
 sensor buttons can also use `rgba()`</br>
 </details>
+<details>
+<summary>2.2</summary>
+add additional custom button</br>
+rename climate to custom_2</br>
+</details>
 
 ## Room Variables
 
@@ -82,7 +96,8 @@ sensor buttons can also use `rgba()`</br>
 | sensor_4                                                 |                 | No          | `sensor` object (see below)                                                |
 | sensor_5                                                 |                 | No          | `sensor` object (see below)                                                |
 | sensor_6                                                 |                 | No          | `sensor` object (see below)                                                |
-| climate                                                  |                 | No          | `climate` object (see below)                                               |
+| custom_1                                                 |                 | No          | `custom_1` object (see below)                                              |
+| custom_2                                                 |                 | No          | `custom_2` object (see below)                                              |
 
 ## Room Entity object
 
@@ -98,7 +113,7 @@ sensor buttons can also use `rgba()`</br>
 
 | Variable                                                 | Default         | Required    | Notes                                                                      |
 |----------------------------------------------------------|-----------------|-------------|----------------------------------------------------------------------------|
-| ulm_custom_card_andyblac_room_icon_color_on              |                 | No          | Allows you to change the color of the entity color if state is `on`         |
+| ulm_custom_card_andyblac_room_icon_color_on              |                 | No          | Allows you to change the color of the entity color if state is `on`        |
 | ulm_custom_card_andyblac_room_use_light_color            |                 | No          | This will set the colour of the icon to what colour the light is currently |
 
 ## Sensor object
@@ -117,13 +132,13 @@ sensor buttons can also use `rgba()`</br>
 |----------------------------------------------------------|-----------------|-------------|----------------------------------------------------------------------------|
 | ulm_custom_card_andyblac_room_sensor_color               | `Room colour`   | No          | Allows you to change the color of the sensor color if state is `off`       |
 | ulm_custom_card_andyblac_room_sensor_color_on            | `Room colour`   | No          | Allows you to change the color of the sensor color if state is `on`        |
-| ulm_custom_card_andyblac_room_sensor_show_on_state_only  | `false`         | No          | Allows you to show the button only if state is `on`                             |
+| ulm_custom_card_andyblac_room_sensor_show_on_state_only  | `false`         | No          | Allows you to show the button only if state is `on`                        |
 
-## Climate object
+## Custom object
 
 | Variable                                                 | Default         | Required    | Notes                                                                      |
 |----------------------------------------------------------|-----------------|-------------|----------------------------------------------------------------------------|
-| entity_id                                                |                 | No          | The entity_id of the climate to control                                    |
+| entity_id                                                |                 | No          | The entity_id of the custom button                                         |
 | icon                                                     |                 | No          | Allows you set an icon of your choice                                      |
 | templates                                                |                 | No          | List of the additional button card templates to apply to this icon         |
 | tap_action                                               | `more-info`     | No          | tap_action for the icon (see button card documentation for options)        |
@@ -162,6 +177,8 @@ you can also use custom colours by using for example `rgb(255,0,0)`
       sensor_label_1: sensor.bathroom_humidity_sensor_temperature
       sensor_label_2: sensor.bathroom_humidity_sensor_humidity
       sensor_label_3: sensor.bathroom_humidity_derivative
+      custom_2:
+        entity_id: climate.bathroom
       sensor_1:
         entity_id: input_boolean.hot_water_toggle
         tap_action:
@@ -171,7 +188,7 @@ you can also use custom colours by using for example `rgb(255,0,0)`
         ulm_custom_card_andyblac_room_icon_color_on: yellow
       entity_4:
         entity_id: fan.bathroom_extractor
-        ulm_custom_card_andyblac_room_icon_color_on: blue
+        ulm_custom_card_andyblac_room_icon_color_on: rgb(77, 195, 255)
         templates:
           - fan_animation
 ```
