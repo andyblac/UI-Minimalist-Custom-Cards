@@ -107,12 +107,12 @@ custom_card_andyblac_count_info:
       - top: "3px"
       - right: "3px"
       - height: "20px"
-      - width: "20px"
       - font-weight: "bold"
       - font-size: "16px"
       - color: "rgba(var(--color-theme),0.4)"
       - background-color: "rgba(var(--color-theme),0.05)"
-      - border-radius: "50%"
+      - border-radius: "10px"
+      - padding: "0px 6px"
     icon:
       - color: "rgba(var(--color-theme),0.2)"
     img_cell:
