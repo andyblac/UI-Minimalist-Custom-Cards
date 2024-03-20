@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_status:
-  # v1.4
+  # v1.4.1
   template:
     - "ulm_translation_engine"
 
@@ -44,7 +44,7 @@ custom_card_andyblac_status:
             - left: "20%"
             - top: "3%"
             - line-height: 0
-            - background-color: "rgba(var(--color-red),1)"
+            - background-color: "var(--accent-color)"
     - value: "[[[ return variables.ulm_active_state ]]]"
       styles:
         name:
@@ -130,7 +130,7 @@ custom_card_andyblac_status:
     notification: >
       [[[
         if (entity?.state == 'unavailable'){
-          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--primary-background-color);"></ha-icon>';
+          return '<ha-icon icon="mdi:exclamation" style="width: 100%; height: 100%; color: var(--text-accent-color);"></ha-icon>';
         }
       ]]]
 
