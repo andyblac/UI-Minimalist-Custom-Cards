@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_count_info:
-  # v1.3
+  # v1.3.2
   template:
     - "ulm_translation_engine"
   variables:
