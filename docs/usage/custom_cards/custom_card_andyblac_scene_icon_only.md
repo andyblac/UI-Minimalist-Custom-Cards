@@ -39,7 +39,7 @@ you can also use custom colours by using for example `rgb(255,0,0)`
 
 ```yaml
       - type: custom:button-card
-        template: custom_card_andyblac_scene_icon_only_
+        template: custom_card_andyblac_scene_icon_only
         entity: scene.good_morning
         variables:
           ulm_card_scene_color: yellow
