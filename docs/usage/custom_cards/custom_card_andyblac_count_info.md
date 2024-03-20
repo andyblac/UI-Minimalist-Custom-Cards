@@ -29,7 +29,9 @@ add support for custom colours by using `rgb()`
 <summary>1.3.1</summary>
 tweak entity error icon colour, so it matches the system default
 </details>
-
+<summary>1.3.2</summary>
+add support for bigger numbers with pill shaped backgrounds
+</details>
 ## Variables
 
 | Variable                                     | Default     | Required    | Notes                                                                          |
