@@ -25,7 +25,9 @@ Initial release
 <summary>1.3</summary>
 add support for custom colours by using `rgb()`
 </details>
-
+<summary>1.3.2</summary>
+add support for bigger numbers with pill shaped backgrounds
+</details>
 ## Variables
 
 | Variable                                     | Default     | Required    | Notes                                                                          |
