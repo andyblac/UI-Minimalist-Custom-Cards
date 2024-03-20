@@ -73,6 +73,12 @@ sensor buttons can also use `rgba()`</br>
 add additional custom button</br>
 rename climate to custom_2</br>
 </details>
+<details>
+<summary>2.2.1</summary>
+tweak entity error icon colour, so it matches the system default</br>
+tweak label width to give the most info possible</br>
+add custom colour support to room entities OFF state</br>
+</details>
 
 ## Room Variables
 
