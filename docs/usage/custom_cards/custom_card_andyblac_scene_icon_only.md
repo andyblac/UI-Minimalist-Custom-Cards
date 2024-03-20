@@ -7,10 +7,10 @@ hide:
 
 ## Description
 
-![example-image-light](../../assets/img/custom_card_andyblac_scene/custom_card_andyblac_scene_light.png)
-![example-image-dark](../../assets/img/custom_card_andyblac_scene/custom_card_andyblac_scene_dark.png)
+![example-image-light](../../assets/img/custom_card_andyblac_scene/custom_card_andyblac_scene_icon_only_light.png)
+![example-image-dark](../../assets/img/custom_card_andyblac_scene/custom_card_andyblac_scene_icon_only_dark.png)
 
-This card let you activate a scene by tapping on the icon, it also gives last activated information.
+This card let you activate a scene by tapping on the icon.
 
 ## Credits
 
@@ -20,24 +20,8 @@ This card let you activate a scene by tapping on the icon, it also gives last ac
 ## Changelog
 
 <details>
-<summary>1.1</summary>
+<summary>1.0</summary>
 Initial release
-</details>
-<details>
-<summary>1.2</summary>
-Add ability to have actions on the icon and the card.
-</details>
-<details>
-<summary>1.3</summary>
-Fix card info text layout, and add unavailable indicator.
-</details>
-<details>
-<summary>1.4</summary>
-add support for custom colours by using `rgb()`
-</details>
-<details>
-<summary>1.4.1</summary>
-tweak entity error icon colour, so it matches the system default
 </details>
 
 ## Variables
@@ -55,7 +39,7 @@ you can also use custom colours by using for example `rgb(255,0,0)`
 
 ```yaml
       - type: custom:button-card
-        template: custom_card_andyblac_scene
+        template: custom_card_andyblac_scene_icon_only
         entity: scene.good_morning
         variables:
           ulm_card_scene_color: yellow

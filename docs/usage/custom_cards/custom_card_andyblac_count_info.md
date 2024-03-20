@@ -25,6 +25,10 @@ Initial release
 <summary>1.3</summary>
 add support for custom colours by using `rgb()`
 </details>
+<details>
+<summary>1.3.1</summary>
+tweak entity error icon colour, so it matches the system default
+</details>
 
 ## Variables
 
