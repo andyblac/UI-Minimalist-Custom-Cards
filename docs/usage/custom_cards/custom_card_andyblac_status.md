@@ -29,14 +29,31 @@ add support for custom colours by using `rgb()`
 <summary>1.4.1</summary>
 tweak entity error icon colour, so it matches the system default
 </details>
+<details>
+<summary>1.5</summary>
+fix state to show precision set
+add support for low/med/high status colours
+add support for 3 status value colours
+</details>
 
 ## Variables
 
-| Variable                                 | Default     | Required  | Notes                                                                          |
-|------------------------------------------|-------------|-----------|--------------------------------------------------------------------------------|
-| entity                                   |             | Yes       | The status entity                                                              |
-| ulm_custom_card_andyblac_status_color_on |             | No        | This lets you change the colour of the icon and background, when state is 'on' |
-| button                                   |             | No        | The button object (see below)                                                  |
+| Variable                                             | Default     | Required  | Notes                                                                                                 |
+|------------------------------------------------------|-------------|-----------|-------------------------------------------------------------------------------------------------------|
+| entity                                               |             | Yes       | The status entity                                                                                     |
+| ulm_custom_card_andyblac_status_color_on             |             | No        | This lets you change the colour of the icon and background, when state is 'on'                        |
+| ulm_custom_card_andyblac_status_color_low_value      |             | No        | This lets you enable the low color state, enter the value for the color if it falls below this value  |
+| ulm_custom_card_andyblac_status_color_high_value     |             | No        | This lets you enable the high color state, enter the value for the color if it rises above this value |
+| ulm_custom_card_andyblac_status_color_low            | `green`     | No        | The color used for the lower state value                                                              |
+| ulm_custom_card_andyblac_status_color_medium         | `yellow`    | No        | The color use when the state value is between the lower and higher set pionts                         |
+| ulm_custom_card_andyblac_status_color_high           | `red`       | No        | The color for the lower state value                                                                   |
+| ulm_custom_card_andyblac_status_color_state_1_value  |             | No        | This lets you change the colour, when the state equals this value                                     |
+| ulm_custom_card_andyblac_status_color_state_2_value  |             | No        | This lets you change the colour, when the state equals this value                                     |
+| ulm_custom_card_andyblac_status_color_state_3_value  |             | No        | This lets you change the colour, when the state equals this value                                     |
+| ulm_custom_card_andyblac_status_color_state_1        | `blue`      | No        | The color used for the state_1 state value                                                            |
+| ulm_custom_card_andyblac_status_color_state_2        | `green`     | No        | The color used for the state_2 state value                                                            |
+| ulm_custom_card_andyblac_status_color_state_3        | `red`       | No        | The color used for the state_3 state value                                                            |
+| button                                               |             | No        | The button object (see below)                                                                         |
 
 ## Button object
 
