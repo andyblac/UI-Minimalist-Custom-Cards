@@ -627,6 +627,7 @@ custom_card_andyblac_room:
 
 custom_card_andyblac_room_widget_icon:
   variables:
+    ulm_custom_card_andyblac_room_icon_color_on_bg: "[[[ return variables?.ulm_custom_card_andyblac_room_icon_color_on ? variables.ulm_custom_card_andyblac_room_icon_color_on : variables.ulm_custom_card_andyblac_room_color; ]]]"
     tap_action:
       action: "toggle"
     hold_action:
