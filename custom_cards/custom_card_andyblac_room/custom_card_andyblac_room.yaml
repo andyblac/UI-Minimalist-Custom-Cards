@@ -1,6 +1,6 @@
 ---
 custom_card_andyblac_room:
-  # v2.2.1
+  # v2.3
   template:
     - "ulm_translation_engine"
 
@@ -10,6 +10,8 @@ custom_card_andyblac_room:
     ulm_custom_card_andyblac_room_use_label_icons: false
     ulm_custom_card_andyblac_room_use_small_label_font: false
     ulm_custom_card_andyblac_room_use_small_room_icon: false
+    ulm_custom_card_andyblac_room_area_id: false
+    ulm_custom_card_andyblac_room_use_area_picture: false
     ulm_active_state: >
       [[[
         let not_active = ['0','disarmed','off','closed','not_home','standby','idle','docked','unknown','unavailable','paused']
@@ -36,8 +38,9 @@ custom_card_andyblac_room:
   show_icon: true
   show_label: true
   show_name: true
-  icon: "mdi:sofa-single"
   triggers_update: "all"
+  icon: "[[[ return variables.ulm_custom_card_andyblac_room_area_id ? hass.areas[variables.ulm_custom_card_andyblac_room_area_id].icon : 'mdi:sofa'; ]]]"
+  name: "[[[ return variables.ulm_custom_card_andyblac_room_area_id ? hass.areas[variables.ulm_custom_card_andyblac_room_area_id].name : ''; ]]]"
   label: |-
     [[[
       var spacer = " | ";
@@ -212,6 +215,8 @@ custom_card_andyblac_room:
       - grid-template-rows: "[[[ return !variables?.entity_1 ? '1fr 1fr 1fr' : '1fr 1fr 1fr 1fr'; ]]]"
       - justify-items: "center"
     card:
+      - background: "[[[ return variables.ulm_custom_card_andyblac_room_use_area_picture ? (variables.ulm_custom_card_andyblac_room_area_id ? 'url('+hass.areas[variables.ulm_custom_card_andyblac_room_area_id].picture+') center' : '' ) : ''; ]]]"
+      - background-size: "[[[ return variables.ulm_custom_card_andyblac_room_use_area_picture ? 'cover' : ''; ]]]"
       - border-radius: "20px"
       - box-shadow: "var(--box-shadow)"
       - padding: "5px"
@@ -671,10 +676,12 @@ custom_card_andyblac_room_widget_icon:
       - border-radius: "50%"
       - background-color: >
           [[[
-            if (variables.ulm_custom_card_andyblac_room_icon_color?.startsWith("rgb")) {
-              return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_icon_color+' 10%)';
+            if (variables.ulm_custom_card_andyblac_room_icon_color_bg?.startsWith("rgba")) {
+              return variables.ulm_custom_card_andyblac_room_icon_color_bg;
+            } else if (variables.ulm_custom_card_andyblac_room_icon_color_bg?.startsWith("rgb")) {
+              return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_icon_color_bg+' 10%)';
             } else {
-              return variables.ulm_custom_card_andyblac_room_icon_color ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color+'),0.05)' : 'rgba(var(--color-theme),0.05)';
+              return variables.ulm_custom_card_andyblac_room_icon_color_bg ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_bg+'),0.05)' : 'rgba(var(--color-theme),0.05)';
             }
           ]]]
     grid:
@@ -728,10 +735,12 @@ custom_card_andyblac_room_widget_icon:
         img_cell:
           - background-color: >
               [[[
-                if (variables.ulm_custom_card_andyblac_room_icon_color_on?.startsWith("rgb")) {
-                  return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_icon_color_on+' 20%)';
+                if (variables.ulm_custom_card_andyblac_room_icon_color_on_bg?.startsWith("rgba")) {
+                  return variables.ulm_custom_card_andyblac_room_icon_color_on_bg;
+                } else if (variables.ulm_custom_card_andyblac_room_icon_color_on_bg?.startsWith("rgb")) {
+                  return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_icon_color_on_bg+' 20%)';
                 } else {
-                  return variables.ulm_custom_card_andyblac_room_use_light_color ? 'color-mix(in srgb, transparent, var(--button-card-light-color) 20%)' : (variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)');
+                  return variables.ulm_custom_card_andyblac_room_use_light_color ? 'color-mix(in srgb, transparent, var(--button-card-light-color) 20%)' : (variables.ulm_custom_card_andyblac_room_icon_color_on_bg ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on_bg+'),0.2)' : 'rgba(var(--color-theme),0.15)');
                 }
               ]]]
         custom_fields:
@@ -751,10 +760,12 @@ custom_card_andyblac_room_widget_icon:
             - border-radius: "50%"
             - background-color: >
                 [[[
-                  if (variables.ulm_custom_card_andyblac_room_icon_color_on?.startsWith("rgb")) {
-                    return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_icon_color_on+' 20%)';
+                  if (variables.ulm_custom_card_andyblac_room_icon_color_on_bg?.startsWith("rgba")) {
+                    return variables.ulm_custom_card_andyblac_room_icon_color_on_bg;
+                  } else if (variables.ulm_custom_card_andyblac_room_icon_color_on_bg?.startsWith("rgb")) {
+                    return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_room_icon_color_on_bg+' 20%)';
                   } else {
-                    return variables.ulm_custom_card_andyblac_room_icon_color_on ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on+'),0.2)' : 'rgba(var(--color-theme),0.15)';
+                    return variables.ulm_custom_card_andyblac_room_icon_color_on_bg ? 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_room_icon_color_on_bg+'),0.2)' : 'rgba(var(--color-theme),0.15)';
                   }
                 ]]]
       id: "on"

@@ -79,6 +79,13 @@ tweak entity error icon colour, so it matches the system default</br>
 tweak label width to give the most info possible</br>
 add custom colour support to room entities OFF state</br>
 </details>
+<details>
+<summary>2.3</summary>
+Add support for `ulm_custom_card_andyblac_room_area_id`</br>
+and `ulm_custom_card_andyblac_room_use_area_picture`</br>
+When using area id variable there is no need to use </br>
+`name` or `icon` as these will pulled from the area itself.</br>
+</details>
 
 ## Room Variables
 
@@ -89,6 +96,8 @@ add custom colour support to room entities OFF state</br>
 | ulm_custom_card_andyblac_room_use_label_icons            | `false`         | No          | This option lets you see an icon next to the text of the sensor_label information (🌡️ / 💧 / 🔆 ) |
 | ulm_custom_card_andyblac_room_use_small_label_font       | `false`         | No          | My card uses slightly larger fonts than the original card, to use use the orignal card font size set this to `true` |
 | ulm_custom_card_andyblac_room_use_small_room_icon        | `false`         | No          | This option lets you set the room icon slightly smaller, this can useful when using the climate button |
+| ulm_custom_card_andyblac_room_area_id                    |                 | No          | This option lets you set the room Name and Icon from the area itself, and support the use of the area picture |
+| ulm_custom_card_andyblac_room_use_area_picture           | `false`         | No          | This option lets you set the card background from the area picture         |
 | sensor_label_1                                           |                 | No          | The enitiy_id of a sensor you wish to display the state of                 |
 | sensor_label_2                                           |                 | No          | The enitiy_id of a sensor you wish to display the state of                 |
 | sensor_label_3                                           |                 | No          | The enitiy_id of a sensor you wish to display the state of                 |
@@ -119,7 +128,10 @@ add custom colour support to room entities OFF state</br>
 
 | Variable                                                 | Default         | Required    | Notes                                                                      |
 |----------------------------------------------------------|-----------------|-------------|----------------------------------------------------------------------------|
-| ulm_custom_card_andyblac_room_icon_color_on              |                 | No          | Allows you to change the color of the entity color if state is `on`        |
+| ulm_custom_card_andyblac_room_icon_color                 | `Room colour`   | No          | Allows you to change the color of the entity icon color if state is `off`  |
+| ulm_custom_card_andyblac_room_icon_color_on              | `Room colour`   | No          | Allows you to change the color of the entity icon color if state is `on`   |
+| ulm_custom_card_andyblac_room_icon_color_bg              | `Room colour`   | No          | Allows you to change the color of the entity circle background color if state is `off` |
+| ulm_custom_card_andyblac_room_icon_color_on_bg           | `Room colour`   | No          | Allows you to change the color of the entity circle background color if state is `on`  |
 | ulm_custom_card_andyblac_room_use_light_color            |                 | No          | This will set the colour of the icon to what colour the light is currently |
 
 ## Sensor object
