@@ -215,7 +215,10 @@ custom_card_andyblac_room:
       - grid-template-rows: "[[[ return !variables?.entity_1 ? '1fr 1fr 1fr' : '1fr 1fr 1fr 1fr'; ]]]"
       - justify-items: "center"
     card:
-      - background: "[[[ return variables.ulm_custom_card_andyblac_room_use_area_picture ? (variables.ulm_custom_card_andyblac_room_area_id ? 'url('+hass.areas[variables.ulm_custom_card_andyblac_room_area_id].picture+') center' : '' ) : ''; ]]]"
+      - background: >
+          [[[ 
+            return variables.ulm_custom_card_andyblac_room_use_area_picture ? (variables.ulm_custom_card_andyblac_room_area_id ? 'url('+hass.areas[variables.ulm_custom_card_andyblac_room_area_id].picture.replace("512x512","original")+') center' : '' ) : '';
+          ]]]
       - background-size: "[[[ return variables.ulm_custom_card_andyblac_room_use_area_picture ? 'cover' : ''; ]]]"
       - border-radius: "20px"
       - box-shadow: "var(--box-shadow)"
@@ -627,7 +630,7 @@ custom_card_andyblac_room:
 
 custom_card_andyblac_room_widget_icon:
   variables:
-    ulm_custom_card_andyblac_room_icon_color_on_bg: "[[[ return variables?.ulm_custom_card_andyblac_room_icon_color_on ? variables.ulm_custom_card_andyblac_room_icon_color_on : variables.ulm_custom_card_andyblac_room_color; ]]]"
+    ulm_custom_card_andyblac_room_icon_color_on_bg: "[[[ return variables?.ulm_custom_card_andyblac_room_icon_color_on ? variables.ulm_custom_card_andyblac_room_icon_color_on : ''; ]]]"
     tap_action:
       action: "toggle"
     hold_action:
