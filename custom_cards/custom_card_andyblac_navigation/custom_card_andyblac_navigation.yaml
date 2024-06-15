@@ -1,0 +1,137 @@
+---
+custom_card_andyblac_navigation:
+  # v1.0
+  template:
+    - "ulm_translation_engine"
+  variables:
+    ulm_custom_card_andyblac_navigate_path: false
+    ulm_custom_card_andyblac_navigation_color: "theme"
+    ulm_custom_card_andyblac_navigation_text_color: "theme"
+  tap_action:
+    action: "navigate"
+    navigation_path: "[[[ return variables.ulm_custom_card_andyblac_navigate_path; ]]]"
+  aspect_ratio: "1/0.35"
+  show_label: true
+  show_name: true
+  icon: "mdi:navigation"
+
+  styles:
+    icon:
+      - color: >
+          [[[
+            if (variables.ulm_custom_card_andyblac_navigation_color?.startsWith("rgb")) {
+              return variables.ulm_custom_card_andyblac_navigation_color;
+            } else if (variables.ulm_custom_card_andyblac_navigation_color == 'theme') {
+              return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_navigation_color+'),0.7)';
+            } else {
+              return 'rgb(var(--color-'+variables.ulm_custom_card_andyblac_navigation_color+'))';
+            }
+          ]]]
+      - width: "50%"
+      - place-self: "stretch:stretch"
+    name:
+      - color: >
+          [[[
+            if (variables.ulm_custom_card_andyblac_navigation_text_color?.startsWith("rgb")) {
+              return variables.ulm_custom_card_andyblac_navigation_text_color;
+            } else {
+              return 'rgb(var(--color-'+variables.ulm_custom_card_andyblac_navigation_text_color+'))';
+            }
+          ]]]
+      - justify-self: "start"
+      - align-self: "end"
+      - margin-top: "4%"
+      - margin-left: "33%"
+      - max-width: "65%"
+      - font-size: "16px"
+      - font-weight: "bold"
+      - text-overflow: "ellipsis"
+      - overflow: "hidden"
+    label:
+      - color: >
+          [[[
+            if (variables.ulm_custom_card_andyblac_navigation_text_color?.startsWith("rgb")) {
+              return variables.ulm_custom_card_andyblac_navigation_text_color;
+            } else {
+              return 'rgb(var(--color-'+variables.ulm_custom_card_andyblac_navigation_text_color+'))';
+            }
+          ]]]
+      - justify-self: "start"
+      - align-self: "end"
+      - margin-top: "0%"
+      - margin-left: "33%"
+      - max-width: "65%"
+      - font-size: "15px"
+      - font-weight: "bold"
+      - filter: "opacity(40%)"
+      - text-overflow: "ellipsis"
+      - overflow: "hidden"
+    img_cell:
+      - position: "absolute"
+      - left: "-6%"
+      - top: "18%"
+      - width: "35%"
+      - background-color: >
+          [[[
+            if (variables.ulm_custom_card_andyblac_navigation_color?.startsWith("rgb")) {
+              return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_navigation_color+' 20%)';
+            } else {
+              return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_navigation_color+'),0.2)';
+            }
+          ]]]
+      - border-radius: "50%"
+    grid:
+      - grid-template-areas: "'i n' 'i l'"
+      - grid-template-columns: "min-content auto"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "15px"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "5px"
+
+custom_card_andyblac_navigation_icon_only:
+  # 1.0
+  template:
+    - "ulm_translation_engine"
+  variables:
+    ulm_custom_card_andyblac_navigate_path: false
+    ulm_custom_card_andyblac_navigation_color: "theme"
+  tap_action:
+    action: "navigate"
+    navigation_path: "[[[ return variables.ulm_custom_card_andyblac_navigate_path; ]]]"
+
+  show_icon: true
+  show_name: false
+  show_label: false
+  show_state: false
+  aspect_ratio: "1/1"
+
+  styles:
+    icon:
+      - color: >
+          [[[
+            if (variables.ulm_custom_card_andyblac_navigation_color?.startsWith("rgb")) {
+              return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_navigation_color+' 90%)';
+            } else {
+              return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_navigation_color+'),0.9)';
+            }
+          ]]]
+      - width: "50%"
+      - place-self: "stretch:stretch"
+    img_cell:
+      - position: "centre"
+      - width: "90%"
+      - height: "90%"
+      - border-radius: "50%"
+      - background-color: >
+          [[[
+            if (variables.ulm_custom_card_andyblac_navigation_color?.startsWith("rgb")) {
+              return 'color-mix(in srgb, transparent, '+variables.ulm_custom_card_andyblac_navigation_color+' 20%)';
+            } else {
+              return 'rgba(var(--color-'+variables.ulm_custom_card_andyblac_navigation_color+'),0.2)';
+            }
+          ]]]
+    card:
+      - border-radius: "15px"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "5px"
