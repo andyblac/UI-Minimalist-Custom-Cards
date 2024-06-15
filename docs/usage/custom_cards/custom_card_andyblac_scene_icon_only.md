@@ -1,5 +1,5 @@
 ---
-title: Custom Card "Scene"
+title: Custom Card "Scene Icon Only"
 hide:
   - toc
 ---

@@ -7,7 +7,7 @@ hide:
 
 ## Description
 
-![example-image-light](../../assets/img/custom_card_andyblac_navigationcustom_card_andyblac_navigation_icon_only_light.png)
+![example-image-light](../../assets/img/custom_card_andyblac_navigation/custom_card_andyblac_navigation_icon_only_light.png)
 ![example-image-dark](../../assets/img/custom_card_andyblac_navigation/custom_card_andyblac_navigation_icon_only_dark.png)
 
 This card let you navigatw to a new dashboard by tapping on the icon.
