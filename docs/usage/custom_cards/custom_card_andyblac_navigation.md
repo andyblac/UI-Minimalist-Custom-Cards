@@ -10,7 +10,7 @@ hide:
 ![example-image-light](../../assets/img/custom_card_andyblac_navigation/custom_card_andyblac_navigation_light.png)
 ![example-image-dark](../../assets/img/custom_card_andyblac_navigation/custom_card_andyblac_navigation_dark.png)
 
-This card let you navigatw to a new dashboard by tapping on the icon.
+This card let you navigate to a new dashboard by tapping on the icon.
 
 ## Credits
 
