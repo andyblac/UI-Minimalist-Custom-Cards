@@ -6,7 +6,7 @@ custom_card_andyblac_room:
 
   variables:
     ulm_custom_card_andyblac_room_color: "theme"
-    ulm_custom_card_andyblac_room_color_on: "[[[ return variables?.ulm_custom_card_andyblac_room_color_on ? variables.ulm_custom_card_andyblac_room_color_on : variables.ulm_custom_card_andyblac_room_color; ]]]"
+    ulm_custom_card_andyblac_room_color_on: "[[[ return variables.ulm_custom_card_andyblac_room_color; ]]]"
     ulm_custom_card_andyblac_room_background_color_on: "[[[ return 'var(--google-grey-500)'; ]]]"
     ulm_custom_card_andyblac_room_use_label_icons: false
     ulm_custom_card_andyblac_room_use_small_label_font: false
@@ -823,8 +823,8 @@ custom_card_andyblac_room_widget_icon:
 
 custom_card_andyblac_room_sensor_icon:
   variables:
-    ulm_custom_card_andyblac_room_sensor_color: "[[[ return variables.ulm_custom_card_andyblac_room_sensor_color ? variables.ulm_custom_card_andyblac_room_sensor_color : variables.ulm_custom_card_andyblac_room_color; ]]]"
-    ulm_custom_card_andyblac_room_sensor_color_on: "[[[ return variables?.ulm_custom_card_andyblac_room_sensor_color_on ? variables.ulm_custom_card_andyblac_room_sensor_color_on : variables.ulm_custom_card_andyblac_room_sensor_color; ]]]"
+    ulm_custom_card_andyblac_room_sensor_color: "[[[ return variables.ulm_custom_card_andyblac_room_color; ]]]"
+    ulm_custom_card_andyblac_room_sensor_color_on: "[[[ return variables.ulm_custom_card_andyblac_room_sensor_color; ]]]"
     ulm_custom_card_andyblac_room_sensor_show_on_state_only: false
     tap_action:
       action: "more-info"
